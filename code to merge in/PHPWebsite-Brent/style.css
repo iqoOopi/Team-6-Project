@@ -1,0 +1,166 @@
+/*Body backgrounds*/
+body{
+    background-color: #E9967A;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+/*Header, Logo,Nav,Title Styling*/
+body header{
+    background-color: #b22222;
+    font-family: 'Staatliches', cursive;
+    height: 150px;
+}
+#logo{
+    padding: 15px;
+    position: relative;
+}
+#siteTitle{
+    font-family: 'Staatliches', cursive;
+    font-size: 300%;
+    position: absolute;
+    left: 150px;
+    top: -25px;
+}
+
+/*Creates an active responding sticky Navigation bar
+Guide found on www.w3schools.com*/
+.topNav{
+    background-color: #8B0000;
+    overflow: hidden;
+}
+.topNav a{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topNav a.active{
+    background-color: #b22222;
+    color: white;
+}
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+/* Floats the login button to the right of the nav bar */
+#login{
+    float: right;
+}
+#logout{
+    float: right;
+}
+
+
+/*Bottom Nav link Settings*/
+footer nav a{
+    padding: 5px;
+}
+a:link {color:black;}
+a:visited {color: black;}
+a:hover, a:focus {color: teal;}
+a:active {color: blue;}
+
+.greeting{
+    font-style: italic;
+    font-size: 20px;
+}
+/*Index Styling*/
+.album{
+    font-size: 15px;
+    float: right;
+    width: 50%;
+    margin-top: 2px;
+}
+#albumHeader{
+    font-size: 30px;
+}
+.indexMain{
+    margin-left: 2.5%;
+    float: left;
+    width: 46%;
+}
+.indexMain a{padding: 4px;}
+section img{
+    width: 50%;
+    height: 30%;
+    padding: 4px;
+    background-color: #b22222
+}
+footer {clear:both;}
+
+
+/*Register Styling*/
+.registerMain{
+    margin: 1.5%;
+    font-size: 18px;
+}
+#registerForm{
+    display:inline-block;
+    width:200px;
+    margin-right:30px;
+    text-align:right;
+}
+fieldset{
+    display: inline-block;
+    border:none;
+    width:700px;
+    margin:0px auto;
+}
+#registerForm fieldset p{
+    display: inline;
+    visibility: hidden;
+    font-size: 13px;
+}
+.genderFieldSet{
+    border:none;
+    width: 475px;
+    margin:0px auto;
+}
+#regHeader{
+    font-size: 24px;
+}
+#city{
+    width: 20%;
+}
+
+/*Contact Styling*/
+#contactForm{
+    display:inline-block;
+    width:300px;
+    margin-right:10px;
+    text-align:right;
+}
+#contactForm textarea{
+    width: 200px;
+    height: 180px;
+}
+
+/*Create Agent Form Styling*/
+.agentForm{
+    display:inline-block;
+    width:500px;
+    margin-right:30px;
+    text-align:right;
+    float: left;
+}
+ 
+    
+/*Login Styling*/
+.loginSection{
+    display:inline-block;
+    width:500px;
+    margin-right:30px;
+    text-align:center;
+    float: left;
+}
+#loginForm{
+    display:inline-block;
+    width:500px;
+    margin-right:30px;
+    text-align:right;
+    float: left;
+}
