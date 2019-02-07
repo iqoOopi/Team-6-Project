@@ -1,12 +1,14 @@
 <?php
-    session_start();
+    include_once('top.php');
 ?>
 <!DOCTYPE html>
 <html class="register-bg">
     <head>
         <title>Registration</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+        <?php
+            print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.css\">");
+        ?>
     </head>
 
     <body class="register">
@@ -129,7 +131,9 @@
 
             </form>
         </main>
-		
-        <script src="scripts/script.js"></script> 
+
+        <?php
+            print("<script src=\"$_root/scripts/script.js\"></script>");
+        ?>
     </body>
 </html>

@@ -1,7 +1,11 @@
+<?php
+    include_once ("top.php");
+?>
 <header class="site-header">
     <div class="wrapper">
-
-        <a href="index.php">Travel<span class="logo">Experts</span></a>
+        <?php
+            print("<a href=\"$_root/index.php\">Travel<span class=\"logo\">Experts</span></a>");
+        ?>
 
         <nav class="site-header-nav">
             <div class="drop-down-menu">
@@ -10,15 +14,19 @@
                     <?php 
                         if(isset($_SESSION["admin"]) && $_SESSION["admin"] === true) {
                             print("<li>");
-                            print("<a href='agent.php'>New Agent</a>");
+                            print("<a href=\"$_root/php/agent.php\">New Agent</a>");
                             print("</li>");
                         }
                     ?>
                     <li>
-                        <a href="register.php">Register</a>
+                        <?php
+                            print("<a href=\"$_root/php/register.php\">Register</a>");
+                        ?>
                     </li>
                     <li>
-                        <a href="table.php">Links table</a>
+                        <?php
+                            print("<a href=\"$_root/php/table.php\">Links table</a>");
+                        ?>
                     </li>
                 </ul>
             </div>
@@ -31,14 +39,14 @@
                                 print("<a href=\"#\">Admin Settings</a>");
                             print("</li>");		
                             print("<li>");
-                                print("<a href=\"logout.php\">Logout</a>");
+                                print("<a href=\"$_root/php/logout.php\">Logout</a>");
                             print("</li>");
                         print("</ul>");
                     } else {
                         print("<button class=\"menu-btn\">Login</button>"); 
                         print("<ul>");
                             print("<li>");
-                                print("<a href=\"login.php\">Admin Login</a>");
+                                print("<a href=\"$_root/php/login.php\">Admin Login</a>");
                             print("</li>");		
                             print("<li>");
                                 print("<a href=\"#\">Customer Login</a>");
@@ -50,7 +58,9 @@
         </nav>
 
         <div class="contact">
-            <button><a href="contact.php">Contact Us</a></button>
+            <?php
+                print("<button><a href=\"$_root/php/contact.php\">Contact Us</a></button>");
+            ?>
         </div>
     </div>
 </header>

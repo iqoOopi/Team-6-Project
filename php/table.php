@@ -1,12 +1,14 @@
 <?php
-    session_start();
+    include_once ('top.php');
 ?>
 
 <!DOCTYPE html>
 <html class="table-bg">
     <head>
         <title>Table</title>
-        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+        <?php 
+            print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.css\">");
+        ?>
         <meta charset="utf-8">
     </head>
 
@@ -34,7 +36,9 @@
             include_once("footer.php");    
         ?>
         
-        <script src="scripts/script.js"></script>
+        <?php
+           print("<script src=\"$_root/scripts/script.js\"></script>");
+        ?>
     </body>
 
 </html>

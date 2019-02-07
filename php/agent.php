@@ -1,8 +1,7 @@
 <?php
-    session_start();
-
+    include_once ('top.php');
     if(!isset($_SESSION["admin"]) || $_SESSION["admin"] === false) {
-        header("Location: login.php"); 
+        header("Location: $_root/php/login.php"); 
     }
 
     include_once ("functions.php");
@@ -42,7 +41,9 @@
     <head>
         <title>New Agent</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+        <?php
+            print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.css\">");
+        ?>
     </head>
 
     <body class="agent">
@@ -120,7 +121,10 @@
 
             <div class="notification"></div>
         </main>
+
+        <?php
+            print("<script src=\"$_root/scripts/script.js\"></script>");
+        ?>
 		
-        <script src="scripts/script.js"></script> 
     </body>
 </html>

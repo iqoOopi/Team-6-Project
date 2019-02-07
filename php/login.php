@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include_once ('top.php');
     include_once ("functions.php");
     // Get user file as associative array
     // Get username and password from $_POST 
@@ -16,7 +16,7 @@
         if ($validated) {
             $_SESSION["admin"] = $validated;
             $_SESSION["username"] = $usr_array["username"];
-            header("Location: index.php");
+            header("Location: $_root/index.php");
         } else {
             print("<div class=\"login-error\">Invalid username and/or password</div>");
         } 
@@ -28,8 +28,10 @@
 	<head>
 		<title>Login</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="styles/styles.css">
-	<head>
+                <?php
+                    print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.css\">");
+                ?>
+	</head>
 
 	<body class="login">
 		<?php
@@ -45,6 +47,8 @@
                     </div>
 		</form>
 
-            <script src="scripts/script.js"></script>
+            <?php
+                print("<script src=\"$_root/scripts/script.js\"></script>");
+            ?>
 	</body>
 </html>

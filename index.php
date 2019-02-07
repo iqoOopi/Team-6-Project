@@ -13,7 +13,7 @@
     <body class="index">
         <div class="HeroImg">
             <?php 
-                    include_once("header.php"); 
+                    include_once("php/header.php"); 
             ?>
 
             <form action="" method="POST" class="travelForm">
@@ -158,7 +158,8 @@
             </div>
 
         </main>
-		<?php include_once("footer.php"); ?>	
-		<script src="scripts/script.js"></script>
+        <?php
+            print("<script src=\"$_root/scripts/script.js\"></script>");
+        ?>
     </body>
 </html>
