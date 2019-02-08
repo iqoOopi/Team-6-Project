@@ -183,7 +183,7 @@ include_once "..\header.php";
         </form>
     </main>
     <?php
-    echo "<script src='$_root/php/orderPage/orderPageController.js'></script>"
+    echo "<script src='$_root/scripts/checkFormInputEmpty.js'></script>"
     ?>
 </body>
 
