@@ -8,6 +8,12 @@ Entry 1: Hello guys, I modified Henry's generic insert function to work with pre
     - updated agent insert to generic insert as discussed with Henry
     - incorporated prepare statements
 
+## `checkFormInputEmpty.js`
+- Original form validate function has been deprecated, please use the the new generic from `checkFormInputEmpty.js`, add the following to the bottom of your `<body>`
+
+            print("<script src=\"$_root/scripts/checkFormInputEmpty.js\"></script>");
+        
+
 ## Insert Function
 
 - To call the function

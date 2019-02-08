@@ -134,8 +134,6 @@ if (regBody) {
 
     // Apply focus and blur events to field descriptions
 
-// could use one function
-
     addrField.addEventListener('focus', displayMsg);
     addrField.addEventListener('blur', blurMsg); 
 
@@ -148,35 +146,6 @@ if (regBody) {
     emailField.addEventListener('focus', displayMsg);
     emailField.addEventListener('blur', blurMsg); 
 
-    // field validation
-    var button = document.getElementById("btn");
-    button.addEventListener ('click', validate); 
-
-    function validate(e) {
-        var proceed = confirm("Are you sure?");
-
-        if (!proceed) {
-	    console.log("User cancelled");	
-        } else {
-			// Get all error messages
-			for (var i = 0; i < 8; i++) {
-				var parNode = fieldArray[i].parentNode;
-
-				// Reset error messages
-				var errorMsg = parNode.getElementsByClassName('errorMsgs')[0];
-				errorMsg.style.display = 'none';
-
-				// Check if input is empty, if empty, display error msgs
-				if (!fieldArray[i].value) {
-					e.preventDefault();
-					fieldArray[i].focus();
-					errorMsg.style.display = 'block';
-					break;
-				}
-
-			}
-        }   
-    }
 }
 /****************************** Agent.html ********************************/
 
@@ -200,44 +169,13 @@ if (agtBody) {
 
     emailField.addEventListener('focus', displayMsg);
     emailField.addEventListener('blur', blurMsg); 
-
-    // field validation
-    var button = document.getElementById("btn");
-    button.addEventListener ('click', validate); 
-
-    function validate(e) {
-        var proceed = confirm("Are you sure?");
-
-        if (!proceed) {
-	    console.log("User cancelled");	
-        } else {
-			// Get all error messages
-			for (var i = 0; i < 6; i++) {
-				var parNode = fieldArray[i].parentNode;
-
-				// Reset error messages
-				var errorMsg = parNode.getElementsByClassName('errorMsgs')[0];
-				errorMsg.style.display = 'none';
-
-				// Check if input is empty, if empty, display error msgs
-				if (!fieldArray[i].value) {
-					e.preventDefault();
-					fieldArray[i].focus();
-					errorMsg.style.display = 'block';
-					break;
-				}
-
-			}
-        }   
-    }
-        
      
-	var notification = document.getElementsByClassName('insert_notification')[0];
-	var notification_div = document.getElementsByClassName('notification')[0];
+    var notification = document.getElementsByClassName('insert_notification')[0];
+    var notification_div = document.getElementsByClassName('notification')[0];
         
-        if (notification) {
-            notification_div.appendChild(notification);
-        }
+    if (notification) {
+        notification_div.appendChild(notification);
+    }
 }
 
 /******************** login.php *************************/
