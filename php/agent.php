@@ -17,6 +17,9 @@
             $agent_array[$key] = clean_input($value);
         }
 
+        $dbTable = $agent_array['tbName'];
+        unset($agent_array['tbName']);
+
         if(empty($agent_array["AgtMiddleInitial"])) {
             $agt = new Agent($agent_array["AgtFirstName"],$agent_array["AgtLastName"],$agent_array["AgtBusPhone"],$agent_array["AgtEmail"], $agent_array["AgtPosition"],$agent_array["AgencyId"]);
         } else {
@@ -24,7 +27,7 @@
         }
         
         $my_pdo = connect_db();
-        $success = insert_agent($my_pdo, $agt);
+        $success = insertIntoDB($my_pdo, $agt, $dbTable);
         close_connection($my_pdo);
 
         if ($success) {
@@ -53,6 +56,7 @@
 
         <main>
             <form action="" method="POST" name="agentForm">
+                
 
                     <p class="label-head">Please enter new agent information</p>
 
@@ -113,6 +117,8 @@
                                     <option value="2">2 - 110 Main Street, Okotoks</option>
                             </select>
                     </div>
+    
+                    <input type="hidden" name="tbName" value="agents">
 
                     <input id="btn" type="submit" name="submit" value="submit" >
                     <input type="reset">

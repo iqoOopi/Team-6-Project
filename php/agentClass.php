@@ -19,7 +19,40 @@
         } 
 
         public function __toString() {
-            return $this->AgtFirstName . "," . $this->AgtMiddleInitial . "," . $this->AgtLastName . "," . $this->AgtBusPhone . "," . $this->AgtEmail . "," . $this->AgtPosition . "," . $this->AgencyId;
+            foreach ($this as $key => $value) {
+                $tempArray[] = $value;
+            }
+
+            $valueString = implode("," , $tempArray);
+            return $valueString;
+            
+        }
+
+        public function fieldString() {
+            foreach ($this as $key => $value) {
+                $tempArray[] = $key;
+            } 
+
+            $fieldString = implode("," , $tempArray);
+            return $fieldString;
+        }
+
+        public function prepString() {
+            foreach ($this as $key => $value) {
+                $tempArray[] = $key;
+            }
+
+            $prepString = implode(",:" , $tempArray);
+            $prepString = ":" . $prepString;
+            return $prepString;
+        }
+
+        public function objToArray() {
+            $array = [];
+            foreach ($this as $key => $value) {
+                $array[$key] = $value;
+            }
+            return $array;
         }
 
         public function getId() {

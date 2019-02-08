@@ -10,6 +10,7 @@
 
         $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
+        // Create new PHP data object(PDO)
         $pdo = new PDO($dsn,$user,$pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -22,62 +23,16 @@
         $pdo_obj = NULL;
     }
 
-    function insertIntoDB($pdo_obj, $tblName) {
-    
-        // $TableColoumnName  = "";
-        // $TableColoumnValue = "";
-        $link = connectDB();
-        $result;
+    // Insert function
+    function insertIntoDB($pdo_obj, &$db_obj, $dbTable) {
 
-        //generic insert replaced by final day exerice that required use  class
-        // Nested foreach to dynamic determin the amount of key=>value pair of the data.
-        //1st foreach get the new row of data
-            // foreach ($tempArray as $i => $data) {
-            //     //2nd foreach get the key=>value pair out of the row data.
-            //     foreach ($data as $key => $value) {
-            //         //format to SQL syntax with extra "," in the end.
-            //         $TableColoumnName .= ($key . ",");
-            //         $TableColoumnValue .= ("'" . $value . "',");
+        $dbField = $db_obj->fieldString();
+        $dbPrep = $db_obj->prepString();
 
-            //         //code to test before touch the real database
-            //         // echo ("key:" . $key . "<br>");
-            //         // echo ("coloumn:" . $TableColoumnName);
-            //         // echo ("<br>");
-            //         // echo ("value:" . $TableColoumnValue);
-            //         // echo ("<br>");
-            //     }
-            //     //get rid of extra ","
-            //     $TableColoumnName  = substr($TableColoumnName, 0, -1);
-            //     $TableColoumnValue = substr($TableColoumnValue, 0, -1);
+        $dbArray = $db_obj->objToArray();
 
-        $sqlName = $agent->nameToString();
-        $sqlValue = $agent;
-       
-            $sql = "INSERT INTO $tblName ($sqlName) VALUES($sqlValue)";
-
-             //generic insert continue Reset string holder for next data row
-                // $TableColoumnName  = "";
-                // $TableColoumnValue = "";
-            $result = $link->query($sql);
-        //generic insert continue  
-            // }
-        closeDB($link);
-        return $result;
-    }
-
-    // Insert agent
-    function insert_agent($pdo_obj, &$agent_obj) {
-
-        $stmt = $pdo_obj->prepare("INSERT INTO agents (AgtFirstName, AgtMiddleInitial, AgtLastName, AgtBusPhone, AgtEmail, AgtPosition, AgencyId) VALUES (:AgtFirstName, :AgtMiddleInitial, :AgtLastName, :AgtBusPhone, :AgtEmail, :AgtPosition, :AgencyId)");
-        $insert_success = $stmt->execute([
-                     'AgtFirstName' => $agent_obj->getFirstName(),
-                     'AgtMiddleInitial' => $agent_obj->getMiddleInitial(),
-                     'AgtLastName' => $agent_obj->getLastName(),
-                     'AgtBusPhone' => $agent_obj->getPhone(),
-                     'AgtEmail' => $agent_obj->getEmail(),
-                     'AgtPosition' => $agent_obj->getPosition(),
-                     'AgencyId' => $agent_obj->getAgency(),
-        ]);
+        $stmt = $pdo_obj->prepare("INSERT INTO $dbTable ($dbField) VALUES ($dbPrep)");
+        $insert_success = $stmt->execute($dbArray);
 
         if ($insert_success) {
             return true;
