@@ -1,89 +1,100 @@
 <?php
 
-    // Create a database connection
-    function connect_db() {
-        $host = '127.0.0.1';
-        $db = 'travelexperts';
-        $user = 'admin';
-        $pass = 'P@ssw0rd';
-        $charset = 'utf8mb4';
+// Create a database connection
+function connectDb()
+{
+    $host    = '127.0.0.1';
+    $db      = 'travelexperts';
+    $user    = 'admin';
+    $pass    = 'P@ssw0rd';
+    $charset = 'utf8mb4';
 
-        $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
-        // Create new PHP data object(PDO)
-        $pdo = new PDO($dsn,$user,$pass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Create new PHP data object(PDO)
+    $pdo = new PDO($dsn, $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // returns the connected PDO instance in $pdo variable
-        return $pdo;
+    // returns the connected PDO instance in $pdo variable
+    return $pdo;
+}
+
+// Close database connection
+function closeConnection($pdo_obj)
+{
+    $pdo_obj = null;
+}
+
+// Insert function, & is necessary for php version <5, 
+function insertIntoDB($pdo_obj, &$db_obj, $dbTable)
+{
+
+    $dbField = $db_obj->fieldString();
+    $dbValue = $db_obj;
+
+    $dbSql = "INSERT INTO $dbTable ($dbField) VALUES ($dbValue)";
+    $insert_success=$pdo_obj->query($dbSql);
+
+    // $dbPrep = $db_obj->prepString();
+
+    // $dbArray = $db_obj->objToArray();
+
+    // $stmt = $pdo_obj->prepare("INSERT INTO $dbTable ($dbField) VALUES ($dbPrep)");
+    // $insert_success = $stmt->execute($dbArray);
+
+    if ($insert_success) {
+        return true;
+    } else {
+        return false;
     }
-    
-    // Close database connection
-    function close_connection($pdo_obj) {
-        $pdo_obj = NULL;
-    }
+}
 
-    // Insert function
-    function insertIntoDB($pdo_obj, &$db_obj, $dbTable) {
+// Clean user input
+function cleanInput($var)
+{
+    $data = trim($var);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
-        $dbField = $db_obj->fieldString();
-        $dbPrep = $db_obj->prepString();
+// Open and read userinfo file
+function readAuthorizedUsers()
+{
+    $filename         = "userinfo.txt";
+    $fh               = file($filename);
+    $authorized_users = [];
 
-        $dbArray = $db_obj->objToArray();
+    if ($fh) {
+        foreach ($fh as $row) {
+            $buffer = explode(",", $row);
 
-        $stmt = $pdo_obj->prepare("INSERT INTO $dbTable ($dbField) VALUES ($dbPrep)");
-        $insert_success = $stmt->execute($dbArray);
+            $username = cleanInput($buffer[0]);
+            $password = cleanInput($buffer[1]);
 
-        if ($insert_success) {
-            return true;
-        } else {
-            return false;
+            $authorized_users[] = array("username" => $username, "password" => $password);
         }
+    } else {
+        echo "Error: unable to open file: " . $filename . "for read";
     }
 
-    // Clean user input
-    function clean_input($var) {
-        $data = trim($var);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+    return $authorized_users;
+}
 
-    // Open and read userinfo file
-    function read_authorized_users() {
-        $filename = "userinfo.txt";
-        $fh = file($filename);
-        $authorized_users = [];
+function validateUser($user_input)
+{
+    // get authorized users from file
+    $user_validated   = false;
+    $authorized_users = readAuthorizedUsers();
 
-        if ($fh) {
-            foreach ($fh as $row) {
-                $buffer = explode(",", $row);
-
-                $username = clean_input($buffer[0]);
-                $password = clean_input($buffer[1]);
-                
-                $authorized_users[] = array("username" => $username, "password" => $password);
+    foreach ($authorized_users as $user_infile) {
+        if ($user_input['username'] === $user_infile['username']) {
+            if ($user_input['password'] === $user_infile['password']) {
+                $user_validated = true;
+                return $user_validated;
             }
-        } else {
-            echo "Error: unable to open file: " . $filename . "for read";
         }
-
-        return $authorized_users;
     }
+    return $user_validated;
+}
 
-    function validate_user($user_input) {
-        // get authorized users from file
-        $user_validated = false;
-        $authorized_users = read_authorized_users();
-
-        foreach ($authorized_users as $user_infile) {
-            if ($user_input['username'] === $user_infile['username']) {
-                if ($user_input['password'] === $user_infile['password']) {
-                    $user_validated = true;
-                    return $user_validated;
-                }
-            }
-        }
-        return $user_validated;
-    }
-  
 ?>

@@ -128,55 +128,6 @@ include_once "..\header.php";
                 <input id="orderFormTotalPrice" type="text" value="demo data" disabled>
             </div>
 
-
-            <!-- <div class="form-box">
-                <label for="addr">Address</label>
-                <input id="addr" type="text" name="address" placeholder="Address" required>
-                <div class="text-box">
-                    <p id="addressDescription" style="display:none;">E.g. Suite 1221, 123 Street</p>
-                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your address</p>
-                </div>
-            </div>
-
-            <div class="form-box">
-                <label for="city">City</label>
-                <input id="city" type="text" name="city" placeholder="City" required>
-                <div class="text-box">
-                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your city</p>
-                </div>
-            </div>
-
-
-
-            <div class="form-box">
-                <label for="postal">Postal Code</label>
-                <input id="postal" type="text" name="post" placeholder="A1A 1A1"
-                    pattern="^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$" maxlength="7" required
-                    title="Please enter your Postal Code">
-                <div class="text-box">
-                    <p id="postalDescription" style="display:none;">E.g. T2M 0L4</p>
-                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your postal code</p>
-                </div>
-            </div>
-
-            <div class="form-box">
-                <label for="phone">Phone Number</label>
-                <input id="phone" type="tel" name="tel_num" placeholder="Phone Number" required>
-                <div class="text-box">
-                    <p id="phoneDescription" style="display:none;">E.g. (403) 284-7248</p>
-                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your phone number</p>
-                </div>
-            </div>
-
-            <div class="form-box">
-                <label for="e_mail">Email</label>
-                <input id="e_mail" type="email" name="email_info" placeholder="Email" required>
-                <div class="text-box">
-                    <p id="emailDescription" style="display:none;">E.g. firstname.lastname@sait.ca</p>
-                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your email</p>
-                </div>
-            </div> -->
-
             <input id="btn" type="submit">
             <input type="reset">
 
