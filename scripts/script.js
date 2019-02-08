@@ -133,6 +133,9 @@ if (regBody) {
     var fieldArray = [fNameField, lNameField, bdayField, addrField, cityField, postalField, telField, emailField];
 
     // Apply focus and blur events to field descriptions
+
+// could use one function
+
     addrField.addEventListener('focus', displayMsg);
     addrField.addEventListener('blur', blurMsg); 
 
@@ -191,6 +194,7 @@ if (agtBody) {
     var fieldArray = [fNameField, lNameField, posField, telField, emailField];
 
     // Apply focus and blur events to field descriptions
+    //could use one function
     telField.addEventListener('focus', displayMsg);
     telField.addEventListener('blur', blurMsg); 
 
