@@ -77,7 +77,7 @@
 //            $agencies[] = $agency;
 //        } // end of While
         
-        Close_connection($dbh);
+        close_connection($dbh);
         return $agencies; // this is an array of customer objects
 
     }
