@@ -15,7 +15,7 @@ body {
 }
 
 /******************** Setting Background ********************/
-.register-bg {
+.register-bg, .contact-bg {
     background: url("../imgs/register-bg.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
