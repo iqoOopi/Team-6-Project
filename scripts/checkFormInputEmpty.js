@@ -3,7 +3,7 @@
 // *
 // *Author:Haotian Zhang
 // *Date: Feb 08 2019
-// *Purpose: the view of order form
+// *Purpose: generic function to check the inputs of one form. Show errorMsg is no input.
 // *
 // *************************************************
 
@@ -13,7 +13,6 @@ button.addEventListener('click', validate);
 
 function validate(e) {
     var proceed = confirm("Are you sure?");
-
     if (!proceed) {
         console.log("User cancelled");
     } else {

@@ -1,17 +1,16 @@
 <?php
-    include_once ('top.php');
-    if(!isset($_SESSION["admin"]) || $_SESSION["admin"] === false) {
-        header("Location: $_root/php/login.php"); 
+    include_once 'top.php';
+    if (!isset($_SESSION["admin"]) || $_SESSION["admin"] === false) {
+        header("Location: $_root/php/login.php");
     }
 
-    include_once ("functions.php");
-    include_once ("agentClass.php");
+    include_once "functions.php";
+    include_once "agentClass.php";
 
     // check if it's the first time the form is being submitted
     if (isset($_POST['submit'])) {
 
         unset($_POST['submit']);
-
 
         foreach ($_POST as $key => $value) {
             $agent_array[$key] = clean_input($value);
@@ -20,13 +19,9 @@
         $dbTable = $agent_array['tbName'];
         unset($agent_array['tbName']);
 
-        if(empty($agent_array["AgtMiddleInitial"])) {
-            $agt = new Agent($agent_array["AgtFirstName"],$agent_array["AgtLastName"],$agent_array["AgtBusPhone"],$agent_array["AgtEmail"], $agent_array["AgtPosition"],$agent_array["AgencyId"]);
-        } else {
-            $agt = new Agent($agent_array["AgtFirstName"],$agent_array["AgtLastName"],$agent_array["AgtBusPhone"],$agent_array["AgtEmail"], $agent_array["AgtPosition"],$agent_array["AgencyId"], $agent_array["AgtMiddleInitial"]);
-        }
-        
-        $my_pdo = connect_db();
+        $agt = new Agent($agent_array["AgtFirstName"], $agent_array["AgtLastName"], $agent_array["AgtBusPhone"], $agent_array["AgtEmail"], $agent_array["AgtPosition"], $agent_array["AgencyId"], empty($agent_array["AgtMiddleInitial"]) ? null : $agent_array["AgtMiddleInitial"]);
+
+        $my_pdo  = connect_db();
         $success = insertIntoDB($my_pdo, $agt, $dbTable);
         close_connection($my_pdo);
 
@@ -35,7 +30,7 @@
         } else {
             echo "<p class=\"insert_notification\" style=\"color:red;font-size:1.2rem\">insert failed</p>";
         }
-        
+
     }
 ?>
 
@@ -51,12 +46,12 @@
 
     <body class="agent">
         <?php
-                include_once("header.php");
+            include_once "header.php";
         ?>
 
         <main>
             <form action="" method="POST" name="agentForm">
-                
+
 
                     <p class="label-head">Please enter new agent information</p>
 
@@ -66,7 +61,7 @@
                             <div class="text-box">
                                     <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter agent first name</p>
                             </div>
-                    </div> 
+                    </div>
 
                     <div class="form-box">
                             <label for="l_name">Agent Last Name</label>
@@ -75,7 +70,7 @@
                                     <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter agent last name</p>
                             </div>
                     </div>
-                    
+
                     <div class="form-box">
                             <label for="m_name">Agent Middle Initial</label>
                             <input id="m_name" type="text" name="AgtMiddleInitial" placeholder="Middle Initial" maxlength="2" >
@@ -117,12 +112,12 @@
                                     <option value="2">2 - 110 Main Street, Okotoks</option>
                             </select>
                     </div>
-    
+
                     <input type="hidden" name="tbName" value="agents">
 
                     <input id="btn" type="submit" name="submit" value="submit" >
                     <input type="reset">
-                    
+
             </form>
 
             <div class="notification"></div>
@@ -131,6 +126,6 @@
         <?php
             print("<script src=\"$_root/scripts/script.js\"></script>");
         ?>
-		
+
     </body>
 </html>
