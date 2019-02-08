@@ -1,3 +1,12 @@
+<!-- 
+    *************************************************
+    *
+    *Author:Haotian Zhang
+    *Date: Feb 08 2019
+    *Purpose: the view of order form
+    *
+    *************************************************
+ -->
 <?php
 include_once '..\top.php';
 ?>
@@ -21,7 +30,7 @@ include_once "..\header.php";
         <!-- Booking Date will be added in controller,
                  Package Id will be received from order button in list page.
             -->
-        <form action="" method="POST" name="orderForm">
+        <form action="" method="POST" name="orderForm" id="orderForm"> 
 
             <p class="label-head">Order Information</p>
 
@@ -173,10 +182,9 @@ include_once "..\header.php";
 
         </form>
     </main>
-
     <?php
-print("<script src=\"$_root/scripts/script.js\"></script>");
-?>
+    echo "<script src='$_root/php/orderPage/orderPageController.js'></script>"
+    ?>
 </body>
 
 </html>
