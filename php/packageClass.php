@@ -11,12 +11,14 @@
         public function __construct($assoc_array) {
             foreach($assoc_array as $key => $value) {
                 $this->$key = $value;
+               
             }
         }
 
         public function __toString() {
             foreach ($this as $key => $value) {
                 $tempArray[] = $value;
+                // print "$key => $value<br>";
             }
 
             $valueString = implode("," , $tempArray);

@@ -11,6 +11,7 @@
 include_once '..\top.php';
 include_once '..\functions.php';
 include_once '..\customerClass.php';
+include_once '..\packageClass.php';
 ?>
 <!DOCTYPE html>
 <html class="register-bg">
@@ -32,7 +33,11 @@ include_once "..\header.php";
     <?php
 
 $customers=getInstants('customers','customer');
-echo ("$customers[0]");
+echo ("<br>$customers[1]<br>next record");
+
+
+$packages=getInstants('packages','package');
+echo ("<br>$packages[1]<br>next record");
 
 ?>
       

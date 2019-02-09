@@ -22,8 +22,10 @@ class customer {
 
 
         public function __toString() {
+            // $tempArray=[]; why not needed?
             foreach ($this as $key => $value) {
                 $tempArray[] = $value;
+                // print "$key => $value<br>";
             }
 
             $valueString = implode("," , $tempArray);
@@ -94,39 +96,5 @@ class customer {
         public function setCustProv($x) {
             $this->CustProv = $x;
         }
-
-
-
-
-
-        // private $CustPostal;
-        // private $CustCountry;
-        // private $CustHomePhone;
-        // private $CustBusPhone;
-        // private $CustEmail;
-        // private $AgentId;
-        // public function getEmail() {
-        //     return $this->AgtEmail;
-        // }
-
-        // public function setEmail($email) {
-        //     $this->AgtEmail = $email;
-        // }
-
-        // public function getPosition() {
-        //     return $this->AgtPosition;
-        // }
-
-        // public function setPosition($pos) {
-        //     $this->AgtPosition = $pos;
-        // }
-
-        // public function getAgency() {
-        //     return $this->AgencyId;
-        // }
-
-        // public function setAgency($agency) {
-        //     $this->AgencyId = $agency;
-        // }
     }
 ?>

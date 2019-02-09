@@ -74,16 +74,16 @@
 
     }
     
-        // generic create instants of Classes from DB.  For example, creating customer class instants 
-        // from "customers" table in DB by call $customers=getInstants('customers','customer');
+        // generic create instants of Classes from DB.  
+        //For example, creating customer class instants from "customers" table in DB by call $customers=getInstants('customers','customer');
         function getInstants($dbTableName,$className) {
 
-            $link = connect_db();
+            //use mysqli connect style instead of PDO
+            $link = new mysqli("127.0.0.1", "admin", "P@ssw0rd", "travelexperts");
     
             $sql = "SELECT * FROM $dbTableName";
             // False is returned on failed fetch
             $result = $link->query($sql);
-    
             if (!$result) {
                 echo "ERROR: the sql failed to execute. <br>";
                 echo "SQL: $sql <br>";
@@ -101,7 +101,7 @@
                 return $instants;
             }
     
-            close_connection($link);
+            $link->Close();
     
         }
 
