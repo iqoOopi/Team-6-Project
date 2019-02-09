@@ -25,12 +25,19 @@ print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.cs
     <?php
 include_once "..\header.php";
 ?>
-
     <main>
+    <?php
+    $pkgId=$_POST['pkgId'];
+    
+    
+    ?>
+
+
+
         <!-- Booking Date will be added in controller,
                  Package Id will be received from order button in list page.
             -->
-        <form action="" method="POST" name="orderForm" id="orderForm">
+        <form action="orderModel.php" method="POST" name="orderForm" id="orderForm">
 
             <p class="label-head">Order Information</p>
 

@@ -23,7 +23,8 @@
                             <p class=\"pkg-end\">" . $pkg->getEndDate() . "</p>
                             <p class=\"pkg-price\">" . $pkg->getPrice(). "</p>
                             <form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">
-                                <input type=\"hidden\" name=\"pkgName\" value=\"" .$pkg->getPkgName() . "\">
+                                <input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">
+                                <input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getPkgName() . "\">
                                 <input type=\"hidden\" name=\"pkgPrice\" value=\"" .$pkg->getPrice() . "\">
                                 <input type=\"submit\" name=\"submit\" value=\"order\">
                             </form>");
@@ -37,7 +38,8 @@
                             <p class=\"pkg-end\">" . $pkg->getEndDate() . "</p>
                             <p class=\"pkg-price\">" . $pkg->getPrice(). "</p>
                             <form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">
-                                <input type=\"hidden\" name=\"pkgName\" value=\"" .$pkg->getPkgName() . "\">
+                                <input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">
+                                <input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getPkgName() . "\">
                                 <input type=\"hidden\" name=\"pkgPrice\" value=\"" .$pkg->getPrice() . "\">
                                 <input type=\"submit\" name=\"submit\" value=\"order\">
                             </form>");

@@ -103,16 +103,16 @@ function getInstants($dbTableName, $className, $key = null)
             return false;
         }
 
-        //if inputted $key 
+        //if inputted $key
     } else {
         //get the primary key column name
         $sql  = "SHOW KEYS FROM $dbTableName WHERE Key_name = 'PRIMARY'";
         $stmt = $link->prepare($sql);
         $stmt->execute();
-        $result               = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-          //error handling
-          if (!$result) {
+        //error handling
+        if (!$result) {
             echo "ERROR: the sql failed to execute. <br>";
             echo "SQL: $sql <br>";
             echo "Error code: " . $stmt->errorCode() . "<br>";
@@ -125,7 +125,7 @@ function getInstants($dbTableName, $className, $key = null)
     $stmt = $link->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+
     if (!$result) {
         echo "ERROR: the sql failed to execute. <br>";
         echo "SQL: $sql <br>";
@@ -134,17 +134,17 @@ function getInstants($dbTableName, $className, $key = null)
         return false;
     }
 
-        $instants = [];
-        foreach ($result as $instant) {
-            $instant    = new $className($instant);
-            $instants[] = $instant;
-        }
-        //change return depends on $key
-        if (!$key) {
-            return $instants;
-        } else {
-            return $instants[0];
-        }
+    $instants = [];
+    foreach ($result as $instant) {
+        $instant    = new $className($instant);
+        $instants[] = $instant;
+    }
+    //change return depends on $key
+    if (!$key) {
+        return $instants;
+    } else {
+        return $instants[0];
+    }
     $link->Close();
 
 }
