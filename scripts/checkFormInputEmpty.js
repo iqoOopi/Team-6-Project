@@ -4,6 +4,8 @@
 // *Author:Haotian Zhang
 // *Date: Feb 08 2019
 // *Purpose: generic function to check the inputs of one form. Show errorMsg is no input.
+// *How to use: inside the form, there should be a div named "form-box" wrap each input and its "errorMsgs" inside it. 
+// *            the name of the form submit btn should be "btn"
 // *
 // *************************************************
 

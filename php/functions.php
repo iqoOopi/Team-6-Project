@@ -74,6 +74,35 @@
 
     }
     
+        // generic create instants of Classes from DB
+        function getInstants($dbTableName,$className) {
+
+            $link = connect_db();
+    
+            $sql = "SELECT * FROM $dbTableName";
+            // False is returned on failed fetch
+            $result = $link->query($sql);
+    
+            if (!$result) {
+                echo "ERROR: the sql failed to execute. <br>";
+                echo "SQL: $sql <br>";
+                echo "Error code: ". $stmt->errorCode() . "<br>";
+                echo "Error msg: ". $stmt->errorInfo() . "<br>";
+                return false;
+            } else {
+    
+                $instants = [];
+                foreach ($result as $instant) {
+                    $instant = new $className($instant);
+                    $instants[] = $instant;
+                }
+    
+                return $instants;
+            }
+    
+            close_connection($link);
+    
+        }
 
     // Clean user input
     function clean_input($var) {
