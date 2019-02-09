@@ -1,3 +1,12 @@
+<!--
+    *************************************************
+    *
+    *Author:Brent Ward
+    *Date: Feb 08 2019
+    *Purpose: Class for the Agency Table
+    *
+    *************************************************
+ -->
 <?php
     class Agency{
         public $AgencyId;
@@ -18,6 +27,32 @@
             $this->AgencyCountry = $country;
             $this->AgencyPhone = $phone;
             $this->AgencyFax = $fax;
+        }
+
+        //Allows Values to be grabbed for use on Contact page
+        public function getAgencyId() {
+            return $this->AgencyId;
+        }
+        public function getAgencyAddress() {
+            return $this->AgencyAddress;
+        }
+        public function getAgencyCity() {
+            return $this->AgencyCity;
+        }
+        public function getAgencyProv() {
+            return $this->AgencyProv;
+        }
+        public function getAgencyPostal() {
+            return $this->AgencyPostal;
+        }
+        public function getAgencyCountry() {
+            return $this->AgencyCountry;
+        }
+        public function getAgencyPhone() {
+            return $this->AgencyPhone;
+        }
+        public function getAgencyFax() {
+            return $this->AgencyFax;
         }
     }
 ?>

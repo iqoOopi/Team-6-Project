@@ -1,10 +1,19 @@
+<!--
+    *************************************************
+    *
+    *Author:Brent Ward
+    *Date: Feb 08 2019
+    *Purpose: To grab data from the Agency table
+    *
+    *************************************************
+ -->
 <?php
     include_once("functions.php");
     include_once("agencyClass.php");
 
     function GetAgency() {
 
-        $dbh = connect_db();
+        $dbh = connectDb();
 
         $sql = "SELECT * FROM agencies";
 
@@ -77,7 +86,7 @@
 //            $agencies[] = $agency;
 //        } // end of While
         
-        close_connection($dbh);
+        closeConnection($dbh);
         return $agencies; // this is an array of customer objects
 
     }
