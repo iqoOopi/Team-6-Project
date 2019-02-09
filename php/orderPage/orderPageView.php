@@ -8,7 +8,9 @@
     *************************************************
  -->
 <?php
-include_once '..\top.php';
+    include_once '..\top.php';
+    include_once '..\functions.php';
+    include_once '..\packageClass.php';
 ?>
 <!DOCTYPE html>
 <html class="register-bg">
@@ -17,20 +19,19 @@ include_once '..\top.php';
     <title>Registration</title>
     <meta charset="utf-8">
     <?php
-print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.css\">");
-?>
+        print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.css\">");
+    ?>
 </head>
 
 <body class="register">
     <?php
-include_once "..\header.php";
-?>
-    <main>
-    <?php
-    $pkgId=$_POST['pkgId'];
-    
-    
+        include_once "..\header.php";
     ?>
+    <main>
+        <?php
+            $pkgId = $_POST['pkgId'];
+            $pkg   = getInstants('packages', 'package', $pkgId);
+        ?>
 
 
 
@@ -44,9 +45,8 @@ include_once "..\header.php";
             <!-- show selected Package -->
             <div class="form-box">
                 <label for="orderFormPackageName">Package Selected:</label>
-                <input id="orderFormBPackageName" type="text" value="demo data" disabled>
+                <input id="orderFormBPackageName" type="text" <?php echo ("value={$pkg->getPkgName()}"); ?> disabled>
             </div>
-
 
             <!-- Account Num for getting customer Id, later will be replaced if customer logged in -->
             <div class="form-box">
@@ -57,7 +57,7 @@ include_once "..\header.php";
                 </div>
             </div>
 
-            <!-- BookingNo, should it be added later by agent?-->
+            <!-- BookingNo, should it be added later by agent?
             <div class="form-box">
                 <label for="orderFormBookingNo">Booking No.:</label>
                 <input id="orderFormBookingNo" type="text" name="BookingNo"
@@ -65,9 +65,9 @@ include_once "..\header.php";
                 <div class="text-box">
                     <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your BookingNo</p>
                 </div>
-            </div>
+            </div> -->
 
-            <!-- ItineraryNo, should it be added later by agent?  -->
+            <!-- ItineraryNo, should it be added later by agent?
             <div class="form-box">
                 <label for="orderFormItineraryNo">ItineraryNo:</label>
                 <input id="orderFormItineraryNo" type="text" name="ItineraryNo"
@@ -75,22 +75,23 @@ include_once "..\header.php";
                 <div class="text-box">
                     <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your ItineraryNo</p>
                 </div>
-            </div>
+            </div> -->
 
             <!-- TripStart Date, later will be replaced by a date calender selector -->
             <div class="form-box">
                 <label for="orderFormTripStart">Trip Start Date:</label>
-                <input id="orderFormTripStart" type="date" name="TripStart" required>
-                <div class="text-box">
+                <input id="orderFormTripStart" type="text" name="TripStart"
+                    <?php echo ("value={$pkg->getStartDate()}"); ?> disabled>
+                <!-- <div class="text-box">
                     <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please select your Trip Start Date
                     </p>
-                </div>
+                </div> -->
             </div>
 
             <!-- show Trip End Date -->
             <div class="form-box">
                 <label for="orderFormTripEndDate">Last Day for Your Trip:</label>
-                <input id="orderFormTripEndDate" type="text" value="demo data" disabled>
+                <input id="orderFormTripEndDate" type="text" <?php echo ("value={$pkg->getEndDate()}"); ?> disabled>
             </div>
 
             <!-- Trip Type Selector, should it be added later by agent? -->
@@ -116,7 +117,7 @@ include_once "..\header.php";
             <!-- Number of Travelers -->
             <div class="form-box">
                 <label for="orderFormTravelerCount">Number of Passengers</label>
-                <select id="orderFormTravelerCount" name="TravelerCount">
+                <select id="orderFormTravelerCount" name="TravelerCount" onchange="myFunction()">
                     <option selected value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -134,7 +135,7 @@ include_once "..\header.php";
             <!-- show Total Price -->
             <div class="form-box">
                 <label for="orderFormTotalPrice">Estimated Total Price:</label>
-                <input id="orderFormTotalPrice" type="text" value="demo data" disabled>
+                <input id="orderFormTotalPrice" type="text" <?php echo "value={$pkg->getPrice()}" ?> disabled>
             </div>
 
             <input id="btn" type="submit">
@@ -143,8 +144,22 @@ include_once "..\header.php";
         </form>
     </main>
     <?php
-echo "<script src='$_root/scripts/checkFormInputEmpty.js'></script>"
-?>
+        echo "<script src='$_root/scripts/checkFormInputEmpty.js'></script>"
+    ?>
+
+<!-- update Total Price on the go -->
+    <script>
+    function myFunction() {
+        var pkgPrice = <?php print($pkg->getPrice());?>;
+        var numTravellers = document.getElementById("orderFormTravelerCount").value;
+        if (numTravellers!="10+"){
+        document.getElementById("orderFormTotalPrice").value = pkgPrice * numTravellers;
+        } else {
+            document.getElementById("orderFormTotalPrice").value = "Please contact us";
+        }
+    }
+    </script>
+
 </body>
 
 </html>
