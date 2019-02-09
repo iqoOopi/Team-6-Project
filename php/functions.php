@@ -103,6 +103,7 @@ function getInstants($dbTableName, $className, $key = null)
             return false;
         }
 
+        //if inputted $key 
     } else {
         //get the primary key column name
         $sql  = "SHOW KEYS FROM $dbTableName WHERE Key_name = 'PRIMARY'";
