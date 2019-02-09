@@ -78,7 +78,7 @@ function GetPackages()
 
 }
 
-// generic create instants of Classes from DB.
+//generic create instants of Classes from DB.
 //For example, creating customer class instants from "customers" table in DB by call $customers=getInstants('customers','customer');
 //Also you can get particular instant out of one table by assign "key" value, which is Id.
 //if no key present the return will be an array, otherwise will return back a class.
@@ -87,15 +87,14 @@ function getInstants($dbTableName, $className, $key = null)
     //use mysqli connect style instead of PDO
     $link = new mysqli("127.0.0.1", "admin", "P@ssw0rd", "travelexperts");
 
-    //get the primary key column name
-    $sql="SHOW KEYS FROM $dbTableName WHERE Key_name = 'PRIMARY'";
-    $result = $link->query($sql)->fetch_assoc();
-    $primaryKeyColumnName=$result['Column_name'];
-    
     if (!$key) {
         $sql = "SELECT * FROM $dbTableName";
     } else {
-        $sql = "SELECT * FROM $dbTableName WHERE $primaryKeyColumnName=$key";
+        //get the primary key column name
+        $sql                  = "SHOW KEYS FROM $dbTableName WHERE Key_name = 'PRIMARY'";
+        $result               = $link->query($sql)->fetch_assoc();
+        $primaryKeyColumnName = $result['Column_name'];
+        $sql                  = "SELECT * FROM $dbTableName WHERE $primaryKeyColumnName=$key";
     }
     $result = $link->query($sql);
     if (!$result) {
@@ -113,12 +112,12 @@ function getInstants($dbTableName, $className, $key = null)
         }
 
         //change return depends on $key
-        if(!$key) {
+        if (!$key) {
             return $instants;
-        } else{
+        } else {
             return $instants[0];
         }
-        
+
     }
 
     $link->Close();
