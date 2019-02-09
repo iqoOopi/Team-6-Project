@@ -1,4 +1,4 @@
-<!-- 
+<!--
     *************************************************
     *
     *Author:Haotian Zhang
@@ -30,7 +30,7 @@ include_once "..\header.php";
         <!-- Booking Date will be added in controller,
                  Package Id will be received from order button in list page.
             -->
-        <form action="" method="POST" name="orderForm" id="orderForm"> 
+        <form action="" method="POST" name="orderForm" id="orderForm">
 
             <p class="label-head">Order Information</p>
 
@@ -53,16 +53,18 @@ include_once "..\header.php";
             <!-- BookingNo, should it be added later by agent?-->
             <div class="form-box">
                 <label for="orderFormBookingNo">Booking No.:</label>
-                <input id="orderFormBookingNo" type="text" name="BookingNo" placeholder="should it be added later by agent?" required>
+                <input id="orderFormBookingNo" type="text" name="BookingNo"
+                    placeholder="should it be added later by agent?" required>
                 <div class="text-box">
                     <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your BookingNo</p>
                 </div>
             </div>
 
-              <!-- ItineraryNo, should it be added later by agent?  -->
-              <div class="form-box">
+            <!-- ItineraryNo, should it be added later by agent?  -->
+            <div class="form-box">
                 <label for="orderFormItineraryNo">ItineraryNo:</label>
-                <input id="orderFormItineraryNo" type="text" name="ItineraryNo" placeholder="should it be added later by agent?" required>
+                <input id="orderFormItineraryNo" type="text" name="ItineraryNo"
+                    placeholder="should it be added later by agent?" required>
                 <div class="text-box">
                     <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your ItineraryNo</p>
                 </div>
@@ -134,8 +136,8 @@ include_once "..\header.php";
         </form>
     </main>
     <?php
-    echo "<script src='$_root/scripts/checkFormInputEmpty.js'></script>"
-    ?>
+echo "<script src='$_root/scripts/checkFormInputEmpty.js'></script>"
+?>
 </body>
 
 </html>

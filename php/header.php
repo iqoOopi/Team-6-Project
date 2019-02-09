@@ -28,6 +28,11 @@
                             print("<a href=\"$_root/php/table.php\">Links table</a>");
                         ?>
                     </li>
+                    <li>
+                        <?php
+                            print("<a href=\"$_root/php/packages.php\">Packages</a>");
+                        ?>
+                    </li>
                 </ul>
             </div>
             <div class="drop-down-menu">
