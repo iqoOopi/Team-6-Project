@@ -43,6 +43,10 @@ $particularCustomer = getInstants('customers', 'customer','109');
 $packages=getInstants('packages','package');
 echo ("<br>$packages[1]<br>");
 
+
+
+$packages=getInstants('packages','package',1);
+echo ("<br>$packages<br>");
 ?>
 
 
