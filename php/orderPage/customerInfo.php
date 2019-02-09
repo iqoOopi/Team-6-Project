@@ -7,7 +7,7 @@
     *
     *************************************************
  -->
- <?php
+<?php
 include_once '..\top.php';
 include_once '..\functions.php';
 include_once '..\customerClass.php';
@@ -30,18 +30,25 @@ include_once "..\header.php";
 ?>
 
     <main>
-    <?php
+        <?php
 
-$customers=getInstants('customers','customer');
-echo ("<br>$customers[1]<br>next record");
+$customers = getInstants('customers', 'customer');
+echo("<br>$customers[1]<br>");
+// foreach ($customers as $customer) {
+//     echo ("<br>$customer<br>");
+// }
 
 
-$packages=getInstants('packages','package');
-echo ("<br>$packages[1]<br>next record");
+$particularCustomer = getInstants('customers', 'customer','109');
+
+    echo ($particularCustomer);
+
+// $packages=getInstants('packages','package');
+// echo ("<br>$packages[1]<br>");
 
 ?>
-      
-      
+
+
     </main>
 
 </body>
