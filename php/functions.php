@@ -74,7 +74,8 @@
 
     }
     
-        // generic create instants of Classes from DB
+        // generic create instants of Classes from DB.  For example, creating customer class instants 
+        // from "customers" table in DB by call $customers=getInstants('customers','customer');
         function getInstants($dbTableName,$className) {
 
             $link = connect_db();
@@ -86,8 +87,8 @@
             if (!$result) {
                 echo "ERROR: the sql failed to execute. <br>";
                 echo "SQL: $sql <br>";
-                echo "Error code: ". $stmt->errorCode() . "<br>";
-                echo "Error msg: ". $stmt->errorInfo() . "<br>";
+                echo "Error code: ". $link->connect_errno . "<br>";
+                echo "Error msg: ". $link->connect_error . "<br>";
                 return false;
             } else {
     
