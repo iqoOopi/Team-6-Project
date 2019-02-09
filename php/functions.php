@@ -41,6 +41,40 @@
         }
     }
 
+    // get an array of package objects
+    function GetPackages() {
+
+        $my_pdo = connect_db();
+
+        $sql = "SELECT * FROM packages";
+
+        $stmt = $my_pdo->prepare($sql);
+        $stmt->execute();
+        // False is returned on failed fetch
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (!$result) {
+            echo "ERROR: the sql failed to execute. <br>";
+            echo "SQL: $sql <br>";
+            echo "Error code: ". $stmt->errorCode() . "<br>";
+            echo "Error msg: ". $stmt->errorInfo() . "<br>";
+            return false;
+        } else {
+
+            $packages = [];
+            foreach ($result as $pkg) {
+                $package = new Package($pkg);
+                $packages[] = $package;
+            }
+
+            return $packages;
+        }
+
+        close_connection($my_pdo);
+
+    }
+    
+
     // Clean user input
     function clean_input($var) {
         $data = trim($var);
