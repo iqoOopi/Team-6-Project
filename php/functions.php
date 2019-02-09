@@ -1,7 +1,7 @@
 <?php
 
 // Create a database connection
-function connect_db()
+function connectDb()
 {
     $host    = '127.0.0.1';
     $db      = 'travelexperts';
@@ -20,7 +20,7 @@ function connect_db()
 }
 
 // Close database connection
-function close_connection($pdo_obj)
+function closeConnection($pdo_obj)
 {
     $pdo_obj = null;
 }
@@ -48,7 +48,7 @@ function insertIntoDB($pdo_obj, &$db_obj, $dbTable)
 function GetPackages()
 {
 
-    $my_pdo = connect_db();
+    $my_pdo = connectDb();
 
     $sql = "SELECT * FROM packages";
 
@@ -74,7 +74,7 @@ function GetPackages()
         return $packages;
     }
 
-    close_connection($my_pdo);
+    closeConnection($my_pdo);
 
 }
 
@@ -85,47 +85,71 @@ function GetPackages()
 function getInstants($dbTableName, $className, $key = null)
 {
     //use mysqli connect style instead of PDO
-    $link = new mysqli("127.0.0.1", "admin", "P@ssw0rd", "travelexperts");
+
+    $link = connectDb();
 
     if (!$key) {
-        $sql = "SELECT * FROM $dbTableName";
+        $sql  = "SELECT * FROM $dbTableName";
+        $stmt = $link->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        //error handling
+        if (!$result) {
+            echo "ERROR: the sql failed to execute. <br>";
+            echo "SQL: $sql <br>";
+            echo "Error code: " . $stmt->errorCode() . "<br>";
+            echo "Error msg: " . $stmt->errorInfo() . "<br>";
+            return false;
+        }
+
     } else {
         //get the primary key column name
-        $sql                  = "SHOW KEYS FROM $dbTableName WHERE Key_name = 'PRIMARY'";
-        $result               = $link->query($sql)->fetch_assoc();
+        $sql  = "SHOW KEYS FROM $dbTableName WHERE Key_name = 'PRIMARY'";
+        $stmt = $link->prepare($sql);
+        $stmt->execute();
+        $result               = $stmt->fetch(PDO::FETCH_ASSOC);
+
+          //error handling
+          if (!$result) {
+            echo "ERROR: the sql failed to execute. <br>";
+            echo "SQL: $sql <br>";
+            echo "Error code: " . $stmt->errorCode() . "<br>";
+            echo "Error msg: " . $stmt->errorInfo() . "<br>";
+            return false;
+        }
         $primaryKeyColumnName = $result['Column_name'];
         $sql                  = "SELECT * FROM $dbTableName WHERE $primaryKeyColumnName=$key";
     }
-    $result = $link->query($sql);
+    $stmt = $link->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
     if (!$result) {
         echo "ERROR: the sql failed to execute. <br>";
         echo "SQL: $sql <br>";
         echo "Error code: " . $link->connect_errno . "<br>";
         echo "Error msg: " . $link->connect_error . "<br>";
         return false;
-    } else {
+    }
 
         $instants = [];
         foreach ($result as $instant) {
             $instant    = new $className($instant);
             $instants[] = $instant;
         }
-
         //change return depends on $key
         if (!$key) {
             return $instants;
         } else {
             return $instants[0];
         }
-
-    }
-
     $link->Close();
 
 }
 
 // Clean user input
-function clean_input($var)
+function cleanInput($var)
 {
     $data = trim($var);
     $data = htmlspecialchars($data);
@@ -133,7 +157,7 @@ function clean_input($var)
 }
 
 // Open and read userinfo file
-function read_authorized_users()
+function readAuthorizedUsers()
 {
     $filename         = "userinfo.txt";
     $fh               = file($filename);
@@ -143,8 +167,8 @@ function read_authorized_users()
         foreach ($fh as $row) {
             $buffer = explode(",", $row);
 
-            $username = clean_input($buffer[0]);
-            $password = clean_input($buffer[1]);
+            $username = cleanInput($buffer[0]);
+            $password = cleanInput($buffer[1]);
 
             $authorized_users[] = array("username" => $username, "password" => $password);
         }
@@ -155,11 +179,11 @@ function read_authorized_users()
     return $authorized_users;
 }
 
-function validate_user($user_input)
+function validateUser($user_input)
 {
     // get authorized users from file
     $user_validated   = false;
-    $authorized_users = read_authorized_users();
+    $authorized_users = readAuthorizedUsers();
 
     foreach ($authorized_users as $user_infile) {
         if ($user_input['username'] === $user_infile['username']) {
