@@ -32,9 +32,6 @@
             $pkgId = $_POST['pkgId'];
             $pkg   = getInstants('packages', 'package', $pkgId);
         ?>
-
-
-
         <!-- Booking Date will be added in controller,
                  Package Id will be received from order button in list page.
             -->
@@ -45,7 +42,11 @@
             <!-- show selected Package -->
             <div class="form-box">
                 <label for="orderFormPackageName">Package Selected:</label>
-                <input id="orderFormBPackageName" type="text" <?php echo ("value={$pkg->getPkgName()}"); ?> disabled>
+                <input id="orderFormBPackageName" type="text"<?php echo ("value={$pkg->getPkgName()}"); ?> disabled>
+            </div>
+
+            <div class="form-box">
+                <input id="orderFormBPackageId" name="orderFormBPackageId" type="hidden" <?php echo ("value=$pkgId"); ?>>
             </div>
 
             <!-- Account Num for getting customer Id, later will be replaced if customer logged in -->
@@ -91,7 +92,7 @@
             <!-- show Trip End Date -->
             <div class="form-box">
                 <label for="orderFormTripEndDate">Last Day for Your Trip:</label>
-                <input id="orderFormTripEndDate" type="text" <?php echo ("value={$pkg->getEndDate()}"); ?> disabled>
+                <input id="orderFormTripEndDate" type="text"<?php echo ("value={$pkg->getEndDate()}"); ?> disabled>
             </div>
 
             <!-- Trip Type Selector, should it be added later by agent? -->
@@ -135,7 +136,7 @@
             <!-- show Total Price -->
             <div class="form-box">
                 <label for="orderFormTotalPrice">Estimated Total Price:</label>
-                <input id="orderFormTotalPrice" type="text" <?php echo "value={$pkg->getPrice()}" ?> disabled>
+                <input id="orderFormTotalPrice" type="text"<?php echo "value={$pkg->getPrice()}" ?> disabled>
             </div>
 
             <input id="btn" type="submit">
@@ -147,13 +148,13 @@
         echo "<script src='$_root/scripts/checkFormInputEmpty.js'></script>"
     ?>
 
-<!-- update Total Price on the go -->
+    <!-- update Total Price on the go -->
     <script>
     function myFunction() {
-        var pkgPrice = <?php print($pkg->getPrice());?>;
+        var pkgPrice =<?php print($pkg->getPrice());?>;
         var numTravellers = document.getElementById("orderFormTravelerCount").value;
-        if (numTravellers!="10+"){
-        document.getElementById("orderFormTotalPrice").value = pkgPrice * numTravellers;
+        if (numTravellers != "10+") {
+            document.getElementById("orderFormTotalPrice").value = pkgPrice * numTravellers;
         } else {
             document.getElementById("orderFormTotalPrice").value = "Please contact us";
         }
