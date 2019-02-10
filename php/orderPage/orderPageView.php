@@ -46,16 +46,20 @@
             </div>
 
             <div class="form-box">
-                <input id="orderFormBPackageId" name="orderFormBPackageId" type="hidden" <?php echo ("value=$pkgId"); ?>>
+                <input id="orderFormBPackageId" name="packageId" type="hidden" <?php echo ("value=$pkgId"); ?>>
             </div>
 
             <!-- Account Num for getting customer Id, later will be replaced if customer logged in -->
             <div class="form-box">
                 <label for="orderFormAccountNum">Account Num:</label>
-                <input id="orderFormAccountNum" type="text" name="accountNum" placeholder="accountNum" required>
+                <input id="orderFormAccountNum" type="text" name="customerId" placeholder="accountNum" required>
                 <div class="text-box">
                     <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Account Num</p>
                 </div>
+            </div>
+
+            <div class="form-box">
+                <input id="orderFormBookingDate" type="hidden" name="BookingDate" <?php $now=time();echo ("value=$now"); ?>>
             </div>
 
             <!-- BookingNo, should it be added later by agent?
@@ -98,7 +102,7 @@
             <!-- Trip Type Selector, should it be added later by agent? -->
             <div class="form-box">
                 <label for="orderFormTripType">Trip Type</label>
-                <select id="orderFormTripType" name="should it be added later by agent?" required>
+                <select id="orderFormTripType" name="TripTypeId" required>
                     <option value="B">Business</option>
                     <option value="G">Group</option>
                     <option value="L">Leisure</option>
@@ -139,7 +143,7 @@
                 <input id="orderFormTotalPrice" type="text"<?php echo "value={$pkg->getPrice()}" ?> disabled>
             </div>
 
-            <input id="btn" type="submit">
+            <input id="btn" type="submit" name="submit">
             <input type="reset">
 
         </form>
