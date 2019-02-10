@@ -1,10 +1,11 @@
 <?php
+include '../top.php';
 include_once '../functions.php';
 include_once '../packageClass.php';
 include_once '../bookingClass.php';
 if (!isset($_POST['submit'])) {
 //header back to package list in case of illegal view
-header("Location: $_root/php/packages.php");
+header("Location: http://localhost{$_root}/php/packages.php");
 }
 //bookings Table Structure
 //BookingId auto increamental
@@ -27,11 +28,15 @@ $result=insertIntoDB($pdo, $booking, 'bookings');
 closeConnection($pdo);
 
 if ($result) {
-    echo "<p class=\"insert_notification\" style=\"color:yellow;font-size:1.2rem\">insert success</p>";
+    echo "<script>alert('Success!');
+    window.location.href = '../../index.php'
+    </script>";
 } else {
-    echo "<p class=\"insert_notification\" style=\"color:red;font-size:1.2rem\">insert failed</p>";
+    echo "<script>alert('Failed!');
+    window.location.href = '../../index.php'
+    </script>";
 }
-
+// header("Location: http://localhost{$_root}/php/packages.php");
 
 // //bookingdetails Table Structure
 // $pkg=getInstants('packages','package',$packageId);
