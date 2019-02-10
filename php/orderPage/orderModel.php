@@ -8,12 +8,17 @@ header("Location: $_root/php/packages.php");
 }
 //bookings Table Structure
 //BookingId auto increamental
-$BookingDate=$_POST['BookingDate'];
+$BookingDate=date("Y-m-d H:i:s",$_POST['BookingDate']);
 //BookingNo to be filled later on
 $TravelerCount=$_POST['TravelerCount'];
 $customerId=$_POST['customerId'];
 $TripTypeId=$_POST['TripTypeId'];
 $packageId=$_POST['packageId'];
+
+//for large group contain more than 10 people. Will need agent to edit later on
+if ($TravelerCount=='10+'){
+    $TravelerCount=NULL;
+}
 
 $booking=new booking($BookingDate,NULL,$TravelerCount,$customerId,$TripTypeId,$packageId);
 

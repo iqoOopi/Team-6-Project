@@ -42,7 +42,7 @@
             <!-- show selected Package -->
             <div class="form-box">
                 <label for="orderFormPackageName">Package Selected:</label>
-                <input id="orderFormBPackageName" type="text"<?php echo ("value={$pkg->getPkgName()}"); ?> disabled>
+                <input id="orderFormBPackageName" type="text" <?php echo ("value={$pkg->getPkgName()}"); ?> disabled>
             </div>
 
             <div class="form-box">
@@ -58,8 +58,11 @@
                 </div>
             </div>
 
+
+            <!-- BookingDate -->
             <div class="form-box">
-                <input id="orderFormBookingDate" type="hidden" name="BookingDate" <?php $now=time();echo ("value=$now"); ?>>
+                <input id="orderFormBookingDate" type="hidden" name="BookingDate"
+                    <?php $now=time();echo ("value=$now"); ?>>
             </div>
 
             <!-- BookingNo, should it be added later by agent?
@@ -96,7 +99,7 @@
             <!-- show Trip End Date -->
             <div class="form-box">
                 <label for="orderFormTripEndDate">Last Day for Your Trip:</label>
-                <input id="orderFormTripEndDate" type="text"<?php echo ("value={$pkg->getEndDate()}"); ?> disabled>
+                <input id="orderFormTripEndDate" type="text" <?php echo ("value={$pkg->getEndDate()}"); ?> disabled>
             </div>
 
             <!-- Trip Type Selector, should it be added later by agent? -->
@@ -140,7 +143,7 @@
             <!-- show Total Price -->
             <div class="form-box">
                 <label for="orderFormTotalPrice">Estimated Total Price:</label>
-                <input id="orderFormTotalPrice" type="text"<?php echo "value={$pkg->getPrice()}" ?> disabled>
+                <input id="orderFormTotalPrice" type="text" <?php echo "value={$pkg->getPrice()}" ?> disabled>
             </div>
 
             <input id="btn" type="submit" name="submit">
@@ -155,7 +158,7 @@
     <!-- update Total Price on the go -->
     <script>
     function myFunction() {
-        var pkgPrice =<?php print($pkg->getPrice());?>;
+        var pkgPrice = <?php print($pkg->getPrice());?>;
         var numTravellers = document.getElementById("orderFormTravelerCount").value;
         if (numTravellers != "10+") {
             document.getElementById("orderFormTotalPrice").value = pkgPrice * numTravellers;
