@@ -27,27 +27,27 @@
                     <input type="date">
                 </div>
                 <div class="passengers-fields">
-                    <label for="passenger-number">Passengers</label>
-                    <input readonly type="text" id="passenger-number" value>
+                    <label for="passenger-number" class="passenger-info">Passengers</label>
+                    <input readonly type="text" id="passenger-number" class="passenger-num" value>
                     <div class="passenger">
                         <div class="form-group form-group-adult">
                             <div class="quantity-selector">
-                                <label class="adult_label" for="quantity-selector-adult">
+                                <label class="pass-label" for="quantity-selector-adult">
                                     <input disabled type="number" min="0" max="20" class="quantity-selector__input" id="quantity-selector-adult" value="0" style="display:none;">
                                     0 Adults
                                 </label>
-                                <button class="decrease-adult">-</button>
-                                <button class="increase-adult">+</button>
+                                <button type="button" class="decrease-adult">-</button>
+                                <button type="button" class="increase-adult">+</button>
                             </div>
                         </div>
                         <div class="form-group form-group-children">
                             <div class="quantity-selector">
-                                <label class="children_label" for="quantity-selector-children">
+                                <label class="pass-label" for="quantity-selector-children">
                                     <input disabled type="number" min="0" max="20" class="quantity-selector__input" id="quantity-selector-children" value="0" style="display:none;">
                                     0 Children
                                 </label>
-                                <button class="decrease-adult">-</button>
-                                <button class="increase-adult">+</button>
+                                <button type="button" class="decrease-child">-</button>
+                                <button type="button" class="increase-child">+</button>
                             </div>
                         </div>
                     </div>

@@ -15,7 +15,7 @@ body {
 }
 
 /******************** Setting Background ********************/
-.register-bg, .contact-bg {
+.register-bg, .contact-bg, .packages-bg{
     background: url("../imgs/register-bg.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -122,6 +122,28 @@ body {
 }
 
 /********************* Travel Form **********************/
+.travelForm {
+    display: flex;
+    width: 42rem;
+    background-color: rgba(68, 63, 63, 0.6); 
+    position: absolute;
+    top: 12rem;
+    left: 50%;
+    margin-left: -21rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.passengers-fields .passenger-info {
+    position: absolute;
+    top: 1.6rem;
+    margin-left: 0.3rem;
+}
+
+.passenger {
+    position: absolute;
+    display: none;
+}
 
 /********************* Carousel*************************/
 

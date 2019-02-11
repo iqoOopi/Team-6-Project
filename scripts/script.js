@@ -4,6 +4,8 @@ var header = document.getElementsByClassName('site-header')[0];
 /*******************  Header ******************************/
 if(header) {
 
+    // Get passenger input filed
+    var passengerField = document.getElementsByClassName('passenger-num')[0];
     //Get menu button
     var menuBtn = document.getElementsByClassName('menu-btn');
 
@@ -17,6 +19,16 @@ if(header) {
             }
     };
 
+    const showPassenger = (event) => {
+            var menu = event.target.nextElementSibling;
+
+            if ((menu.style.display === "none")||(menu.style.display === "")) {
+                    menu.style.display = "block";
+            } else { 
+                    menu.style.display = "none";
+            }
+    };
+
     const hideMenu = (event) => {
             var ul = event.target.nextElementSibling;
             ul.style.display = "none";
@@ -26,6 +38,8 @@ if(header) {
             menuBtn[i].addEventListener("click", showMenu);
             menuBtn[i].addEventListener("blur", hideMenu);
     }
+
+    passengerField.addEventListener("click", showPassenger);
 
     //Get anchor tags 
     var link = document.querySelectorAll('.drop-down-menu a');
@@ -113,6 +127,49 @@ if (body) {
             }, speed);
         }
     }
+    /******************** Passenger control button *********************/
+    var adultIncr = document.getElementsByClassName('increase-adult')[0];
+    var adultDecr = document.getElementsByClassName('decrease-adult')[0];
+
+    var childIncr = document.getElementsByClassName('increase-child')[0];
+    var childDecr = document.getElementsByClassName('decrease-child')[0];
+
+    var adultCount = 0;
+    var childCount = 0;
+
+    const increaseAdult = (event) => {
+        adultCount++;
+        var currDom = event.target.parentNode; 
+        var mylabel = currDom.getElementsByClassName('pass-label')[0];
+        mylabel.innerText = adultCount + " Adults"; 
+    }
+
+    const decreaseAdult = (event) => {
+        adultCount--;
+        var currDom = event.target.parentNode; 
+        var mylabel = currDom.getElementsByClassName('pass-label')[0];
+        mylabel.innerText = adultCount + " Adults"; 
+    }
+
+    const increaseChild = (event) => {
+        childCount++;
+        var currDom = event.target.parentNode; 
+        var mylabel = currDom.getElementsByClassName('pass-label')[0];
+        mylabel.innerText = childCount + " Children"; 
+    }
+
+    const decreaseChild = (event) => {
+        childCount--;
+        var currDom = event.target.parentNode; 
+        var mylabel = currDom.getElementsByClassName('pass-label')[0];
+        mylabel.innerText = childCount + " Children"; 
+    }
+
+    adultIncr.addEventListener("click", increaseAdult);
+    adultDecr.addEventListener("click", decreaseAdult);
+    childIncr.addEventListener("click", increaseChild);
+    childDecr.addEventListener("click", decreaseChild);
+    
 }
 
 /************************************** Register.html ****************************/

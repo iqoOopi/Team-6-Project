@@ -2,50 +2,69 @@
     include_once ("packageClass.php");
     include_once ("functions.php");
     include_once ("top.php");
+?>
+<!DOCTYPE html>
+<html class="packages-bg">
+    <head>
+        <title>Packages</title>
+        <meta charset="utf-8">
+        <?php
+            print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.css\">");
+        ?>
+    </head>
 
-    // Return false if fetch fails, return an array of object if success
-    $Pkgs = GetPackages();
-
-    date_default_timezone_set('America/Edmonton');
-    $curDate = date('U');
+    <body>
     
-    if ($Pkgs) {
-        foreach ($Pkgs as $pkg) {
-            $endDate = strtotime($pkg->getEndDate());
-            $startDate = strtotime($pkg->getStartDate());
-            if ($endDate >= $curDate) {
-                if ($startDate < $curDate) {
-                    // package name and package price is passed to the order form
-                    print ("<div class=\"pkg-box\">
-                            <p class=\"pkg-name\">" . $pkg->getPkgName() . "</p>
-                            <p class=\"pkg-desc\">" . $pkg->getDesc() . "</p>
-                            <p class=\"pkg-start-lt\" style=\"color:red;\"><strong>" . $pkg->getStartDate() . "</strong></p>
-                            <p class=\"pkg-end\">" . $pkg->getEndDate() . "</p>
-                            <p class=\"pkg-price\">" . $pkg->getPrice(). "</p>
-                            <form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">
-                                <input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">
-                                <input type=\"hidden\" name=\"pkgName\" value=\"" .$pkg->getPkgName() . "\">
-                                <input type=\"hidden\" name=\"pkgPrice\" value=\"" .$pkg->getPrice() . "\">
-                                <input type=\"submit\" name=\"submit\" value=\"order\">
-                            </form>");
+    <?php
+        include_once ("header.php");
+        // Return false if fetch fails, return an array of object if success
+        $Pkgs = GetPackages();
 
-                } else {
-                    // package name and package price is passed to the order form
-                    print ("<div class=\"pkg-box\">
-                            <p class=\"pkg-name\">" . $pkg->getPkgName() . "</p>
-                            <p class=\"pkg-desc\">" . $pkg->getDesc() . "</p>
-                            <p class=\"pkg-start\">" . $pkg->getStartDate() . "</p>
-                            <p class=\"pkg-end\">" . $pkg->getEndDate() . "</p>
-                            <p class=\"pkg-price\">" . $pkg->getPrice(). "</p>
-                            <form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">
-                                <input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">
-                                <input type=\"hidden\" name=\"pkgName\" value=\"" .$pkg->getPkgName() . "\">
-                                <input type=\"hidden\" name=\"pkgPrice\" value=\"" .$pkg->getPrice() . "\">
-                                <input type=\"submit\" name=\"submit\" value=\"order\">
-                            </form>");
+        date_default_timezone_set('America/Edmonton');
+        $curDate = date('U');
+        
+        if ($Pkgs) {
+            foreach ($Pkgs as $pkg) {
+                $endDate = strtotime($pkg->getEndDate());
+                $startDate = strtotime($pkg->getStartDate());
+                if ($endDate >= $curDate) {
+                    if ($startDate < $curDate) {
+                        // package name and package price is passed to the order form
+                        print ("<div class=\"pkg-box\">
+                                <div class=\"pkg-info\">
+                                <p class=\"pkg-name\">" . $pkg->getPkgName() . "</p>
+                                <p class=\"pkg-desc\">" . $pkg->getDesc() . "</p>
+                                <p class=\"pkg-start-lt\" style=\"color:red;\"><strong>" . $pkg->getStartDate() . "</strong></p>
+                                <p class=\"pkg-end\">" . $pkg->getEndDate() . "</p>
+                                <p class=\"pkg-price\">" . $pkg->getPrice(). "</p>
+                                <form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">
+                                    <input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">
+                                    <input type=\"submit\" name=\"submit\" value=\"order\">
+                                </div>
+                                </form>");
 
+                    } else {
+                        // package name and package price is passed to the order form
+                        print ("<div class=\"pkg-box\">
+                                <p class=\"pkg-name\">" . $pkg->getPkgName() . "</p>
+                                <p class=\"pkg-desc\">" . $pkg->getDesc() . "</p>
+                                <p class=\"pkg-start\">" . $pkg->getStartDate() . "</p>
+                                <p class=\"pkg-end\">" . $pkg->getEndDate() . "</p>
+                                <p class=\"pkg-price\">" . $pkg->getPrice(). "</p>
+                                <form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">
+                                    <input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">
+                                    <input type=\"submit\" name=\"submit\" value=\"order\">
+                                </form>");
+
+                    }
                 }
             }
         }
-    }
-?>
+    ?>
+    <?php
+        print("<script src=\"$_root/scripts/script.js\"></script>");
+        print("<script src=\"$_root/scripts/checkFormInputEmpty.js\"></script>");
+    ?>
+
+    </body>
+</html>
