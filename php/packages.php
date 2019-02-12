@@ -23,6 +23,7 @@
         date_default_timezone_set('America/Edmonton');
         $curDate = date('U');
         
+        print("<div class=\"pkg\">");
         if ($Pkgs) {
             foreach ($Pkgs as $pkg) {
                 $endDate = strtotime($pkg->getEndDate());
@@ -30,35 +31,47 @@
                 if ($endDate >= $curDate) {
                     if ($startDate < $curDate) {
                         // package name and package price is passed to the order form
-                        print ("<div class=\"pkg-box\">
-                                <div class=\"pkg-info\">
-                                <p class=\"pkg-name\">" . $pkg->getPkgName() . "</p>
-                                <p class=\"pkg-desc\">" . $pkg->getDesc() . "</p>
-                                <p class=\"pkg-start-lt\" style=\"color:red;\"><strong>" . $pkg->getStartDate() . "</strong></p>
-                                <p class=\"pkg-end\">" . $pkg->getEndDate() . "</p>
-                                <p class=\"pkg-price\">" . $pkg->getPrice(). "</p>
-                                <form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">
-                                    <input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">
-                                    <input type=\"submit\" name=\"submit\" value=\"order\">
-                                </div>
-                                </form>");
+                        print ("<div class=\"pkg-box\">");
+                            $str = showPkgImg($pkg);
+                            if ($str != false) {
+                                print($str);
+                            }
+                            print("<div class=\"pkg-info\">");
+                            print("<p class=\"pkg-name\">" . $pkg->getPkgName() . "</p>");
+                            print("<p class=\"pkg-desc\">" . $pkg->getDesc() . "</p>");
+                            print("<p class=\"pkg-start-lt\" style=\"color:red;\"><strong>" . $pkg->getStartDate() . "</strong></p>");
+                            print("<p class=\"pkg-end\">" . $pkg->getEndDate() . "</p>");
+                            print("<p class=\"pkg-price\">" . $pkg->getPrice(). "</p>");
+                            print("<form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">");
+                                print("<input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">");
+                                print("<input type=\"submit\" name=\"submit\" value=\"order\">");
+                            print("</form>");
+                            print("</div>");
+                        print("</div>");
 
                     } else {
                         // package name and package price is passed to the order form
-                        print ("<div class=\"pkg-box\">
-                                <p class=\"pkg-name\">" . $pkg->getPkgName() . "</p>
-                                <p class=\"pkg-desc\">" . $pkg->getDesc() . "</p>
-                                <p class=\"pkg-start\">" . $pkg->getStartDate() . "</p>
-                                <p class=\"pkg-end\">" . $pkg->getEndDate() . "</p>
-                                <p class=\"pkg-price\">" . $pkg->getPrice(). "</p>
-                                <form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">
-                                    <input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">
-                                    <input type=\"submit\" name=\"submit\" value=\"order\">
-                                </form>");
-
+                        print ("<div class=\"pkg-box\">");
+                            $str = showPkgImg($pkg);
+                            if ($str != false) {
+                                print($str);
+                            }
+                            print("<div class=\"pkg-info\">");
+                            print("<p class=\"pkg-name\">" . $pkg->getPkgName() . "</p>");
+                            print("<p class=\"pkg-desc\">" . $pkg->getDesc() . "</p>");
+                            print("<p class=\"pkg-start\">" . $pkg->getStartDate() . "</p>");
+                            print("<p class=\"pkg-end\">" . $pkg->getEndDate() . "</p>");
+                            print("<p class=\"pkg-price\">" . $pkg->getPrice(). "</p>");
+                            print("<form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">");
+                                print("<input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">");
+                                print("<input type=\"submit\" name=\"submit\" value=\"order\">");
+                            print("</form>");
+                            print("</div>");
+                        print ("</div>");
                     }
                 }
             }
+            print("</div>");
         }
     ?>
     <?php
