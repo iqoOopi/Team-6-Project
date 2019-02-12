@@ -10,6 +10,7 @@
 <?php
     include_once("functions.php");
     include_once("agencyClass.php");
+    
 
     function GetAgency() {
 
@@ -66,13 +67,26 @@
             $agencyPhone = $value->getAgencyPhone();
             $agencyFax = $value->getAgencyFax();
             
-            print "<h2>" . $agencyCity . " Offices:</h2><br>";
+            //builds a list with agency information
+            print "<div class='agency'><section class='contactInfo'>";
+            print "<h2>" . $agencyCity . " Offices:</h2>";
             print "<ul>";
             print "<li>" . $agencyAddress . "</li>";
             print "<li>" . $agencyProv . ", " . $agencyCounty. "</li>";
             print "<li>Phone: " . $agencyPhone . "</li>";
             print "<li>Fax: " . $agencyFax . "</li>";
-            print "</ul>";
+            print "</ul></section>";
+            //creates a google maps box for agency address Google maps API was not working properly -> forced to make a manual workaround.
+            print "<section class='map'>";
+            if($agencyPostal === "T2P1N3"){
+                print '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10033.477565530322!2d-114.0884208437619!3d51.04626678257586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716fe76e972489%3A0x149461cedf5b7c5b!2s1155+8+Ave+SW%2C+Calgary%2C+AB!5e0!3m2!1sen!2sca!4v1550006230880" 
+                    width="350" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>';
+            }
+            if($agencyPostal === "T7R3J5"){
+                print '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2495.101293380268!2d-114.01508708427095!3d51.2908599796001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53715f6e569fb147%3A0x9298431dc89d1c88!2s110+Main+St+S%2C+Airdrie%2C+AB+T4B+0P8!5e0!3m2!1sen!2sca!4v1550006755754" 
+                    width="350" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>';
+            }
+            print "</section></div>";
         }
 
         if (!$result) {
