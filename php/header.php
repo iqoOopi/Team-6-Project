@@ -44,7 +44,7 @@
                             print("<div class=\"triangle-up\"></div>");
                             
                             print("<li>");
-                                print("<a href=\"#\">Admin Settings</a>");
+                                print("<a href=\"$_root/php/adminDashBoard.php\">Admin Settings</a>");
                             print("</li>");		
                             print("<li>");
                                 print("<a href=\"$_root/php/logout.php\">Logout</a>");
