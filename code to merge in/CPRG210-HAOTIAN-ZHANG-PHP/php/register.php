@@ -33,6 +33,21 @@
         </h1>
     </header>
 
+<!-- 
+    private $CustomerId;
+        private $CustFirstName;
+        private $CustLastName;
+        private $CustAddress;
+        private $CustCity;      
+        private $CustProv;
+        private $CustPostal;
+        private $CustCountry;
+        private $CustHomePhone;
+        private $CustBusPhone;
+        private $CustEmail;
+        private $CustPassword;
+        private $AgentId; -->
+
     <!-- Grid-Form -->
     <form class="Form register" name="registerForm">
         <label for="customerName">Name </label>

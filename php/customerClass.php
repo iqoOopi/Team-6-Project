@@ -24,9 +24,9 @@ class customer {
 
 
         public function __toString() {
-            // $tempArray=[]; why not needed?
+            // $tempArray=[]; 
             foreach ($this as $key => $value) {
-                $tempArray[] = $value;
+                $tempArray[$key] = $value;
                 // print "$key => $value<br>";
             }
 
