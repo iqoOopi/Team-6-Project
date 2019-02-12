@@ -15,7 +15,7 @@ body {
 }
 
 /******************** Setting Background ********************/
-.register-bg, .contact-bg {
+.register-bg, .contact-bg, .packages-bg, .orderPage-bg{
     background: url("../imgs/register-bg.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -122,6 +122,105 @@ body {
 }
 
 /********************* Travel Form **********************/
+.travelForm {
+    display: flex;
+    width: 52rem;
+    background-color: rgba(68, 63, 63, 0.6); 
+    position: absolute;
+    top: 12rem;
+    left: 50%;
+    margin-left: -26rem;
+    padding: 0.7rem 0.5rem;
+    border-radius: 1rem;
+    justify-content: space-around;
+}
+
+.travelForm input {
+    height: 3rem;
+    border-radius: 0.2rem;
+    outline: none;
+    padding-left: 0.2rem;
+}
+
+.dest-icon {
+    position: absolute;
+    top: 1.7rem;
+    margin-left: 0.5rem;
+}
+
+.going-to > input {
+    padding-left: 1.6rem;
+}
+
+.passengers-fields > input {
+    padding-left: 1.6rem;
+}
+
+.pass-icon {
+    position: absolute;
+    top: 1.7rem;
+    margin-left: 0.5rem;
+}
+
+/* Move label on top of input field */
+.passengers-fields .passenger-info {
+    position: absolute;
+    top: 1.6rem;
+    margin-left: 1.8rem;
+    color: grey;
+}
+
+.passenger {
+    position: absolute;
+    display: none;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 0.3rem;
+    top: 4rem;
+    width: 11rem;
+    height: 8.5rem;
+}
+
+.passenger > button {
+    position: absolute;
+    top: 6.5rem;
+    left: 7rem;
+}
+
+.quantity-selector {
+    display: flex;
+    margin-left: 0.5rem;
+}
+
+.quantity-selector label {
+    width: 5rem;
+}
+
+.quantity-selector button:first-of-type {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 2rem;
+    margin-right: 0.2rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.select-children {
+    position: absolute;
+    top: 4rem;
+}
+
+.select-adult {
+    position: absolute;
+    top: 1.5rem;
+}
+
+form > button {
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    background-color: rgb(56, 173, 173, 0.7);
+    color: white;
+}
 
 /********************* Carousel*************************/
 
@@ -266,7 +365,7 @@ body {
     color: white;
 }
 
-.agent form, .register form {
+.agent form, .register form, .orderPage form {
     position: absolute;
     width: 60rem;
     background-color: rgba(68, 63, 63, 0.6);

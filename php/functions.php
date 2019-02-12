@@ -70,7 +70,7 @@ function GetPackages()
             $package    = new Package($pkg);
             $packages[] = $package;
         }
-
+        closeConnection($my_pdo);
         return $packages;
     }
 

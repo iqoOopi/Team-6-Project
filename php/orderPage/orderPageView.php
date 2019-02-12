@@ -11,19 +11,23 @@
     include_once '..\top.php';
     include_once '..\functions.php';
     include_once '..\packageClass.php';
+    if (!isset($_SESSION["customer"]) || $_SESSION["customer"] === false) {
+        header("Location: $_root/php/customerLogin.php");
+    }
+
 ?>
 <!DOCTYPE html>
-<html class="register-bg">
+<html class="orderPage-bg">
 
 <head>
-    <title>Registration</title>
+    <title>Order Page</title>
     <meta charset="utf-8">
     <?php
         print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.css\">");
     ?>
 </head>
 
-<body class="register">
+<body class="orderPage">
     <?php
         include_once "..\header.php";
     ?>
@@ -50,13 +54,13 @@
             </div>
 
             <!-- Account Num for getting customer Id, later will be replaced if customer logged in -->
-            <div class="form-box">
+            <!-- <div class="form-box">
                 <label for="orderFormAccountNum">Account Num:</label>
                 <input id="orderFormAccountNum" type="text" name="customerId" placeholder="accountNum" required>
                 <div class="text-box">
                     <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Account Num</p>
                 </div>
-            </div>
+            </div> -->
 
 
             <!-- BookingDate -->
@@ -146,14 +150,11 @@
                 <input id="orderFormTotalPrice" type="text" <?php echo "value={$pkg->getPrice()}" ?> disabled>
             </div>
 
-            <input id="btn" type="submit" name="submit">
+            <input id="btn" type="submit" name="CheckOut">
             <input type="reset">
 
         </form>
     </main>
-    <?php
-        echo "<script src='$_root/scripts/checkFormInputEmpty.js'></script>"
-    ?>
 
     <!-- update Total Price on the go -->
     <script>
@@ -167,7 +168,11 @@
         }
     }
     </script>
-
+    <?php
+        print("<script src=\"$_root/scripts/script.js\"></script>");
+        print("<script src=\"$_root/scripts/checkFormInputEmpty.js\"></script>");
+    
+    ?>
 </body>
 
 </html>

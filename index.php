@@ -8,6 +8,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="styles/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Sarabun" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
 
     <body class="index">
@@ -18,6 +19,9 @@
 
             <form action="" method="POST" class="travelForm">
                 <div class="going-to">
+                    <div class="dest-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
                     <input type="text" placeholder="Where would you like to go?" >
                 </div>
                 <div class="leaving-from">
@@ -27,31 +31,28 @@
                     <input type="date">
                 </div>
                 <div class="passengers-fields">
-                    <label for="passenger-number">Passengers</label>
-                    <input readonly type="text" id="passenger-number" value>
+                    <div class="pass-icon">
+                        <i class="far fa-user"></i>
+                    </div>
+                    <label for="passenger-number" class="passenger-info">Passengers</label>
+                    <input readonly type="text" id="passenger-number" class="passenger-num" value>
                     <div class="passenger">
-                        <div class="form-group form-group-adult">
-                            <div class="quantity-selector">
-                                <label class="adult_label" for="quantity-selector-adult">
-                                    <input disabled type="number" min="0" max="20" class="quantity-selector__input" id="quantity-selector-adult" value="0" style="display:none;">
-                                    0 Adults
-                                </label>
-                                <button class="decrease-adult">-</button>
-                                <button class="increase-adult">+</button>
-                            </div>
+                        <div class="quantity-selector select-adult">
+                            <label class="pass-label" for="quantity-selector-adult">0 Adults</label>
+                            <input disabled type="number" min="0" class="quantity-selector__input" id="quantity-selector-adult" value="0" style="display:none;">
+                            <button type="button" class="decrease-adult">-</button>
+                            <button type="button" class="increase-adult">+</button>
                         </div>
-                        <div class="form-group form-group-children">
-                            <div class="quantity-selector">
-                                <label class="children_label" for="quantity-selector-children">
-                                    <input disabled type="number" min="0" max="20" class="quantity-selector__input" id="quantity-selector-children" value="0" style="display:none;">
-                                    0 Children
-                                </label>
-                                <button class="decrease-adult">-</button>
-                                <button class="increase-adult">+</button>
-                            </div>
+                        <div class="quantity-selector select-children">
+                            <label class="pass-label" for="quantity-selector-children">0 Children</label>
+                            <input disabled type="number" min="0" class="quantity-selector__input" id="quantity-selector-children" value="0" style="display:none;">
+                            <button type="button" class="decrease-child">-</button>
+                            <button type="button" class="increase-child">+</button>
                         </div>
+                        <button type="button" class="confirm-button">Done</button>
                     </div>
                 </div>
+                <button type="button">Search</button>
 
             </form>
             
