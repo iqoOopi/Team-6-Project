@@ -12,7 +12,7 @@
         }
 
         // If validated, start session variable
-        $validated = validate_user($usr_array);
+        $validated = validateUser($usr_array);
         if ($validated) {
             $_SESSION["admin"] = $validated;
             $_SESSION["username"] = $usr_array["username"];

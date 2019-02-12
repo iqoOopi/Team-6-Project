@@ -30,25 +30,22 @@
                     <label for="passenger-number" class="passenger-info">Passengers</label>
                     <input readonly type="text" id="passenger-number" class="passenger-num" value>
                     <div class="passenger">
-                        <div class="form-group form-group-adult">
-                            <div class="quantity-selector">
-                                <label class="pass-label" for="quantity-selector-adult">0 Adults</label>
-                                <input disabled type="number" min="0" class="quantity-selector__input" id="quantity-selector-adult" value="0" style="display:none;">
-                                <button type="button" class="decrease-adult">-</button>
-                                <button type="button" class="increase-adult">+</button>
-                            </div>
+                        <div class="quantity-selector select-adult">
+                            <label class="pass-label" for="quantity-selector-adult">0 Adults</label>
+                            <input disabled type="number" min="0" class="quantity-selector__input" id="quantity-selector-adult" value="0" style="display:none;">
+                            <button type="button" class="decrease-adult">-</button>
+                            <button type="button" class="increase-adult">+</button>
                         </div>
-                        <div class="form-group form-group-children">
-                            <div class="quantity-selector">
-                                <label class="pass-label" for="quantity-selector-children">0 Children</label>
-                                <input disabled type="number" min="0" class="quantity-selector__input" id="quantity-selector-children" value="0" style="display:none;">
-                                <button type="button" class="decrease-child">-</button>
-                                <button type="button" class="increase-child">+</button>
-                            </div>
+                        <div class="quantity-selector select-children">
+                            <label class="pass-label" for="quantity-selector-children">0 Children</label>
+                            <input disabled type="number" min="0" class="quantity-selector__input" id="quantity-selector-children" value="0" style="display:none;">
+                            <button type="button" class="decrease-child">-</button>
+                            <button type="button" class="increase-child">+</button>
                         </div>
                         <button type="button" class="confirm-button">Done</button>
                     </div>
                 </div>
+                <button type="button">Search</button>
 
             </form>
             
