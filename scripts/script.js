@@ -255,7 +255,6 @@ if (body) {
 //Henry, show input instruction
 function showInstruction(formId) {
     var regBody = document.getElementById(formId);
-    // console.log('dd');
     if (regBody) {
         // Get all input text fields
         [].forEach.call(regBody, function (element) {
@@ -266,34 +265,34 @@ function showInstruction(formId) {
 }
 /****************************** Agent.html ********************************/
 
-var agtBody = document.getElementsByClassName('agent')[0];
+// var agtBody = document.getElementsByClassName('agent')[0];
 
-if (agtBody) {
+// if (agtBody) {
 
-    // Get all input text fields
-    var fNameField = document.agentForm.AgtFirstName;
-    var lNameField = document.agentForm.AgtLastName;
-    var posField = document.agentForm.AgtPosition;
-    var telField = document.agentForm.AgtBusPhone;
-    var emailField = document.agentForm.AgtEmail;
+//     // Get all input text fields
+//     var fNameField = document.agentForm.AgtFirstName;
+//     var lNameField = document.agentForm.AgtLastName;
+//     var posField = document.agentForm.AgtPosition;
+//     var telField = document.agentForm.AgtBusPhone;
+//     var emailField = document.agentForm.AgtEmail;
 
-    var fieldArray = [fNameField, lNameField, posField, telField, emailField];
+//     var fieldArray = [fNameField, lNameField, posField, telField, emailField];
 
-    // Apply focus and blur events to field descriptions
-    //could use one function
-    telField.addEventListener('focus', displayMsg);
-    telField.addEventListener('blur', blurMsg);
+//     // Apply focus and blur events to field descriptions
+//     //could use one function
+//     telField.addEventListener('focus', displayMsg);
+//     telField.addEventListener('blur', blurMsg);
 
-    emailField.addEventListener('focus', displayMsg);
-    emailField.addEventListener('blur', blurMsg);
+//     emailField.addEventListener('focus', displayMsg);
+//     emailField.addEventListener('blur', blurMsg);
 
-    var notification = document.getElementsByClassName('insert_notification')[0];
-    var notification_div = document.getElementsByClassName('notification')[0];
+//     var notification = document.getElementsByClassName('insert_notification')[0];
+//     var notification_div = document.getElementsByClassName('notification')[0];
 
-    if (notification) {
-        notification_div.appendChild(notification);
-    }
-}
+//     if (notification) {
+//         notification_div.appendChild(notification);
+//     }
+// }
 
 /******************** login.php *************************/
 var loginBody = document.getElementsByClassName('login')[0];

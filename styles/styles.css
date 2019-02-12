@@ -421,7 +421,7 @@ form > button {
 }
 
 .text-box {
-	display: flex;
+	/* display: flex; */
 	flex-direction: column;
         margin-right: 1rem;
 }

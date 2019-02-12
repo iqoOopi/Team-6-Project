@@ -15,21 +15,6 @@
         <?php
                 include_once("header.php");
         ?>
-
-<!-- private $CustomerId;
-        private $CustFirstName;
-        private $CustLastName;
-        private $CustAddress;
-        private $CustCity;      
-        private $CustProv;
-        private $CustPostal;
-        private $CustCountry;
-        private $CustHomePhone;
-        private $CustBusPhone;
-        private $CustEmail;
-        private $CustPassword;
-        private $AgentId; -->
-
         <main>
             <form id="customerRegisterForm" action="" method="POST" name="customerRegisterForm">
                 
@@ -147,7 +132,7 @@
                     <label for="agentId">Agent Id</label>
                     <input id="agentId" type="text" name="AgentId" placeholder="agentId" required>
                     <div class="text-box">
-                        <p id="phoneDescription" style="display:none;">E.g.  2</p>
+                        <p id="agentId" style="display:none;">E.g.  2</p>
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Agent Id</p>
                     </div>
                 </div>

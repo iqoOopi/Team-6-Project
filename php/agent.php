@@ -50,7 +50,7 @@
         ?>
 
         <main>
-            <form action="" method="POST" name="agentForm">
+            <form action="" method="POST" id="agentForm" name="agentForm">
 
 
                     <p class="label-head">Please enter new agent information</p>
@@ -126,6 +126,7 @@
         <?php
             print("<script src=\"$_root/scripts/script.js\"></script>");
             print("<script src=\"$_root/scripts/checkFormInputEmpty.js\"></script>");
+            print("<script>showInstruction(\"agentForm\");</script>");
         ?>
 
     </body>
