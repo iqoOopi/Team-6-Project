@@ -2,51 +2,51 @@ var body = document.getElementsByClassName('index')[0];
 var header = document.getElementsByClassName('site-header')[0];
 
 /*******************  Header ******************************/
-if(header) {
+if (header) {
 
     //Get menu button
     var menuBtn = document.getElementsByClassName('menu-btn');
 
     const showMenu = (event) => {
-            var ul = event.target.nextElementSibling;
+        var ul = event.target.nextElementSibling;
 
-            if ((ul.style.display === "none")||(ul.style.display === "")) {
-                    ul.style.display = "block";
-            } else { 
-                    ul.style.display = "none";
-            }
+        if ((ul.style.display === "none") || (ul.style.display === "")) {
+            ul.style.display = "block";
+        } else {
+            ul.style.display = "none";
+        }
     };
 
     const hideMenu = (event) => {
-            var ul = event.target.nextElementSibling;
-            ul.style.display = "none";
+        var ul = event.target.nextElementSibling;
+        ul.style.display = "none";
     };
 
     for (var i = 0; i < menuBtn.length; i++) {
-            menuBtn[i].addEventListener("click", showMenu);
-            menuBtn[i].addEventListener("blur", hideMenu);
+        menuBtn[i].addEventListener("click", showMenu);
+        menuBtn[i].addEventListener("blur", hideMenu);
     }
 
     //Get anchor tags 
     var link = document.querySelectorAll('.drop-down-menu a');
 
     const gotoLink = (event) => {
-            var addr = event.target.href;
-            window.location = addr;
+        var addr = event.target.href;
+        window.location = addr;
 
     };
 
     for (var i = 0; i < link.length; i++) {
-            // Because blur event fires before click event, mousedown is used in here
-            link[i].addEventListener("mousedown", gotoLink);
+        // Because blur event fires before click event, mousedown is used in here
+        link[i].addEventListener("mousedown", gotoLink);
     }
 }
 
 
 /***********************INDEX.HTML****************************************/
-/*************************  Carousel  ************************/ 
+/*************************  Carousel  ************************/
 if (body) {
-    var slideIndex = 0;      
+    var slideIndex = 0;
     showSlide();
 
     function showSlide() {
@@ -62,7 +62,7 @@ if (body) {
         allSlides[slideIndex].style.display = "block";
         thumbnails[slideIndex].style.opacity = "1";
         slideIndex++;
-        
+
         // Reset slide index
         if (slideIndex === allSlides.length) {
             slideIndex = 0;
@@ -72,12 +72,12 @@ if (body) {
 
     }
 
-/********************** Image Gallery Button ***********************/
+    /********************** Image Gallery Button ***********************/
     var leftBtn = document.getElementsByClassName('scroll-left')[0];
     var rightBtn = document.getElementsByClassName('scroll-right')[0];
 
     var scrollRight = (event) => {
-        var imgGallery = document.getElementsByClassName('img-gallery')[0]; 
+        var imgGallery = document.getElementsByClassName('img-gallery')[0];
         scroll('right', imgGallery, 280, 20, 30);
     }
 
@@ -92,14 +92,14 @@ if (body) {
     function scroll(direction, element, distance, step, speed) {
         var scrollAmount = 0;
         if (element.offsetWidth + element.scrollLeft >= element.scrollWidth) {
-            var reset = setInterval(function() {
+            var reset = setInterval(function () {
                 element.scrollLeft -= step;
                 if (element.scrollLeft <= 0) {
                     window.clearInterval(reset);
                 }
             }, 10);
         } else {
-            var sideScroll = setInterval(function() {
+            var sideScroll = setInterval(function () {
                 scrollAmount += step;
                 if (direction === 'right') {
                     element.scrollLeft += step;
@@ -120,22 +120,22 @@ if (body) {
     var confirmBtn = document.getElementsByClassName('confirm-button')[0];
 
     const showPassenger = (event) => {
-            var menu = event.target.nextElementSibling;
+        var menu = event.target.nextElementSibling;
 
-            if ((menu.style.display === "none")||(menu.style.display === "")) {
-                    menu.style.display = "block";
-            } else { 
-                    menu.style.display = "none";
-            }
+        if ((menu.style.display === "none") || (menu.style.display === "")) {
+            menu.style.display = "block";
+        } else {
+            menu.style.display = "none";
+        }
     };
 
     const hidePassenger = (event) => {
         var menu = event.target.parentNode;
 
-        if ((menu.style.display === "none")||(menu.style.display === "")) {
-                menu.style.display = "block";
-        } else { 
-                menu.style.display = "none";
+        if ((menu.style.display === "none") || (menu.style.display === "")) {
+            menu.style.display = "block";
+        } else {
+            menu.style.display = "none";
         }
     }
 
@@ -153,10 +153,10 @@ if (body) {
 
     const increaseAdult = (event) => {
         adultCount++;
-        var currDom = event.target.parentNode; 
+        var currDom = event.target.parentNode;
         var myLabel = currDom.getElementsByClassName('pass-label')[0];
         var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
-        myLabel.innerText = adultCount + " Adults"; 
+        myLabel.innerText = adultCount + " Adults";
         myValue.setAttribute('value', adultCount);
 
         // Update passenger number
@@ -167,10 +167,10 @@ if (body) {
     const decreaseAdult = (event) => {
         if (adultCount === 1) {
             adultCount--;
-            var currDom = event.target.parentNode; 
+            var currDom = event.target.parentNode;
             var myLabel = currDom.getElementsByClassName('pass-label')[0];
             var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
-            myLabel.innerText = adultCount + " Adults"; 
+            myLabel.innerText = adultCount + " Adults";
             myValue.setAttribute('value', adultCount);
 
             if (childCount === 0) {
@@ -185,25 +185,25 @@ if (body) {
             event.preventDefault();
         } else {
             adultCount--;
-            var currDom = event.target.parentNode; 
+            var currDom = event.target.parentNode;
             var myLabel = currDom.getElementsByClassName('pass-label')[0];
             var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
-            myLabel.innerText = adultCount + " Adults"; 
+            myLabel.innerText = adultCount + " Adults";
             myValue.setAttribute('value', adultCount);
-           
+
             // Update passenger number
             passengerLabel.style.display = "none";
             passengerField.setAttribute("value", (childCount + adultCount + " Passengers"));
-            
+
         }
     }
 
     const increaseChild = (event) => {
         childCount++;
-        var currDom = event.target.parentNode; 
+        var currDom = event.target.parentNode;
         var myLabel = currDom.getElementsByClassName('pass-label')[0];
         var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
-        myLabel.innerText = childCount + " Children"; 
+        myLabel.innerText = childCount + " Children";
         myValue.setAttribute('value', childCount);
 
         // Update passenger number
@@ -214,10 +214,10 @@ if (body) {
     const decreaseChild = (event) => {
         if (childCount === 1) {
             childCount--;
-            var currDom = event.target.parentNode; 
+            var currDom = event.target.parentNode;
             var myLabel = currDom.getElementsByClassName('pass-label')[0];
             var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
-            myLabel.innerText = childCount + " Children"; 
+            myLabel.innerText = childCount + " Children";
             myValue.setAttribute('value', childCount);
 
             if (adultCount === 0) {
@@ -232,10 +232,10 @@ if (body) {
             event.preventDefault();
         } else {
             childCount--;
-            var currDom = event.target.parentNode; 
+            var currDom = event.target.parentNode;
             var myLabel = currDom.getElementsByClassName('pass-label')[0];
             var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
-            myLabel.innerText = childCount + " Children"; 
+            myLabel.innerText = childCount + " Children";
             myValue.setAttribute('value', childCount);
 
             // Update passenger number
@@ -251,18 +251,18 @@ if (body) {
 
 }
 
-/************************************** Register.html ****************************/
+/************************************** show input instruction ****************************/
 //Henry, show input instruction
-function showInstruction(formId){
-var regBody = document.getElementById(formId);
-// console.log('dd');
-if (regBody) {
-    // Get all input text fields
-    [].forEach.call(regBody,function(element){
-        element.addEventListener('focus', displayMsg);
-        element.addEventListener('blur', blurMsg); 
-    });
-}
+function showInstruction(formId) {
+    var regBody = document.getElementById(formId);
+    // console.log('dd');
+    if (regBody) {
+        // Get all input text fields
+        [].forEach.call(regBody, function (element) {
+            element.addEventListener('focus', displayMsg);
+            element.addEventListener('blur', blurMsg);
+        });
+    }
 }
 /****************************** Agent.html ********************************/
 
@@ -276,20 +276,20 @@ if (agtBody) {
     var posField = document.agentForm.AgtPosition;
     var telField = document.agentForm.AgtBusPhone;
     var emailField = document.agentForm.AgtEmail;
-    
+
     var fieldArray = [fNameField, lNameField, posField, telField, emailField];
 
     // Apply focus and blur events to field descriptions
     //could use one function
     telField.addEventListener('focus', displayMsg);
-    telField.addEventListener('blur', blurMsg); 
+    telField.addEventListener('blur', blurMsg);
 
     emailField.addEventListener('focus', displayMsg);
-    emailField.addEventListener('blur', blurMsg); 
-     
+    emailField.addEventListener('blur', blurMsg);
+
     var notification = document.getElementsByClassName('insert_notification')[0];
     var notification_div = document.getElementsByClassName('notification')[0];
-        
+
     if (notification) {
         notification_div.appendChild(notification);
     }
