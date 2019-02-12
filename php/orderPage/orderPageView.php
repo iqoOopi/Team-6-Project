@@ -150,14 +150,11 @@
                 <input id="orderFormTotalPrice" type="text" <?php echo "value={$pkg->getPrice()}" ?> disabled>
             </div>
 
-            <input id="btn" type="submit" name="submit">
+            <input id="btn" type="submit" name="CheckOut">
             <input type="reset">
 
         </form>
     </main>
-    <?php
-        echo "<script src='$_root/scripts/checkFormInputEmpty.js'></script>"
-    ?>
 
     <!-- update Total Price on the go -->
     <script>

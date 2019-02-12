@@ -15,7 +15,6 @@ button.addEventListener('click', validate);
 
 function validate(e) {
     var proceed = confirm("Are you sure to Submit?");
-    console.log(button);
     if (!proceed) {
         console.log("User cancelled");
     } else {
@@ -29,9 +28,9 @@ function validate(e) {
                 if (inputBox.getElementsByTagName("input")[0]) {
                     //show errorMsg if no value inputted
                     if (!inputBox.getElementsByTagName("input")[0].value) {
-                        e.preventDefault();
                         errorMsg.style.display = 'block';
                     } else {
+                        e.preventDefault();
                         //if user re-inputted value after seen the errorMsg, clear the errorMsg
                         errorMsg.style.display = 'none';
                     }
