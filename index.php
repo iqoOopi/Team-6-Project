@@ -32,24 +32,21 @@
                     <div class="passenger">
                         <div class="form-group form-group-adult">
                             <div class="quantity-selector">
-                                <label class="pass-label" for="quantity-selector-adult">
-                                    <input disabled type="number" min="0" max="20" class="quantity-selector__input" id="quantity-selector-adult" value="0" style="display:none;">
-                                    0 Adults
-                                </label>
+                                <label class="pass-label" for="quantity-selector-adult">0 Adults</label>
+                                <input disabled type="number" min="0" class="quantity-selector__input" id="quantity-selector-adult" value="0" style="display:none;">
                                 <button type="button" class="decrease-adult">-</button>
                                 <button type="button" class="increase-adult">+</button>
                             </div>
                         </div>
                         <div class="form-group form-group-children">
                             <div class="quantity-selector">
-                                <label class="pass-label" for="quantity-selector-children">
-                                    <input disabled type="number" min="0" max="20" class="quantity-selector__input" id="quantity-selector-children" value="0" style="display:none;">
-                                    0 Children
-                                </label>
+                                <label class="pass-label" for="quantity-selector-children">0 Children</label>
+                                <input disabled type="number" min="0" class="quantity-selector__input" id="quantity-selector-children" value="0" style="display:none;">
                                 <button type="button" class="decrease-child">-</button>
                                 <button type="button" class="increase-child">+</button>
                             </div>
                         </div>
+                        <button type="button" class="confirm-button">Done</button>
                     </div>
                 </div>
 

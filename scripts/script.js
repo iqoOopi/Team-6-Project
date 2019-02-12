@@ -4,8 +4,6 @@ var header = document.getElementsByClassName('site-header')[0];
 /*******************  Header ******************************/
 if(header) {
 
-    // Get passenger input filed
-    var passengerField = document.getElementsByClassName('passenger-num')[0];
     //Get menu button
     var menuBtn = document.getElementsByClassName('menu-btn');
 
@@ -19,27 +17,11 @@ if(header) {
             }
     };
 
-    const showPassenger = (event) => {
-            var menu = event.target.nextElementSibling;
 
-            if ((menu.style.display === "none")||(menu.style.display === "")) {
-                    menu.style.display = "block";
-            } else { 
-                    menu.style.display = "none";
-            }
-    };
-
-//    const hideMenu = (event) => {
-//        var ul = event.target.nextElementSibling;
-//        ul.style.display = "none";
-//    }
-     
     for (var i = 0; i < menuBtn.length; i++) {
             menuBtn[i].addEventListener("click", showMenu);
             menuBtn[i].addEventListener("blur", showMenu);
     }
-
-    passengerField.addEventListener("click", showPassenger);
 
     //Get anchor tags 
     var link = document.querySelectorAll('.drop-down-menu a');
@@ -128,6 +110,34 @@ if (body) {
         }
     }
     /******************** Passenger control button *********************/
+    // Get passenger input filed
+    var passengerField = document.getElementsByClassName('passenger-num')[0];
+    var passengerLabel = document.getElementsByClassName('passenger-info')[0];
+    var confirmBtn = document.getElementsByClassName('confirm-button')[0];
+
+    const showPassenger = (event) => {
+            var menu = event.target.nextElementSibling;
+
+            if ((menu.style.display === "none")||(menu.style.display === "")) {
+                    menu.style.display = "block";
+            } else { 
+                    menu.style.display = "none";
+            }
+    };
+
+    const hidePassenger = (event) => {
+        var menu = event.target.parentNode;
+
+        if ((menu.style.display === "none")||(menu.style.display === "")) {
+                menu.style.display = "block";
+        } else { 
+                menu.style.display = "none";
+        }
+    }
+
+    confirmBtn.addEventListener("click", hidePassenger);
+    passengerField.addEventListener("click", showPassenger);
+
     var adultIncr = document.getElementsByClassName('increase-adult')[0];
     var adultDecr = document.getElementsByClassName('decrease-adult')[0];
 
@@ -140,36 +150,101 @@ if (body) {
     const increaseAdult = (event) => {
         adultCount++;
         var currDom = event.target.parentNode; 
-        var mylabel = currDom.getElementsByClassName('pass-label')[0];
-        mylabel.innerText = adultCount + " Adults"; 
+        var myLabel = currDom.getElementsByClassName('pass-label')[0];
+        var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
+        myLabel.innerText = adultCount + " Adults"; 
+        myValue.setAttribute('value', adultCount);
+
+        // Update passenger number
+        passengerLabel.style.display = "none";
+        passengerField.setAttribute("value", (childCount + adultCount + " Passengers"));
     }
 
     const decreaseAdult = (event) => {
-        adultCount--;
-        var currDom = event.target.parentNode; 
-        var mylabel = currDom.getElementsByClassName('pass-label')[0];
-        mylabel.innerText = adultCount + " Adults"; 
+        if (adultCount === 1) {
+            adultCount--;
+            var currDom = event.target.parentNode; 
+            var myLabel = currDom.getElementsByClassName('pass-label')[0];
+            var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
+            myLabel.innerText = adultCount + " Adults"; 
+            myValue.setAttribute('value', adultCount);
+
+            if (childCount === 0) {
+                passengerLabel.style.display = "block";
+                passengerField.setAttribute("value", "");
+            } else {
+                // Update passenger number
+                passengerLabel.style.display = "none";
+                passengerField.setAttribute("value", (childCount + adultCount + " Passengers"));
+            }
+        } else if (adultCount === 0) {
+            event.preventDefault();
+        } else {
+            adultCount--;
+            var currDom = event.target.parentNode; 
+            var myLabel = currDom.getElementsByClassName('pass-label')[0];
+            var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
+            myLabel.innerText = adultCount + " Adults"; 
+            myValue.setAttribute('value', adultCount);
+           
+            // Update passenger number
+            passengerLabel.style.display = "none";
+            passengerField.setAttribute("value", (childCount + adultCount + " Passengers"));
+            
+        }
     }
 
     const increaseChild = (event) => {
         childCount++;
         var currDom = event.target.parentNode; 
-        var mylabel = currDom.getElementsByClassName('pass-label')[0];
-        mylabel.innerText = childCount + " Children"; 
+        var myLabel = currDom.getElementsByClassName('pass-label')[0];
+        var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
+        myLabel.innerText = childCount + " Children"; 
+        myValue.setAttribute('value', childCount);
+
+        // Update passenger number
+        passengerLabel.style.display = "none";
+        passengerField.setAttribute("value", (childCount + adultCount + " Passengers"));
     }
 
     const decreaseChild = (event) => {
-        childCount--;
-        var currDom = event.target.parentNode; 
-        var mylabel = currDom.getElementsByClassName('pass-label')[0];
-        mylabel.innerText = childCount + " Children"; 
+        if (childCount === 1) {
+            childCount--;
+            var currDom = event.target.parentNode; 
+            var myLabel = currDom.getElementsByClassName('pass-label')[0];
+            var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
+            myLabel.innerText = childCount + " Children"; 
+            myValue.setAttribute('value', childCount);
+
+            if (adultCount === 0) {
+                passengerLabel.style.display = "block";
+                passengerField.setAttribute("value", "");
+            } else {
+                // Update passenger number
+                passengerLabel.style.display = "none";
+                passengerField.setAttribute("value", (childCount + adultCount + " Passengers"));
+            }
+        } else if (childCount === 0) {
+            event.preventDefault();
+        } else {
+            childCount--;
+            var currDom = event.target.parentNode; 
+            var myLabel = currDom.getElementsByClassName('pass-label')[0];
+            var myValue = currDom.getElementsByClassName('quantity-selector__input')[0];
+            myLabel.innerText = childCount + " Children"; 
+            myValue.setAttribute('value', childCount);
+
+            // Update passenger number
+            passengerLabel.style.display = "none";
+            passengerField.setAttribute("value", (childCount + adultCount + " Passengers"));
+        }
     }
 
     adultIncr.addEventListener("click", increaseAdult);
     adultDecr.addEventListener("click", decreaseAdult);
     childIncr.addEventListener("click", increaseChild);
     childDecr.addEventListener("click", decreaseChild);
-    
+
 }
 
 /************************************** Register.html ****************************/
