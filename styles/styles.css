@@ -124,12 +124,12 @@ body {
 /********************* Travel Form **********************/
 .travelForm {
     display: flex;
-    width: 50rem;
+    width: 52rem;
     background-color: rgba(68, 63, 63, 0.6); 
     position: absolute;
     top: 12rem;
     left: 50%;
-    margin-left: -25rem;
+    margin-left: -26rem;
     padding: 0.7rem 0.5rem;
     border-radius: 1rem;
     justify-content: space-around;
@@ -142,11 +142,32 @@ body {
     padding-left: 0.2rem;
 }
 
+.dest-icon {
+    position: absolute;
+    top: 1.7rem;
+    margin-left: 0.5rem;
+}
+
+.going-to > input {
+    padding-left: 1.6rem;
+}
+
+.passengers-fields > input {
+    padding-left: 1.6rem;
+}
+
+.pass-icon {
+    position: absolute;
+    top: 1.7rem;
+    margin-left: 0.5rem;
+}
+
 /* Move label on top of input field */
 .passengers-fields .passenger-info {
     position: absolute;
     top: 1.6rem;
-    margin-left: 0.3rem;
+    margin-left: 1.8rem;
+    color: grey;
 }
 
 .passenger {
