@@ -196,4 +196,31 @@ function validateUser($user_input)
     }
     return $user_validated;
 }
+
+function showPkgImg($pkgObj) {
+    switch ($pkgObj->getId()) {
+        case 1: 
+            $str = "<div class=\"pkg-img\">";
+            $str = $str . "<img src=\"\Team-6-Project/imgs/pkgId1.jpg\" alt=\"pkgId1\">";
+            $str = $str . "</div>";
+            return $str;
+        case 2: 
+            $str = "<div class=\"pkg-img\">";
+            $str = $str . "<img src=\"\Team-6-Project/imgs/pkgId2.jpg\" alt=\"pkgId2\">";
+            $str = $str . "</div>";
+            return $str;
+        case 3: 
+            $str = "<div class=\"pkg-img\">";
+            $str = $str . "<img src=\"\Team-6-Project/imgs/pkgId3.jpg\" alt=\"pkgId3\">";
+            $str = $str . "</div>";
+            return $str;
+        case 4: 
+            $str = "<div class=\"pkg-img\">";
+            $str = $str . "<img src=\"\Team-6-Project/imgs/pkgId4.jpg\" alt=\"pkgId4\">";
+            $str = $str . "</div>";
+            return $str;
+        default:
+            return false;
+    }
+}
 ?>
