@@ -41,7 +41,7 @@
                         print("<button class=\"menu-btn\">Welcome: <span style=\"color:darkred;font-size:1rem;\"><strong>" . $_SESSION["username"] . "</span></strong></button>"); 
                         print("<ul>");
                             print("<li>");
-                                print("<a href=\"#\">Admin Settings</a>");
+                                print("<a href=\"$_root/php/adminDashBoard.php\">Admin Settings</a>");
                             print("</li>");		
                             print("<li>");
                                 print("<a href=\"$_root/php/logout.php\">Logout</a>");
