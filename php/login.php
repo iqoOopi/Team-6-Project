@@ -8,11 +8,11 @@
 
         // trim username and password
         foreach ($_POST as $key => $value) {
-            $usr_array[$key] = clean_input($value);
+            $usr_array[$key] = cleanInput($value);
         }
 
         // If validated, start session variable
-        $validated = validate_user($usr_array);
+        $validated = validateUser($usr_array);
         if ($validated) {
             $_SESSION["admin"] = $validated;
             $_SESSION["username"] = $usr_array["username"];
