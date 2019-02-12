@@ -8,6 +8,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="styles/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Sarabun" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
 
     <body class="index">
@@ -18,6 +19,9 @@
 
             <form action="" method="POST" class="travelForm">
                 <div class="going-to">
+                    <div class="dest-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
                     <input type="text" placeholder="Where would you like to go?" >
                 </div>
                 <div class="leaving-from">
@@ -27,6 +31,9 @@
                     <input type="date">
                 </div>
                 <div class="passengers-fields">
+                    <div class="pass-icon">
+                        <i class="far fa-user"></i>
+                    </div>
                     <label for="passenger-number" class="passenger-info">Passengers</label>
                     <input readonly type="text" id="passenger-number" class="passenger-num" value>
                     <div class="passenger">
