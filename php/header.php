@@ -38,7 +38,7 @@
             <div class="drop-down-menu">
                 <?php
                     if(isset($_SESSION["admin"]) && $_SESSION["admin"] === true) {
-                        print("<button class=\"menu-btn\">Welcome <span style=\"color:darkred;font-size:1rem;\"><strong>" . $_SESSION["username"] . "</span></strong></button>"); 
+                        print("<button class=\"menu-btn\">Welcome: <span style=\"color:darkred;font-size:1rem;\"><strong>" . $_SESSION["username"] . "</span></strong></button>"); 
                         print("<ul>");
                             print("<li>");
                                 print("<a href=\"#\">Admin Settings</a>");
@@ -47,14 +47,24 @@
                                 print("<a href=\"$_root/php/logout.php\">Logout</a>");
                             print("</li>");
                         print("</ul>");
-                    } else {
+                    } elseif(isset($_SESSION["customer"]) && $_SESSION["customer"] === true) {
+                        print("<button class=\"menu-btn\">Welcome: <span style=\"color:darkred;font-size:1rem;\"><strong>" . $_SESSION["username"] . "</span></strong></button>"); 
+                        print("<ul>");
+                            print("<li>");
+                                print("<a href=\"#\">Your Account</a>");
+                            print("</li>");		
+                            print("<li>");
+                                print("<a href=\"$_root/php/logout.php\">Logout</a>");
+                            print("</li>");
+                        print("</ul>");
+                    } else{
                         print("<button class=\"menu-btn\">Login</button>"); 
                         print("<ul>");
                             print("<li>");
                                 print("<a href=\"$_root/php/login.php\">Admin Login</a>");
                             print("</li>");		
                             print("<li>");
-                                print("<a href=\"#\">Customer Login</a>");
+                                print("<a href=\"$_root/php/customerLogin.php\">Customer Login</a>");
                             print("</li>");
                         print("</ul>");
                     }

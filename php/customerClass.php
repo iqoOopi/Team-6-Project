@@ -11,7 +11,9 @@ class customer {
         private $CustHomePhone;
         private $CustBusPhone;
         private $CustEmail;
+        private $CustPassword;
         private $AgentId;
+        
 
         public function __construct($assoc_array) {
             foreach($assoc_array as $key => $value) {
@@ -52,11 +54,6 @@ class customer {
             return $prepString;
         }
 
-   
-      
-
-
-
         public function getId() {
             return $this->CustomerId;
         }
@@ -65,12 +62,19 @@ class customer {
             $this->CustomerId = $id;
         }
 
-        public function getFirstName() {
+        public function getCustFirstName() {
             return $this->CustFirstName;
         }
 
-        public function setFirstName($f_name) {
-            $this->CustFirstName = $f_name;
+        public function setCustFirstName($x) {
+            $this->CustFirstName = $x;
+        }
+        public function getCustLastName() {
+            return $this->CustLastName;
+        }
+
+        public function setCustLastName($x) {
+            $this->CustLastName = $x;
         }
 
         public function getCustAddress() {
@@ -90,11 +94,26 @@ class customer {
         }
 
         public function getCustProv() {
-            return $this->getCustProv;
+            return $this->CustProv;
         }
 
         public function setCustProv($x) {
             $this->CustProv = $x;
+        }
+
+        public function getCustEmail() {
+            return $this->CustEmail;
+        }
+
+        public function setCustEmail($x) {
+            $this->CustEmail = $x;
+        }
+        public function getCustPassword() {
+            return $this->CustPassword;
+        }
+
+        public function setCustPassword($x) {
+            $this->CustPassword = $x;
         }
     }
 ?>

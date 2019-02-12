@@ -15,7 +15,7 @@ body {
 }
 
 /******************** Setting Background ********************/
-.register-bg, .contact-bg, .packages-bg{
+.register-bg, .contact-bg, .packages-bg, .orderPage-bg{
     background: url("../imgs/register-bg.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -288,7 +288,7 @@ body {
     color: white;
 }
 
-.agent form, .register form {
+.agent form, .register form, .orderPage form {
     position: absolute;
     width: 60rem;
     background-color: rgba(68, 63, 63, 0.6);

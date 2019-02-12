@@ -12,7 +12,7 @@ header("Location: http://localhost{$_root}/php/packages.php");
 $BookingDate=date("Y-m-d H:i:s",$_POST['BookingDate']);
 //BookingNo to be filled later on
 $TravelerCount=$_POST['TravelerCount'];
-$customerId=$_POST['customerId'];
+$customerId=$_SESSION['customerId'];
 $TripTypeId=$_POST['TripTypeId'];
 $packageId=$_POST['packageId'];
 

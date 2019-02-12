@@ -14,7 +14,8 @@ button.addEventListener('click', validate);
 
 
 function validate(e) {
-    var proceed = confirm("Are you sure?");
+    var proceed = confirm("Are you sure to Submit?");
+    console.log(button);
     if (!proceed) {
         console.log("User cancelled");
     } else {

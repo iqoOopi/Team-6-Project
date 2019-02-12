@@ -1,21 +1,35 @@
 <?php
     include_once ('top.php');
     include_once ("functions.php");
+    include_once 'customerClass.php';
     // Get user file as associative array
     // Get username and password from $_POST 
-    if (isset($_POST['submit'])) {
-        unset($_POST['submit']);
+    if (isset($_POST['cusSubmit'])) {
+        unset($_POST['cusSubmit']);
 
         // trim username and password
         foreach ($_POST as $key => $value) {
-            $usr_array[$key] = cleanInput($value);
+            $user_input[$key] = cleanInput($value);
+        }
+        $validated=false;
+        $matchedCustomer;
+        $customers = getInstants('customers', 'customer');
+        foreach ($customers as $key=>$customer){
+            if ($user_input['username'] == $customer->getCustEmail()) {
+                if ($user_input['password'] == $customer->getCustPassword()) {
+                    $validated=true;
+                    $matchedCustomer=$customer;
+                    break;
+                }
+            }
         }
 
         // If validated, start session variable
-        $validated = validate_user($usr_array);
+     
         if ($validated) {
-            $_SESSION["admin"] = $validated;
-            $_SESSION["username"] = $usr_array["username"];
+            $_SESSION["customer"] = $validated;
+            $_SESSION["username"] = $matchedCustomer->getCustLastName();
+            $_SESSION['customerId']= $matchedCustomer->getId();
             header("Location: $_root/index.php");
         } else {
             print("<div class=\"login-error\">Invalid username and/or password</div>");
@@ -38,15 +52,14 @@
 		    include_once("header.php");	
 		?>
 		<form action="" method="POST" name="loginForm">
-                    <div class="login-title"><span>Admin</span>Login</div>
+                    <div class="login-title"><span>Customer</span>Login</div>
                     <div class="login-logo"></div>
                     <div class="login-box">
-                        <input type="text" placeholder="Username" name="username">
+                        <input type="text" placeholder="Email" name="username">
                         <input type="password" placeholder="Password" name="password">
-                        <input type="submit" value="Login" name="submit">
+                        <input type="submit" value="Login" name="cusSubmit">
                     </div>
 		</form>
-
             <?php
                 print("<script src=\"$_root/scripts/script.js\"></script>");
             ?>

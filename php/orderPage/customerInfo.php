@@ -33,7 +33,7 @@ include_once "..\header.php";
         <?php
 
 $customers = getInstants('customers', 'customer');
-echo("<br>$customers[1]<br>");
+// print_r($customers);
 
 
 $particularCustomer = getInstants('customers', 'customer','109');
