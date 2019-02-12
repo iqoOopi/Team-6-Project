@@ -17,10 +17,14 @@ if(header) {
             }
     };
 
+    const hideMenu = (event) => {
+            var ul = event.target.nextElementSibling;
+            ul.style.display = "none";
+    };
 
     for (var i = 0; i < menuBtn.length; i++) {
             menuBtn[i].addEventListener("click", showMenu);
-            menuBtn[i].addEventListener("blur", showMenu);
+            menuBtn[i].addEventListener("blur", hideMenu);
     }
 
     //Get anchor tags 
