@@ -11,6 +11,7 @@
             <div class="drop-down-menu">
                 <button class="menu-btn">Links</button>
                 <ul>
+                    <div class="triangle-up"></div>
                     <?php 
                         if(isset($_SESSION["admin"]) && $_SESSION["admin"] === true) {
                             print("<li>");
@@ -40,6 +41,8 @@
                     if(isset($_SESSION["admin"]) && $_SESSION["admin"] === true) {
                         print("<button class=\"menu-btn\">Welcome: <span style=\"color:darkred;font-size:1rem;\"><strong>" . $_SESSION["username"] . "</span></strong></button>"); 
                         print("<ul>");
+                            print("<div class=\"triangle-up\"></div>");
+                            
                             print("<li>");
                                 print("<a href=\"$_root/php/adminDashBoard.php\">Admin Settings</a>");
                             print("</li>");		
@@ -50,6 +53,7 @@
                     } elseif(isset($_SESSION["customer"]) && $_SESSION["customer"] === true) {
                         print("<button class=\"menu-btn\">Welcome: <span style=\"color:darkred;font-size:1rem;\"><strong>" . $_SESSION["username"] . "</span></strong></button>"); 
                         print("<ul>");
+                            print("<div class=\"triangle-up\"></div>");
                             print("<li>");
                                 print("<a href=\"#\">Your Account</a>");
                             print("</li>");		
@@ -60,6 +64,7 @@
                     } else{
                         print("<button class=\"menu-btn\">Login</button>"); 
                         print("<ul>");
+                            print("<div class=\"triangle-up\"></div>");
                             print("<li>");
                                 print("<a href=\"$_root/php/login.php\">Admin Login</a>");
                             print("</li>");		

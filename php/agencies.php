@@ -39,9 +39,9 @@
         //              [AgencyCountry] => Canada 
         //              [AgencyPhone] => 4035632381 
         //              [AgencyFax] => 4035632382 ) )
-        print ("result: <br><br>");
-        print_r ($result);
-        print ("<br><br>");
+        //print ("result: <br><br>");
+        //print_r ($result);
+        //print ("<br><br>");
         $agencies = [];
         foreach ($result as $agen) {
             // Constructing a singe customer object
@@ -55,6 +55,24 @@
                 $agen["AgencyPhone"],
                 $agen["AgencyFax"]);
             $agencies[] = $agency;
+        }
+        foreach($agencies as $value){
+            //gathers all the data for it to be added to a list
+            $agencyAddress = $value->getAgencyAddress();
+            $agencyCity = $value->getAgencyCity();
+            $agencyProv = $value->getAgencyProv();
+            $agencyPostal = $value->getAgencyPostal();
+            $agencyCounty = $value->getAgencyCountry();
+            $agencyPhone = $value->getAgencyPhone();
+            $agencyFax = $value->getAgencyFax();
+            
+            print "<h2>" . $agencyCity . " Offices:</h2><br>";
+            print "<ul>";
+            print "<li>" . $agencyAddress . "</li>";
+            print "<li>" . $agencyProv . ", " . $agencyCounty. "</li>";
+            print "<li>Phone: " . $agencyPhone . "</li>";
+            print "<li>Fax: " . $agencyFax . "</li>";
+            print "</ul>";
         }
 
         if (!$result) {
