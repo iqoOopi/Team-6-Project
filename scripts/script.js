@@ -252,36 +252,17 @@ if (body) {
 }
 
 /************************************** Register.html ****************************/
-var regBody = document.getElementsByClassName('register')[0];
-
+//Henry, show input instruction
+function showInstruction(formId){
+var regBody = document.getElementById(formId);
+// console.log('dd');
 if (regBody) {
-
     // Get all input text fields
-    var fNameField = document.registerForm.firstName;
-    var lNameField = document.registerForm.lastName;
-    var bdayField = document.registerForm.bday;
-    var addrField = document.registerForm.address;
-    var cityField = document.registerForm.city;
-    var postalField = document.registerForm.post;
-    var telField = document.registerForm.tel_num;
-    var emailField = document.registerForm.email_info;
-    
-    var fieldArray = [fNameField, lNameField, bdayField, addrField, cityField, postalField, telField, emailField];
-
-    // Apply focus and blur events to field descriptions
-
-    addrField.addEventListener('focus', displayMsg);
-    addrField.addEventListener('blur', blurMsg); 
-
-    postalField.addEventListener('focus', displayMsg);
-    postalField.addEventListener('blur', blurMsg); 
-
-    telField.addEventListener('focus', displayMsg);
-    telField.addEventListener('blur', blurMsg); 
-
-    emailField.addEventListener('focus', displayMsg);
-    emailField.addEventListener('blur', blurMsg); 
-
+    [].forEach.call(regBody,function(element){
+        element.addEventListener('focus', displayMsg);
+        element.addEventListener('blur', blurMsg); 
+    });
+}
 }
 /****************************** Agent.html ********************************/
 

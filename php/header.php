@@ -20,7 +20,7 @@
                     ?>
                     <li>
                         <?php
-                            print("<a href=\"$_root/php/register.php\">Register</a>");
+                            print("<a href=\"$_root/php/registerCustView.php\">Register</a>");
                         ?>
                     </li>
                     <li>

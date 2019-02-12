@@ -16,14 +16,28 @@
                 include_once("header.php");
         ?>
 
+<!-- private $CustomerId;
+        private $CustFirstName;
+        private $CustLastName;
+        private $CustAddress;
+        private $CustCity;      
+        private $CustProv;
+        private $CustPostal;
+        private $CustCountry;
+        private $CustHomePhone;
+        private $CustBusPhone;
+        private $CustEmail;
+        private $CustPassword;
+        private $AgentId; -->
+
         <main>
-            <form action="" method="POST" name="registerForm">
+            <form id="customerRegisterForm" action="" method="POST" name="customerRegisterForm">
                 
-                <p class="label-head">Passenger Information</p>
+                <p class="label-head">Customer Information</p>
 
                 <div class="form-box">
                     <label for="f_name">First Name</label>
-                    <input id="f_name" type="text" name="firstName" placeholder="First Name" required>
+                    <input id="f_name" type="text" name="CustFirstName" placeholder="First Name" required>
                     <div class="text-box">
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your first name</p>
                     </div>
@@ -31,23 +45,23 @@
                 
                 <div class="form-box">
                     <label for="l_name">Last Name</label>
-                    <input id="l_name" type="text" name="lastName" placeholder="Last Name" required>
+                    <input id="l_name" type="text" name="CustLastName" placeholder="Last Name" required>
                     <div class="text-box">
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your last name</p>
                     </div>
                 </div>
 
-                <div class="form-box">
+                <!-- <div class="form-box">
                     <label  for="dob">Birthdate</label>
                     <input id="dob" type="date" name="bday" required>
                     <div class="text-box">
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please select your birthday</p>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-box">
                     <label for="addr">Address</label> 
-                    <input id="addr" type="text" name="address" placeholder="Address" required>
+                    <input id="addr" type="text" name="CustAddress" placeholder="Address" required>
                     <div class="text-box">
                         <p id="addressDescription" style="display:none;">E.g. Suite 1221, 123 Street</p>
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your address</p>
@@ -56,7 +70,7 @@
 
                 <div class="form-box">
                     <label for="city">City</label> 
-                    <input id="city" type="text" name="city" placeholder="City" required>
+                    <input id="city" type="text" name="CustCity" placeholder="City" required>
                     <div class="text-box">
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your city</p>
                     </div>
@@ -64,7 +78,7 @@
 
                 <div class="form-box">
                     <label for="prov">Province</label> 
-                    <select id="prov" name="province" required>
+                    <select id="prov" name="CustProv" required>
                         <option value="AB">AB</option>
                         <option value="NL">NL</option>
                         <option value="PE">PE</option>
@@ -83,48 +97,60 @@
 
                 <div class="form-box">
                     <label for="postal">Postal Code</label> 
-                    <input id="postal" type="text" name="post" placeholder="A1A 1A1" pattern="^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$" maxlength="7" required title="Please enter your Postal Code">
+                    <input id="postal" type="text" name="CustPostal" placeholder="A1A 1A1" pattern="^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$" maxlength="7" required title="Please enter your Postal Code">
                     <div class="text-box">
                         <p id="postalDescription" style="display:none;">E.g. T2M 0L4</p>
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your postal code</p>
                     </div>
                 </div>
 
+                
                 <div class="form-box">
-                    <label for="phone">Phone Number</label>
-                    <input id="phone" type="tel" name="tel_num" placeholder="Phone Number" required>
+                    <label for="Country">Country</label> 
+                    <input id="Country" type="text" name="CustCountry" title="Please enter your Country">
+                    <div class="text-box">
+                        <p id="postalDescription" style="display:none;">E.g. T2M 0L4</p>
+                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Country</p>
+                    </div>
+                </div>
+
+                <div class="form-box">
+                    <label for="phone">Home Phone</label>
+                    <input id="phone" type="tel" name="CustHomePhone" placeholder="Home Phone" required>
                     <div class="text-box">
                         <p id="phoneDescription" style="display:none;">E.g. (403) 284-7248</p>
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your phone number</p>
+                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Home phone number</p>
+                    </div>
+                </div>
+
+                <div class="form-box">
+                    <label for="phone">Business Phone</label>
+                    <input id="phone" type="tel" name="CustBusPhone" placeholder="Business Phone" required>
+                    <div class="text-box">
+                        <p id="phoneDescription" style="display:none;">E.g. (403) 284-7248</p>
+                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Bus phone number</p>
                     </div>
                 </div>
 
                 <div class="form-box">
                     <label for="e_mail">Email</label>
-                    <input id="e_mail" type="email" name="email_info" placeholder="Email" required>
+                    <input id="e_mail" type="email" name="CustEmail" placeholder="Email" required>
                     <div class="text-box">
                         <p id="emailDescription" style="display:none;">E.g. firstname.lastname@sait.ca</p>
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your email</p>
                     </div>
                 </div>
 
-                <div class="form-box">
-                    <label for="passenger">Number of Passengers</label>
-                    <select id="passenger" name="num_passenger" >
-                        <option selected value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="10+">10+</option>
-                    </select>
-                </div>
+                <!-- private $AgentId; -->
 
+                <div class="form-box">
+                    <label for="agentId">Agent Id</label>
+                    <input id="agentId" type="text" name="AgentId" placeholder="agentId" required>
+                    <div class="text-box">
+                        <p id="phoneDescription" style="display:none;">E.g.  2</p>
+                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Agent Id</p>
+                    </div>
+                </div>
 
                 <input id="btn" type="submit">
                 <input type="reset">
@@ -135,6 +161,7 @@
         <?php
             print("<script src=\"$_root/scripts/script.js\"></script>");
             print("<script src=\"$_root/scripts/checkFormInputEmpty.js\"></script>");
+            print("<script>showInstruction(\"customerRegisterForm\");</script>");
         ?>
     </body>
 </html>
