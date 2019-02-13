@@ -518,16 +518,81 @@ form > button {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 .pkg-box {
     display: flex;
     flex-direction: column;
     background-color: white;
     width: 22rem;
+    margin-top: 2rem;
+    border-radius: 2rem;
 }
 
-.pkg-img img{
+.pkg-info {
+    padding-bottom: 1rem;
+}
+
+.pkg-img img {
     width: 100%;
     height: 18rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
+.pkg-info .price-tag {
+    position: relative;
+    top: -27rem;
+    left: 17rem;
+}
+
+.pkg-info .pkg-price {
+    position: absolute;
+    background-color: rgb(231, 68, 68);
+    font-size: 1.4rem;
+    color: yellow;
+}
+
+.triangle-topleft {
+    position: absolute;
+    top: 1.35rem;
+    left: 5.5rem;
+    width: 0;
+    height: 0;
+    border-top: 1rem solid rgb(231, 68, 68);
+    border-right: 1rem solid transparent;
+}
+
+.triangle-topright {
+    position: absolute;
+    top: 2.2rem;
+    left: -0.8rem;
+    width: 0;
+    height: 0;
+    border-top: 0.8rem solid rgb(231, 68, 68);
+    border-left: 0.8rem solid transparent;
+}
+
+.triangle-bottomleft {
+    position: absolute;
+    top: 2rem;
+    left: 5.5rem;
+    width: 0;
+    height: 0;
+    border-bottom: 1rem solid rgb(231, 68, 68);
+    border-right: 1rem solid transparent;
+}
+
+.triangle-bottomright {
+    position: absolute;
+    top: 1.4rem;
+    left: -0.8rem;
+    width: 0;
+    height: 0;
+    border-bottom: 0.8rem solid rgb(231, 68, 68);
+    border-left: 0.8rem solid transparent;
+}
+
+.pkg-info form input[type="submit"] {
+    position: absolute;
 }
