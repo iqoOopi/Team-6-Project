@@ -16,7 +16,7 @@
                 include_once("header.php");
         ?>
         <main>
-            <form id="customerRegisterForm" action="" method="POST" name="customerRegisterForm">
+            <form id="customerRegisterForm" action="registerCustController.php" method="POST" name="customerRegisterForm">
                 
                 <p class="label-head">Customer Information</p>
 
@@ -35,14 +35,6 @@
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your last name</p>
                     </div>
                 </div>
-
-                <!-- <div class="form-box">
-                    <label  for="dob">Birthdate</label>
-                    <input id="dob" type="date" name="bday" required>
-                    <div class="text-box">
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please select your birthday</p>
-                    </div>
-                </div> -->
 
                 <div class="form-box">
                     <label for="addr">Address</label> 
@@ -82,7 +74,7 @@
 
                 <div class="form-box">
                     <label for="postal">Postal Code</label> 
-                    <input id="postal" type="text" name="CustPostal" placeholder="A1A 1A1" pattern="^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$" maxlength="7" required title="Please enter your Postal Code">
+                    <input id="postal" type="text" name="CustPostal" placeholder="A1A 1A1" required title="Please enter your Postal Code">
                     <div class="text-box">
                         <p id="postalDescription" style="display:none;">E.g. T2M 0L4</p>
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your postal code</p>
@@ -101,7 +93,7 @@
 
                 <div class="form-box">
                     <label for="phone">Home Phone</label>
-                    <input id="phone" type="tel" name="CustHomePhone" placeholder="Home Phone" required>
+                    <input id="homePhone" type="tel" name="CustHomePhone" placeholder="Home Phone" required>
                     <div class="text-box">
                         <p id="phoneDescription" style="display:none;">E.g. (403) 284-7248</p>
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Home phone number</p>
@@ -110,7 +102,7 @@
 
                 <div class="form-box">
                     <label for="phone">Business Phone</label>
-                    <input id="phone" type="tel" name="CustBusPhone" placeholder="Business Phone" required>
+                    <input id="busPhone" type="tel" name="CustBusPhone" placeholder="Business Phone" required>
                     <div class="text-box">
                         <p id="phoneDescription" style="display:none;">E.g. (403) 284-7248</p>
                         <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Bus phone number</p>
@@ -126,7 +118,24 @@
                     </div>
                 </div>
 
-                <!-- private $AgentId; -->
+                <div class="form-box">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="CustPassword" placeholder="" required>
+                    <div class="text-box">
+                        
+                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your password</p>
+                    </div>
+                </div>
+
+                <div class="form-box">
+                    <label for="rePassword"> Re-enter Password</label>
+                    <input id="rePassword" type="password" name="RePassword" placeholder="Re-enter your Password" required>
+                    <div class="text-box">
+                        
+                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your password</p>
+                    </div>
+                </div>
+
 
                 <div class="form-box">
                     <label for="agentId">Agent Id</label>
@@ -137,7 +146,7 @@
                     </div>
                 </div>
 
-                <input id="btn" type="submit">
+                <input id="btn" name="registerCust" type="submit">
                 <input type="reset">
 
             </form>
@@ -147,6 +156,7 @@
             print("<script src=\"$_root/scripts/script.js\"></script>");
             print("<script src=\"$_root/scripts/checkFormInputEmpty.js\"></script>");
             print("<script>showInstruction(\"customerRegisterForm\");</script>");
+            print("<script>validatePassword(\"registerCust\");</script>");
         ?>
     </body>
 </html>

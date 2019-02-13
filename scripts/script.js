@@ -310,13 +310,34 @@ if (loginBody) {
 function displayMsg(e) {
     var parentN = e.target.parentNode;
     var description = parentN.getElementsByTagName('p')[0];
-    description.style.display = "block";
+    // console.log(parentN);
+    if (description) {
+        description.style.display = "block";
+    }
+    
 }
 
 function blurMsg(e) {
     var parentN = e.target.parentNode;
     var description = parentN.getElementsByTagName('p')[0];
-    description.style.display = "none";
+    if (description) {
+        description.style.display = "none";
+        }
+    
+}
+
+
+function validatePassword(submitBtnName) {
+    var submit=document.getElementsByName(submitBtnName)[0];
+    submit.addEventListener('click',function(e){
+        var password=document.getElementById('password');
+        var rePassword=document.getElementById('rePassword');
+        if(password.value!=rePassword.value){
+            e.preventDefault();
+            alert("password doesn't match");
+        }
+    });
+
 }
 
 

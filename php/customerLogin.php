@@ -57,6 +57,7 @@
                     <div class="login-box">
                         <input type="text" placeholder="Email" name="username">
                         <input type="password" placeholder="Password" name="password">
+                        <label>Do not have an account? <a href="registerCustView.php">Register Now</a></label>
                         <input type="submit" value="Login" name="cusSubmit">
                     </div>
 		</form>
