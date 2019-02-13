@@ -251,6 +251,7 @@ if (body) {
 
 }
 
+
 /************************************** show input instruction ****************************/
 //Henry, show input instruction
 function showInstruction(formId) {
