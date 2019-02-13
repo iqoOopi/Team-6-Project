@@ -167,11 +167,11 @@
 
     <?php
         print("<script src=\"$_root/scripts/script.js\"></script>");
-        print("<script src=\"$_root/scripts/checkFormInputEmpty.js\"></script>");
     ?>
     <script>
     showInstruction("customerRegisterForm");
     validatePassword("registerCust");
+    checkFormInputEmpty("btn");
     </script>
 </body>
 
