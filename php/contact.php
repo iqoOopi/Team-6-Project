@@ -22,12 +22,13 @@
 
 	<body>
 		<?php include_once("header.php"); ?>
-		<h1>Agencies</h1><br>
+		<u><h1 style="margin:2.5%">Our Current Agencies</h1></u>
 		<?php
 			include_once("agencies.php");
 			$agencies = GetAgency();
 
 			include_once("footer.php");
+			print("<script src=\"$_root/scripts/script.js\"></script>");
 		?>
 	</body>
 

@@ -157,7 +157,11 @@
     </main>
 
     <!-- update Total Price on the go -->
+    <?php
+        print("<script src=\"$_root/scripts/script.js\"></script>");
+    ?>
     <script>
+    checkFormInputEmpty("btn");
     function myFunction() {
         var pkgPrice = <?php print($pkg->getPrice());?>;
         var numTravellers = document.getElementById("orderFormTravelerCount").value;
@@ -168,11 +172,7 @@
         }
     }
     </script>
-    <?php
-        print("<script src=\"$_root/scripts/script.js\"></script>");
-        print("<script src=\"$_root/scripts/checkFormInputEmpty.js\"></script>");
-    
-    ?>
+
 </body>
 
 </html>

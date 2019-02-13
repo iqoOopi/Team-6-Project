@@ -376,7 +376,7 @@ form > button {
     color: white;
 }
 
-.agent form, .register form, .orderPage form {
+.agent form, .register form, .orderPage form{
     position: absolute;
     width: 60rem;
     background-color: rgba(68, 63, 63, 0.6);
@@ -385,6 +385,16 @@ form > button {
     margin-left: -30rem;
     border-radius: 2rem;
     z-index: 1;
+}
+.agency{
+    color: white;
+    margin-left: 5%;
+    width: 30rem;
+    background-color: rgba(68, 63, 63, 0.8);
+    top: 6.5rem;
+    border-radius: 2rem;
+    z-index: 1;
+    text-indent: 5%;
 }
 
 .form-box {
