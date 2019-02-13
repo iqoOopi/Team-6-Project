@@ -22,7 +22,7 @@
 
 	<body>
 		<?php include_once("header.php"); ?>
-		<h1>Agencies</h1><br>
+		<u><h1 style="margin:2.5%">Agencies</h1></u>
 		<?php
 			include_once("agencies.php");
 			$agencies = GetAgency();
