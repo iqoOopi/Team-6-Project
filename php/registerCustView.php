@@ -1,162 +1,178 @@
+<!-- Henry -->
 <?php
-    include_once('top.php');
+    include_once 'top.php';
+    include_once 'registerCustController.php';
 ?>
 <!DOCTYPE html>
 <html class="register-bg">
-    <head>
-        <title>Registration</title>
-        <meta charset="utf-8">
-        <?php
-            print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.css\">");
-        ?>
-    </head>
 
-    <body class="register">
-        <?php
-                include_once("header.php");
-        ?>
-        <main>
-            <form id="customerRegisterForm" action="registerCustController.php" method="POST" name="customerRegisterForm">
-                
-                <p class="label-head">Customer Information</p>
+<head>
+    <title>Registration</title>
+    <meta charset="utf-8">
+    <?php
+        print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.css\">");
+    ?>
+</head>
 
-                <div class="form-box">
-                    <label for="f_name">First Name</label>
-                    <input id="f_name" type="text" name="CustFirstName" placeholder="First Name" required>
-                    <div class="text-box">
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your first name</p>
-                    </div>
+<body class="register">
+    <?php
+        include_once "header.php";
+        if (isset($_POST['registerCust'])) {
+            echo ('preventDefault failed');
+        }
+        $errorArray = registerCust();
+        if (!empty($errorArray)){
+            echo ("<script>alert('{$errorArray['duplicate']}'+'\\n'+'{$errorArray['agentId']}')</script>");
+        }
+    ?>
+    <main>
+        <form id="customerRegisterForm" action="#" method="POST" name="customerRegisterForm">
+
+            <p class="label-head">Customer Information</p>
+
+            <div class="form-box">
+                <label for="f_name">First Name</label>
+                <input id="f_name" type="text" name="CustFirstName" placeholder="First Name" >
+                <div class="text-box">
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your first name</p>
                 </div>
-                
-                <div class="form-box">
-                    <label for="l_name">Last Name</label>
-                    <input id="l_name" type="text" name="CustLastName" placeholder="Last Name" required>
-                    <div class="text-box">
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your last name</p>
-                    </div>
+            </div>
+
+            <div class="form-box">
+                <label for="l_name">Last Name</label>
+                <input id="l_name" type="text" name="CustLastName" placeholder="Last Name" >
+                <div class="text-box">
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your last name</p>
                 </div>
+            </div>
 
-                <div class="form-box">
-                    <label for="addr">Address</label> 
-                    <input id="addr" type="text" name="CustAddress" placeholder="Address" required>
-                    <div class="text-box">
-                        <p id="addressDescription" style="display:none;">E.g. Suite 1221, 123 Street</p>
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your address</p>
-                    </div>
+            <div class="form-box">
+                <label for="addr">Address</label>
+                <input id="addr" type="text" name="CustAddress" placeholder="Address" >
+                <div class="text-box">
+                    <p id="addressDescription" style="display:none;">E.g. Suite 1221, 123 Street</p>
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your address</p>
                 </div>
+            </div>
 
-                <div class="form-box">
-                    <label for="city">City</label> 
-                    <input id="city" type="text" name="CustCity" placeholder="City" required>
-                    <div class="text-box">
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your city</p>
-                    </div>
+            <div class="form-box">
+                <label for="city">City</label>
+                <input id="city" type="text" name="CustCity" placeholder="City" >
+                <div class="text-box">
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your city</p>
                 </div>
+            </div>
 
-                <div class="form-box">
-                    <label for="prov">Province</label> 
-                    <select id="prov" name="CustProv" required>
-                        <option value="AB">AB</option>
-                        <option value="NL">NL</option>
-                        <option value="PE">PE</option>
-                        <option value="NS">NS</option>
-                        <option value="NB">NB</option>
-                        <option value="QC">QC</option>
-                        <option value="ON">ON</option>
-                        <option value="MB">MB</option>
-                        <option value="SK">SK</option>
-                        <option value="BC">BC</option>
-                        <option value="YT">YT</option>
-                        <option value="NT">NT</option>
-                        <option value="NU">NU</option>
-                    </select>
+            <div class="form-box">
+                <label for="prov">Province</label>
+                <select id="prov" name="CustProv" >
+                    <option value="AB">AB</option>
+                    <option value="NL">NL</option>
+                    <option value="PE">PE</option>
+                    <option value="NS">NS</option>
+                    <option value="NB">NB</option>
+                    <option value="QC">QC</option>
+                    <option value="ON">ON</option>
+                    <option value="MB">MB</option>
+                    <option value="SK">SK</option>
+                    <option value="BC">BC</option>
+                    <option value="YT">YT</option>
+                    <option value="NT">NT</option>
+                    <option value="NU">NU</option>
+                </select>
+            </div>
+
+            <div class="form-box">
+                <label for="postal">Postal Code</label>
+                <input id="postal" type="text" name="CustPostal" placeholder="A1A 1A1" 
+                    title="Please enter your Postal Code">
+                <div class="text-box">
+                    <p id="postalDescription" style="display:none;">E.g. T2M 0L4</p>
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your postal code</p>
                 </div>
+            </div>
 
-                <div class="form-box">
-                    <label for="postal">Postal Code</label> 
-                    <input id="postal" type="text" name="CustPostal" placeholder="A1A 1A1" required title="Please enter your Postal Code">
-                    <div class="text-box">
-                        <p id="postalDescription" style="display:none;">E.g. T2M 0L4</p>
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your postal code</p>
-                    </div>
+
+            <div class="form-box">
+                <label for="Country">Country</label>
+                <input id="Country" type="text" name="CustCountry" title="Please enter your Country">
+                <div class="text-box">
+                    <p id="postalDescription" style="display:none;">E.g. T2M 0L4</p>
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Country</p>
                 </div>
+            </div>
 
-                
-                <div class="form-box">
-                    <label for="Country">Country</label> 
-                    <input id="Country" type="text" name="CustCountry" title="Please enter your Country">
-                    <div class="text-box">
-                        <p id="postalDescription" style="display:none;">E.g. T2M 0L4</p>
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Country</p>
-                    </div>
+            <div class="form-box">
+                <label for="phone">Home Phone</label>
+                <input id="homePhone" type="tel" name="CustHomePhone" placeholder="Home Phone" >
+                <div class="text-box">
+                    <p id="phoneDescription" style="display:none;">E.g. (403) 284-7248</p>
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Home phone number
+                    </p>
                 </div>
+            </div>
 
-                <div class="form-box">
-                    <label for="phone">Home Phone</label>
-                    <input id="homePhone" type="tel" name="CustHomePhone" placeholder="Home Phone" required>
-                    <div class="text-box">
-                        <p id="phoneDescription" style="display:none;">E.g. (403) 284-7248</p>
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Home phone number</p>
-                    </div>
+            <div class="form-box">
+                <label for="phone">Business Phone</label>
+                <input id="busPhone" type="tel" name="CustBusPhone" placeholder="Business Phone" >
+                <div class="text-box">
+                    <p id="phoneDescription" style="display:none;">E.g. (403) 284-7248</p>
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Bus phone number
+                    </p>
                 </div>
+            </div>
 
-                <div class="form-box">
-                    <label for="phone">Business Phone</label>
-                    <input id="busPhone" type="tel" name="CustBusPhone" placeholder="Business Phone" required>
-                    <div class="text-box">
-                        <p id="phoneDescription" style="display:none;">E.g. (403) 284-7248</p>
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Bus phone number</p>
-                    </div>
+            <div class="form-box">
+                <label for="e_mail">Email</label>
+                <input id="e_mail" type="email" name="CustEmail" placeholder="Email" >
+                <div class="text-box">
+                    <p id="emailDescription" style="display:none;">E.g. firstname.lastname@sait.ca</p>
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your email</p>
                 </div>
+            </div>
 
-                <div class="form-box">
-                    <label for="e_mail">Email</label>
-                    <input id="e_mail" type="email" name="CustEmail" placeholder="Email" required>
-                    <div class="text-box">
-                        <p id="emailDescription" style="display:none;">E.g. firstname.lastname@sait.ca</p>
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your email</p>
-                    </div>
+            <div class="form-box">
+                <label for="password">Password</label>
+                <input id="password" type="password" name="CustPassword" placeholder="" >
+                <div class="text-box">
+
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your password</p>
                 </div>
+            </div>
 
-                <div class="form-box">
-                    <label for="password">Password</label>
-                    <input id="password" type="password" name="CustPassword" placeholder="" required>
-                    <div class="text-box">
-                        
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your password</p>
-                    </div>
+            <div class="form-box">
+                <label for="rePassword"> Re-enter Password</label>
+                <input id="rePassword" type="password" name="rePassword" placeholder="Re-enter your Password" >
+                <div class="text-box">
+
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your password</p>
                 </div>
+            </div>
 
-                <div class="form-box">
-                    <label for="rePassword"> Re-enter Password</label>
-                    <input id="rePassword" type="password" name="RePassword" placeholder="Re-enter your Password" required>
-                    <div class="text-box">
-                        
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your password</p>
-                    </div>
+
+            <div class="form-box">
+                <label for="agentId">Agent Id</label>
+                <input id="agentId" type="text" name="AgentId" placeholder="agentId" >
+                <div class="text-box">
+                    <p id="agentId" style="display:none;">E.g. 2</p>
+                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Agent Id</p>
                 </div>
+            </div>
 
+            <input id="btn" name="registerCust" type="submit">
+            <input type="reset">
 
-                <div class="form-box">
-                    <label for="agentId">Agent Id</label>
-                    <input id="agentId" type="text" name="AgentId" placeholder="agentId" required>
-                    <div class="text-box">
-                        <p id="agentId" style="display:none;">E.g.  2</p>
-                        <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Agent Id</p>
-                    </div>
-                </div>
+        </form>
+    </main>
 
-                <input id="btn" name="registerCust" type="submit">
-                <input type="reset">
+    <?php
+        print("<script src=\"$_root/scripts/script.js\"></script>");
+        print("<script src=\"$_root/scripts/checkFormInputEmpty.js\"></script>");
+    ?>
+    <script>
+    showInstruction("customerRegisterForm");
+    validatePassword("registerCust");
+    </script>
+</body>
 
-            </form>
-        </main>
-
-        <?php
-            print("<script src=\"$_root/scripts/script.js\"></script>");
-            print("<script src=\"$_root/scripts/checkFormInputEmpty.js\"></script>");
-            print("<script>showInstruction(\"customerRegisterForm\");</script>");
-            print("<script>validatePassword(\"registerCust\");</script>");
-        ?>
-    </body>
 </html>

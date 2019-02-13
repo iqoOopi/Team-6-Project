@@ -54,6 +54,14 @@ class customer {
             return $prepString;
         }
 
+        public function objToArray() {
+            $array = [];
+            foreach ($this as $key => $value) {
+                $array[$key] = $value;
+            }
+            return $array;
+        }
+
         public function getId() {
             return $this->CustomerId;
         }
@@ -115,5 +123,14 @@ class customer {
         public function setCustPassword($x) {
             $this->CustPassword = $x;
         }
+     
+        public function getAgentId() {
+            return $this->AgentId;
+        }
+
+        public function setAgentId($x) {
+            $this->AgentId = $x;
+        }
+
     }
 ?>
