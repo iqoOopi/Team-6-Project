@@ -354,8 +354,7 @@ function validatePassword(submitBtnName) {
 // *************************************************
 function checkFormInputEmpty(submitBtnId) {
     var button = document.getElementById(submitBtnId);
-    button.addEventListener('click', (event) => validate(event));
-
+    button.addEventListener('click', event => validate(event));
     function validate(e) {
         var proceed = confirm("Are you sure to Submit?");
         var error = 0;

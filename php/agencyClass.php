@@ -9,14 +9,14 @@
  -->
 <?php
     class Agency{
-        public $AgencyId;
-        public $AgencyAddress;
-        public $AgencyCity;
-        public $AgencyProv;
-        public $AgencyPostal;
-        public $AgencyCountry;
-        public $AgencyPhone;
-        public $AgencyFax;
+        private $AgencyId;
+        private $AgencyAddress;
+        private $AgencyCity;
+        private $AgencyProv;
+        private $AgencyPostal;
+        private $AgencyCountry;
+        private $AgencyPhone;
+        private $AgencyFax;
 
         public function __construct($id, $add, $city, $prov, $postal, $country, $phone, $fax){
             $this->AgencyId = $id;
