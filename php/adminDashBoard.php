@@ -58,13 +58,14 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Packages</span>
+          <span>Manage DB</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+            <h6 class="collapse-header">Table:</h6>
+            <a class="collapse-item" href="#">Package</a>
+            <a class="collapse-item" href="#">Agent</a>
+            <a class="collapse-item" href="#">Customer</a>
           </div>
         </div>
       </li>
@@ -73,17 +74,15 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
-          <span>Utilities</span>
+          <span>Manage Order</span>
         </a>
-        <!-- <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+            <h6 class="collapse-header">Order Management:</h6>
+            <a class="collapse-item" href="#">Show outstanding Order</a>
+            <a class="collapse-item" href="#">Send Notification</a>
           </div>
-        </div> -->
+        </div>
       </li>
 
       <!-- Divider -->
@@ -91,7 +90,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Custom:
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -102,20 +101,19 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+            <h6 class="collapse-header">HomePage</h6>
+            <a class="collapse-item" href="#"">Spring Festival</a>
+            <a class="collapse-item" href="#">Christmax</a>
             <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
+            <h6 class="collapse-header">Package Page:</h6>
+            <a class="collapse-item" href="#">Modern Style</a>
+            <a class="collapse-item" href="#">Old School Style</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Charts</span></a>
@@ -126,7 +124,7 @@
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
-      </li>
+      </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -406,8 +404,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Orders</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">666</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -525,58 +523,6 @@
                 </div>
               </div>
 
-              <!-- Color System -->
-              <div class="row">
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-primary text-white shadow">
-                    <div class="card-body">
-                      Primary
-                      <div class="text-white-50 small">#4e73df</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-success text-white shadow">
-                    <div class="card-body">
-                      Success
-                      <div class="text-white-50 small">#1cc88a</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-info text-white shadow">
-                    <div class="card-body">
-                      Info
-                      <div class="text-white-50 small">#36b9cc</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-warning text-white shadow">
-                    <div class="card-body">
-                      Warning
-                      <div class="text-white-50 small">#f6c23e</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-danger text-white shadow">
-                    <div class="card-body">
-                      Danger
-                      <div class="text-white-50 small">#e74a3b</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-secondary text-white shadow">
-                    <div class="card-body">
-                      Secondary
-                      <div class="text-white-50 small">#858796</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
 
             <div class="col-lg-6 mb-4">
@@ -584,25 +530,25 @@
               <!-- Illustrations -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Notes:</h6>
                 </div>
                 <div class="card-body">
                   <div class="text-center">
                     <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
                   </div>
-                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
+                  <p>Your daily task notes to post here!</p>
+          
                 </div>
               </div>
 
               <!-- Approach -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Group Schdule:</h6>
                 </div>
                 <div class="card-body">
-                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
+                  <p>March 10: Europen Package, 15 people.</p>
+                  <p>March 12: Asian Package, 12 people.</p>
                 </div>
               </div>
 
