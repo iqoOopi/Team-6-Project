@@ -16,7 +16,7 @@
         if ($validated) {
             $_SESSION["admin"] = $validated;
             $_SESSION["username"] = $usr_array["username"];
-            header("Location: $_root/index.php");
+            header("Location: $_root/php/adminDashBoard.php");
         } else {
             print("<div class=\"login-error\">Invalid username and/or password</div>");
         } 
