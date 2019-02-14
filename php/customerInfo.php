@@ -82,7 +82,7 @@ include_once 'packageClass.php';
                         <h6 class="collapse-header">Table:</h6>
                         <a class="collapse-item" href="#">Package</a>
                         <a class="collapse-item" href="#">Agent</a>
-                        <a class="collapse-item" href="orderPage/customerInfo.php">Customer</a>
+                        <a class="collapse-item" href="#">Customer</a>
                     </div>
                 </div>
             </li>
