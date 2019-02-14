@@ -53,41 +53,11 @@
                 <input id="orderFormBPackageId" name="packageId" type="hidden" <?php echo ("value=$pkgId"); ?>>
             </div>
 
-            <!-- Account Num for getting customer Id, later will be replaced if customer logged in -->
-            <!-- <div class="form-box">
-                <label for="orderFormAccountNum">Account Num:</label>
-                <input id="orderFormAccountNum" type="text" name="customerId" placeholder="accountNum" required>
-                <div class="text-box">
-                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your Account Num</p>
-                </div>
-            </div> -->
-
-
             <!-- BookingDate -->
             <div class="form-box">
                 <input id="orderFormBookingDate" type="hidden" name="BookingDate"
                     <?php $now=time();echo ("value=$now"); ?>>
             </div>
-
-            <!-- BookingNo, should it be added later by agent?
-            <div class="form-box">
-                <label for="orderFormBookingNo">Booking No.:</label>
-                <input id="orderFormBookingNo" type="text" name="BookingNo"
-                    placeholder="should it be added later by agent?" required>
-                <div class="text-box">
-                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your BookingNo</p>
-                </div>
-            </div> -->
-
-            <!-- ItineraryNo, should it be added later by agent?
-            <div class="form-box">
-                <label for="orderFormItineraryNo">ItineraryNo:</label>
-                <input id="orderFormItineraryNo" type="text" name="ItineraryNo"
-                    placeholder="should it be added later by agent?" required>
-                <div class="text-box">
-                    <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your ItineraryNo</p>
-                </div>
-            </div> -->
 
             <!-- TripStart Date, later will be replaced by a date calender selector -->
             <div class="form-box">

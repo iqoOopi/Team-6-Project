@@ -315,7 +315,7 @@ function displayMsg(e) {
     if (description) {
         description.style.display = "block";
     }
-    
+
 }
 
 function blurMsg(e) {
@@ -323,19 +323,53 @@ function blurMsg(e) {
     var description = parentN.getElementsByTagName('p')[0];
     if (description) {
         description.style.display = "none";
-        }
-    
+    }
+
 }
 
 
-function validatePassword(submitBtnName) {
-    var submit=document.getElementsByName(submitBtnName)[0];
-    submit.addEventListener('click',function(e){
-        var password=document.getElementById('password');
-        var rePassword=document.getElementById('rePassword');
-        if(password.value!=rePassword.value){
+function validateCustomerRegister(submitBtnId) {
+    var submit = document.getElementById(submitBtnId);
+    submit.addEventListener('click', function (e) {
+        var password = document.getElementById('password');
+        var rePassword = document.getElementById('rePassword');
+        if (password.value != rePassword.value) {
             e.preventDefault();
             alert("password doesn't match");
+        } else {
+            var proceed = confirm("Are you sure to Submit?");
+            var error = 1;
+            if (!proceed) {
+                e.preventDefault();
+                console.log("prevent runned");
+
+            } else {
+                // Get all error messages
+                var inputBoxes = document.getElementsByClassName("form-box");
+                //inputBoxes is not an array, it is a nodelist
+                [].forEach.call(inputBoxes, function (inputBox) {
+                    errorMsg = inputBox.getElementsByClassName("errorMsgs")[0];
+                    //if there is no errorMsg defined, no need to check input
+                    if (errorMsg) {
+                        if (inputBox.getElementsByTagName("input")[0]) {
+                            //show errorMsg if no value inputted
+                            if (!inputBox.getElementsByTagName("input")[0].value) {
+                                errorMsg.style.display = 'block';
+                                error = 1;
+                            } else {
+                                //if user re-inputted value after seen the errorMsg, clear the errorMsg
+                                errorMsg.style.display = 'none';
+                            }
+                        };
+                    }
+                })
+                if (error) {
+                    e.preventDefault();
+                }
+            }
+
+
+
         }
     });
 
@@ -357,9 +391,11 @@ function checkFormInputEmpty(submitBtnId) {
     button.addEventListener('click', event => validate(event));
     function validate(e) {
         var proceed = confirm("Are you sure to Submit?");
-        var error = 0;
+        var error = 1;
         if (!proceed) {
-            console.log("User cancelled");
+            e.preventDefault();
+            console.log("prevent runned");
+
         } else {
             // Get all error messages
             var inputBoxes = document.getElementsByClassName("form-box");

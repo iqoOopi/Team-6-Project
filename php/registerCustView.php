@@ -9,6 +9,9 @@
 <head>
     <title>Registration</title>
     <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js">
+    </script>
     <?php
         print("<link rel=\"stylesheet\" type=\"text/css\" href=\"$_root/styles/styles.css\">");
     ?>
@@ -124,7 +127,7 @@
 
             <div class="form-box">
                 <label for="e_mail">Email</label>
-                <input id="e_mail" type="email" name="CustEmail" placeholder="Email" >
+                <input id="e_mail" type="text" name="CustEmail" placeholder="Email" >
                 <div class="text-box">
                     <p id="emailDescription" style="display:none;">E.g. firstname.lastname@sait.ca</p>
                     <p class="errorMsgs" style="display:none;"><span>&excl;</span> Please enter your email</p>
@@ -170,8 +173,33 @@
     ?>
     <script>
     showInstruction("customerRegisterForm");
-    validatePassword("registerCust");
-    checkFormInputEmpty("btn");
+    validateCustomerRegister("btn");   
+    
+    // input mask for field
+    $("#postal").inputmask({
+        "mask": "a9a 9a9"
+    });
+    $("#homePhone").inputmask({
+        "mask": "(999) 999-9999"
+    });
+    $("#busPhone").inputmask({
+        "mask": "(999) 999-9999"
+    });
+
+    $("#e_mail").inputmask({
+    mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]",
+    greedy: false,
+    onBeforePaste: function (pastedValue, opts) {
+      pastedValue = pastedValue.toLowerCase();
+      return pastedValue.replace("mailto:", "");
+    },
+    definitions: {
+      '*': {
+        validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~\-]",
+        casing: "lower"
+      }
+    }
+  });
     </script>
 </body>
 
