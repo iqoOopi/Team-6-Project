@@ -512,6 +512,11 @@ form > button {
 }
 
 /*********************** Package.php **************************/
+.pkg-greet {
+    text-align: center;
+    color: white;
+}
+
 .pkg {
     display: flex;
     justify-content: space-around;
@@ -530,6 +535,7 @@ form > button {
 }
 
 .pkg-info {
+    position: relative;
     padding-bottom: 3rem;
     width: 22rem;
 }
@@ -542,14 +548,12 @@ form > button {
 
 .pkg-start-lt {
     color: yellow;
-    
 }
 
 .pkg-info .pkg-end {
     position: relative;
     top: -1.8rem;
     left: 12.5rem;
-    
 }
 
 .pkg-end, .pkg-start-lt, .pkg-start {
@@ -609,7 +613,7 @@ form > button {
 
 .triangle-topright {
     position: absolute;
-    top: 2.25rem;
+    top: 2.2rem;
     left: -0.8rem;
     width: 0;
     height: 0;
@@ -619,7 +623,7 @@ form > button {
 
 .triangle-bottomleft {
     position: absolute;
-    top: 2.05rem;
+    top: 2rem;
     left: 5.5rem;
     width: 0;
     height: 0;
@@ -639,6 +643,7 @@ form > button {
 
 .pkg-info form input[type="submit"] {
     position: absolute;
+    top: 9.2rem;
 }
 
 /* Bob */

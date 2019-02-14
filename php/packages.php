@@ -25,6 +25,7 @@
         date_default_timezone_set('America/Edmonton');
         $curDate = date('U');
         
+        print("<h1 class=\"pkg-greet\">Current Packages</h1>"); 
         print("<div class=\"pkg\">");
         if ($Pkgs) {
             foreach ($Pkgs as $pkg) {
