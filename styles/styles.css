@@ -15,8 +15,16 @@ body {
 }
 
 /******************** Setting Background ********************/
-.register-bg, .contact-bg, .packages-bg, .orderPage-bg{
+.register-bg, .contact-bg, .orderPage-bg{
     background: url("../imgs/register-bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.packages-bg {
+    background: url("../imgs/pkg-bg.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -376,7 +384,7 @@ form > button {
     color: white;
 }
 
-.agent form, .register form, .orderPage form{
+.agent form, .register form, .orderPage form {
     position: absolute;
     width: 60rem;
     background-color: rgba(68, 63, 63, 0.6);
@@ -385,16 +393,6 @@ form > button {
     margin-left: -30rem;
     border-radius: 2rem;
     z-index: 1;
-}
-.agency{
-    color: white;
-    margin-left: 5%;
-    width: 30rem;
-    background-color: rgba(68, 63, 63, 0.8);
-    top: 6.5rem;
-    border-radius: 2rem;
-    z-index: 1;
-    text-indent: 5%;
 }
 
 .form-box {
@@ -517,20 +515,66 @@ form > button {
 .pkg {
     display: flex;
     justify-content: space-around;
+    overflow: hidden;
     flex-wrap: wrap;
     margin-top: 2rem;
 }
+
 .pkg-box {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: rgba(68, 63, 63, 0.7);
     width: 22rem;
     margin-top: 2rem;
     border-radius: 2rem;
 }
 
 .pkg-info {
-    padding-bottom: 1rem;
+    padding-bottom: 3rem;
+    width: 22rem;
+}
+
+.pkg-info .pkg-start {
+    position: relative;
+    top: 0.4rem;
+    left: 2rem;
+}
+
+.pkg-start-lt {
+    color: yellow;
+    
+}
+
+.pkg-info .pkg-end {
+    position: relative;
+    top: -1.8rem;
+    left: 12.5rem;
+    
+}
+
+.pkg-end, .pkg-start-lt, .pkg-start {
+    font-family: 'Dancing Script', cursive;
+}
+
+.pkg-info input[type="submit"] {
+    position: relative;
+    top: 35.5rem;
+    width: 22rem;
+    height: 2.5rem;
+    background-color: blue;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.pkg-info .pkg-name {
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.2rem;
+}
+
+.pkg-info .pkg-desc {
+    text-align: center;
 }
 
 .pkg-img img {
@@ -555,7 +599,7 @@ form > button {
 
 .triangle-topleft {
     position: absolute;
-    top: 1.35rem;
+    top: 1.4rem;
     left: 5.5rem;
     width: 0;
     height: 0;
@@ -565,7 +609,7 @@ form > button {
 
 .triangle-topright {
     position: absolute;
-    top: 2.2rem;
+    top: 2.25rem;
     left: -0.8rem;
     width: 0;
     height: 0;
@@ -575,7 +619,7 @@ form > button {
 
 .triangle-bottomleft {
     position: absolute;
-    top: 2rem;
+    top: 2.05rem;
     left: 5.5rem;
     width: 0;
     height: 0;
@@ -596,3 +640,69 @@ form > button {
 .pkg-info form input[type="submit"] {
     position: absolute;
 }
+
+/* Bob */
+@-webkit-keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@-webkit-keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+.hvr-bob {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
+  -webkit-animation-name: hvr-bob-float, hvr-bob;
+  animation-name: hvr-bob-float, hvr-bob;
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+}
+
