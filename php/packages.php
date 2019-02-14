@@ -31,6 +31,7 @@
             foreach ($Pkgs as $pkg) {
                 $endDate = strtotime($pkg->getEndDate());
                 $startDate = strtotime($pkg->getStartDate());
+                $price = "$ " . $pkg->getPrice();
                 if ($endDate >= $curDate) {
                     if ($startDate < $curDate) {
                         $startDate = explode(" ", $pkg->getStartDate());
@@ -38,6 +39,7 @@
                         $startDate[0] = "Start: " . $startDate[0];
                         $endDate[0] = "End: " . $endDate[0];
                         print ("<div class=\"pkg-box\">");
+
                             $str = showPkgImg($pkg);
                             if ($str != false) {
                                 print($str);
@@ -47,9 +49,10 @@
                             print("<p class=\"pkg-desc\">" . $pkg->getDesc() . "</p>");
                             print("<p class=\"pkg-start pkg-start-lt\">" . $startDate[0] . "</p>");
                             print("<p class=\"pkg-end\">" . $endDate[0] . "</p>");
-                            print("<div class=\"price-tag\"><span class=\"triangle-topright\"></span><span class=\"triangle-bottomright\"></span><span class=\"triangle-topleft\"></span><span class=\"triangle-bottomleft\"></span><p class=\"pkg-price\">" . $pkg->getPrice(). "</p></div>");
+                            print("<div class=\"price-tag\"><span class=\"triangle-topright\"></span><span class=\"triangle-bottomright\"></span><span class=\"triangle-topleft\"></span><span class=\"triangle-bottomleft\"></span><p class=\"pkg-price\">" . $price. "</p></div>");
                             print("<form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">");
                                 print("<input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">");
+                                print("<input type=\"hidden\" name=\"pkgPrice\" value=\"" .$pkg->getPrice() . "\">");
                                 print("<input type=\"submit\" name=\"submit\" value=\"Order Now\" class=\"hvr-bob\">");
                             print("</form>");
                             print("</div>");
@@ -70,9 +73,10 @@
                             print("<p class=\"pkg-desc\">" . $pkg->getDesc() . "</p>");
                             print("<p class=\"pkg-start\">" . $startDate[0] . "</p>");
                             print("<p class=\"pkg-end\">" . $endDate[0] . "</p>");
-                            print("<div class=\"price-tag\"><span class=\"triangle-topright\"></span><span class=\"triangle-bottomright\"></span><span class=\"triangle-topleft\"></span><span class=\"triangle-bottomleft\"></span><p class=\"pkg-price\">" . $pkg->getPrice(). "</p></div>");
+                            print("<div class=\"price-tag\"><span class=\"triangle-topright\"></span><span class=\"triangle-bottomright\"></span><span class=\"triangle-topleft\"></span><span class=\"triangle-bottomleft\"></span><p class=\"pkg-price\">" . $price. "</p></div>");
                             print("<form action=\"$_root/php/orderPage/orderPageView.php\" method=\"POST\">");
                                 print("<input type=\"hidden\" name=\"pkgId\" value=\"" .$pkg->getId() . "\">");
+                                print("<input type=\"hidden\" name=\"pkgPrice\" value=\"" .$pkg->getPrice() . "\">");
                                 print("<input type=\"submit\" name=\"submit\" value=\"Order Now\" class=\"hvr-bob\">");
                             print("</form>");
                             print("</div>");

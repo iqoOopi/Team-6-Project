@@ -95,7 +95,6 @@
 
         public function getPrice() {
             $price = substr($this->PkgBasePrice, 0, -2);
-            $price = " $ " . $price; 
             return $price;
         }
 
