@@ -78,7 +78,6 @@ function GetPackages()
 
 }
 
-
 // *************************************************
 // *
 // *Author:Haotian Zhang
@@ -96,29 +95,31 @@ function getInstants($dbTableName, $className, $key = null)
 
     //if no key inputted, get all records
     if (!$key) {
-        $sql  = "SELECT * FROM $dbTableName";
-        //if $key inputted, got particular record
+        $sql = "SELECT * FROM $dbTableName";
+
     } else {
+        //if $key inputted, get particular record
         //get the primary key column name
         $sql  = "SHOW KEYS FROM $dbTableName WHERE Key_name = 'PRIMARY'";
         $stmt = $link->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result               = $stmt->fetch(PDO::FETCH_ASSOC);
         $primaryKeyColumnName = $result['Column_name'];
         //find particular record by key
-        $sql                  = "SELECT * FROM $dbTableName WHERE $primaryKeyColumnName=$key";
+        $sql = "SELECT * FROM $dbTableName WHERE $primaryKeyColumnName=$key";
     }
     $stmt = $link->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        //error handling
-        if (!$result) {
-            echo "ERROR: the sql failed to execute. <br>";
-            echo "SQL: $sql <br>";
-            echo "Error code: " . $stmt->errorCode() . "<br>";
-            echo "Error msg: " . $stmt->errorInfo() . "<br>";
-            return false;
-        }
+    $link->Close();
+    //error handling
+    if (!$result) {
+        echo "ERROR: the sql failed to execute. <br>";
+        echo "SQL: $sql <br>";
+        echo "Error code: " . $stmt->errorCode() . "<br>";
+        echo "Error msg: " . $stmt->errorInfo() . "<br>";
+        return false;
+    }
     $instants = [];
     foreach ($result as $instant) {
         $instant    = new $className($instant);
@@ -130,8 +131,6 @@ function getInstants($dbTableName, $className, $key = null)
     } else {
         return $instants[0];
     }
-    $link->Close();
-
 }
 
 // Clean user input
@@ -182,24 +181,25 @@ function validateUser($user_input)
     return $user_validated;
 }
 
-function showPkgImg($pkgObj) {
+function showPkgImg($pkgObj)
+{
     switch ($pkgObj->getId()) {
-        case 1: 
+        case 1:
             $str = "<div class=\"pkg-img\">";
             $str = $str . "<img src=\"\Team-6-Project/imgs/pkgId1.jpg\" alt=\"pkgId1\">";
             $str = $str . "</div>";
             return $str;
-        case 2: 
+        case 2:
             $str = "<div class=\"pkg-img\">";
             $str = $str . "<img src=\"\Team-6-Project/imgs/pkgId2.jpg\" alt=\"pkgId2\">";
             $str = $str . "</div>";
             return $str;
-        case 3: 
+        case 3:
             $str = "<div class=\"pkg-img\">";
             $str = $str . "<img src=\"\Team-6-Project/imgs/pkgId3.jpg\" alt=\"pkgId3\">";
             $str = $str . "</div>";
             return $str;
-        case 4: 
+        case 4:
             $str = "<div class=\"pkg-img\">";
             $str = $str . "<img src=\"\Team-6-Project/imgs/pkgId4.jpg\" alt=\"pkgId4\">";
             $str = $str . "</div>";
@@ -208,4 +208,3 @@ function showPkgImg($pkgObj) {
             return false;
     }
 }
-?>
