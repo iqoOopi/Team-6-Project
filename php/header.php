@@ -4,7 +4,7 @@
 <header class="site-header">
     <div class="wrapper">
         <?php
-            print("<a href=\"$_root/index.php\">Travel<span class=\"logo\">Experts</span></a>");
+            print("<a href=\"$_root/index.php\"><span class=\"img-logo\"><img src=\"$_root/imgs/logo.png\" alt=\"logo-img\"></span><span>Travel<span class=\"logo\">Experts</span></a>");
         ?>
 
         <nav class="site-header-nav">
@@ -24,11 +24,13 @@
                             print("<a href=\"$_root/php/registerCustView.php\">Register</a>");
                         ?>
                     </li>
+                    <!--
                     <li>
                         <?php
                             print("<a href=\"$_root/php/table.php\">Links table</a>");
                         ?>
                     </li>
+                    -->
                     <li>
                         <?php
                             print("<a href=\"$_root/php/packages.php\">Packages</a>");

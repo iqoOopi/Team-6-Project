@@ -48,6 +48,17 @@ body {
     background-repeat: no-repeat;
 }
 
+.img-logo {
+    display: inline-block;
+    width: 2.5rem; 
+    height: 2.5rem;
+    margin-right: 0.5rem;
+}
+
+.img-logo img {
+    width: 100%;
+}
+
 .wrapper {
     display: flex;
     align-items: center;
@@ -407,13 +418,17 @@ form > button {
 }
 
 .form-box input {
-    flex-basis: 40rem;
+    flex-basis: 35rem;
     margin: 0.6rem 0;
     font-size: 1.1rem;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .form-box label {
     flex-basis: 10rem;
+    flex-shrink: 0;
+    flex-grow: 0;
     margin: 0.6rem 0;
     margin-left: 0.6rem;
     font-size: 1.1rem;
@@ -435,13 +450,14 @@ form > button {
 }
 
 .text-box p {
-    flex-basis: auto;
+    flex-basis: 1.5rem;
     margin-left: 3rem;
     border: 2px solid black;
     border-radius: 10px;
     font-size: 0.9rem;
     background-color: rgba(77, 255, 77, 0.4);
     flex-grow: 0;
+    flex-shrink: 1;
 }
 
 .text-box .errorMsgs {
