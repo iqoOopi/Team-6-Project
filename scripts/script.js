@@ -255,6 +255,7 @@ if (body) {
 /************************************** show input instruction ****************************/
 //Henry, show input instruction
 function showInstruction(formId) {
+
     var regBody = document.getElementById(formId);
     if (regBody) {
         // Get all input text fields
@@ -310,8 +311,7 @@ if (loginBody) {
 
 function displayMsg(e) {
     var parentN = e.target.parentNode;
-    var description = parentN.getElementsByTagName('p')[0];
-    // console.log(parentN);
+    var description = parentN.getElementsByClassName('descMsgs')[0];
     if (description) {
         description.style.display = "block";
     }
@@ -320,7 +320,7 @@ function displayMsg(e) {
 
 function blurMsg(e) {
     var parentN = e.target.parentNode;
-    var description = parentN.getElementsByTagName('p')[0];
+    var description = parentN.getElementsByClassName('descMsgs')[0];
     if (description) {
         description.style.display = "none";
     }
