@@ -338,7 +338,7 @@ function validateCustomerRegister(submitBtnId) {
             alert("password doesn't match");
         } else {
             var proceed = confirm("Are you sure to Submit?");
-            var error = 1;
+            var error = 0;
             if (!proceed) {
                 e.preventDefault();
                 console.log("prevent runned");
@@ -391,7 +391,7 @@ function checkFormInputEmpty(submitBtnId) {
     button.addEventListener('click', event => validate(event));
     function validate(e) {
         var proceed = confirm("Are you sure to Submit?");
-        var error = 1;
+        var error = 0;
         if (!proceed) {
             e.preventDefault();
             console.log("prevent runned");

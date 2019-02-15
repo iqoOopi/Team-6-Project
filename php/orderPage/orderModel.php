@@ -3,7 +3,7 @@ include '../top.php';
 include_once '../functions.php';
 include_once '../packageClass.php';
 include_once '../bookingClass.php';
-if (!isset($_POST['submit'])) {
+if (!isset($_POST['CheckOut'])) {
 //header back to package list in case of illegal view
 header("Location: http://localhost{$_root}/php/packages.php");
 }
