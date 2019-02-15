@@ -78,39 +78,39 @@ function GetPackages()
 
 }
 
+
+// *************************************************
+// *
+// *Author:Haotian Zhang
 //generic create instants of Classes from DB.
 //For example, creating customer class instants from "customers" table in DB by call $customers=getInstants('customers','customer');
-//Also you can get particular instant out of one table by assign "key" value, which is Id.
-//if no key present the return will be an array, otherwise will return back a class.
+//Also you can get particular instant out of one table by assign "key" value, which is Id.  $customer=getInstants('customers','customer','101');
+//if no key is present the return will be an array, otherwise will return back a class.
+// *
+// *************************************************
 function getInstants($dbTableName, $className, $key = null)
 {
     //use mysqli connect style instead of PDO
 
     $link = connectDb();
 
+    //if no key inputted, get all records
     if (!$key) {
         $sql  = "SELECT * FROM $dbTableName";
-        $stmt = $link->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        //error handling
-        if (!$result) {
-            echo "ERROR: the sql failed to execute. <br>";
-            echo "SQL: $sql <br>";
-            echo "Error code: " . $stmt->errorCode() . "<br>";
-            echo "Error msg: " . $stmt->errorInfo() . "<br>";
-            return false;
-        }
-
-        //if inputted $key
+        //if $key inputted, got particular record
     } else {
         //get the primary key column name
         $sql  = "SHOW KEYS FROM $dbTableName WHERE Key_name = 'PRIMARY'";
         $stmt = $link->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
+        $primaryKeyColumnName = $result['Column_name'];
+        //find particular record by key
+        $sql                  = "SELECT * FROM $dbTableName WHERE $primaryKeyColumnName=$key";
+    }
+    $stmt = $link->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //error handling
         if (!$result) {
             echo "ERROR: the sql failed to execute. <br>";
@@ -119,21 +119,6 @@ function getInstants($dbTableName, $className, $key = null)
             echo "Error msg: " . $stmt->errorInfo() . "<br>";
             return false;
         }
-        $primaryKeyColumnName = $result['Column_name'];
-        $sql                  = "SELECT * FROM $dbTableName WHERE $primaryKeyColumnName=$key";
-    }
-    $stmt = $link->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    if (!$result) {
-        echo "ERROR: the sql failed to execute. <br>";
-        echo "SQL: $sql <br>";
-        echo "Error code: " . $link->connect_errno . "<br>";
-        echo "Error msg: " . $link->connect_error . "<br>";
-        return false;
-    }
-
     $instants = [];
     foreach ($result as $instant) {
         $instant    = new $className($instant);
