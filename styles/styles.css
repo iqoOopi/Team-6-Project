@@ -432,6 +432,7 @@ form > button {
 .form-box {
     width: 100%;
     display: flex;
+    align-items: flex-start;
 }
 
 .label-head {
@@ -467,24 +468,30 @@ form > button {
 }
 
 .text-box {
-	/* display: flex; */
+	display: flex; 
 	flex-direction: column;
         margin-right: 1rem;
+        margin-top: -0.3rem;
 }
 
 .text-box p {
     flex-basis: 1.5rem;
-    margin-left: 3rem;
-    border: 2px solid black;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    background-color: rgba(77, 255, 77, 0.4);
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    color: #00529B;
+    background-color: #BDE5F8;
     flex-grow: 0;
     flex-shrink: 1;
 }
 
 .text-box .errorMsgs {
-    background-color: rgba(255, 255, 0, 0.8); 
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+
+.text-box span {
+    display: inline-block;
+    margin: 0.2rem 0.2rem;
 }
 
 /**************************** Login.html ********************************/
