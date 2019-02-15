@@ -169,7 +169,7 @@
     ?>
     <script>
     showInstruction("customerRegisterForm");
-    validateCustomerRegister("btn");   
+    checkInputEmptyAndPasswordMatch("btn");
     
     // input mask for field
     $("#postal").inputmask({

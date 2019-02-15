@@ -263,7 +263,7 @@ function showInstruction(formId) {
             // console.log(element);
             element.addEventListener('focus', displayMsg);
             element.addEventListener('blur', blurMsg);
-            if(element.type === 'submit' || element.type === 'reset') {
+            if (element.type === 'submit' || element.type === 'reset') {
                 element.removeEventListener('focus', displayMsg);
                 element.removeEventListener('blur', blurMsg);
             }
@@ -333,55 +333,6 @@ function blurMsg(e) {
 }
 
 
-function validateCustomerRegister(submitBtnId) {
-    var submit = document.getElementById(submitBtnId);
-    submit.addEventListener('click', function (e) {
-        var password = document.getElementById('password');
-        var rePassword = document.getElementById('rePassword');
-        if (password.value != rePassword.value) {
-            e.preventDefault();
-            alert("password doesn't match");
-        } else {
-            var proceed = confirm("Are you sure to Submit?");
-            var error = 0;
-            if (!proceed) {
-                e.preventDefault();
-                console.log("prevent runned");
-
-            } else {
-                // Get all error messages
-                var inputBoxes = document.getElementsByClassName("form-box");
-                //inputBoxes is not an array, it is a nodelist
-                [].forEach.call(inputBoxes, function (inputBox) {
-                    errorMsg = inputBox.getElementsByClassName("errorMsgs")[0];
-                    //if there is no errorMsg defined, no need to check input
-                    if (errorMsg) {
-                        if (inputBox.getElementsByTagName("input")[0]) {
-                            //show errorMsg if no value inputted
-                            if (!inputBox.getElementsByTagName("input")[0].value) {
-                                errorMsg.style.display = 'block';
-                                error = 1;
-                            } else {
-                                //if user re-inputted value after seen the errorMsg, clear the errorMsg
-                                errorMsg.style.display = 'none';
-                            }
-                        };
-                    }
-                })
-                if (error) {
-                    e.preventDefault();
-                }
-            }
-
-
-
-        }
-    });
-
-}
-
-
-
 // *************************************************
 // *
 // *Author:Haotian Zhang
@@ -391,10 +342,18 @@ function validateCustomerRegister(submitBtnId) {
 // *            the name of the form submit btn should be "btn"
 // *
 // *************************************************
-function checkFormInputEmpty(submitBtnId) {
-    var button = document.getElementById(submitBtnId);
-    button.addEventListener('click', event => validate(event));
-    function validate(e) {
+function checkInputEmptyAndPasswordMatch(submitBtnId) {
+    var submit = document.getElementById(submitBtnId);
+    submit.addEventListener('click', function (e) {
+        if (document.getElementById('password')) {
+            var password = document.getElementById('password');
+            var rePassword = document.getElementById('rePassword');
+            if (password.value != rePassword.value) {
+                e.preventDefault();
+                alert("password doesn't match");
+                return;
+            }
+        }
         var proceed = confirm("Are you sure to Submit?");
         var error = 0;
         if (!proceed) {
@@ -425,6 +384,57 @@ function checkFormInputEmpty(submitBtnId) {
                 e.preventDefault();
             }
         }
-    }
+
+    });
+
 }
+
+
+
+// *************************************************
+// *
+// *Author:Haotian Zhang
+// *Date: Feb 08 2019
+// *Purpose: generic function to check the inputs of one form. Show errorMsg is no input.
+// *How to use: inside the form, there should be a div named "form-box" wrap each input and its "errorMsgs" inside it. 
+// *            the name of the form submit btn should be "btn"
+// *
+// *************************************************
+// function checkFormInputEmpty(submitBtnId) {
+//     var button = document.getElementById(submitBtnId);
+//     button.addEventListener('click', validate);
+//     // button.addEventListener('click', event => validate(event));
+//     function validate(e) {
+//         var proceed = confirm("Are you sure to Submit?");
+//         var error = 0;
+//         if (!proceed) {
+//             e.preventDefault();
+//             console.log("prevent runned");
+
+//         } else {
+//             // Get all error messages
+//             var inputBoxes = document.getElementsByClassName("form-box");
+//             //inputBoxes is not an array, it is a nodelist
+//             [].forEach.call(inputBoxes, function (inputBox) {
+//                 errorMsg = inputBox.getElementsByClassName("errorMsgs")[0];
+//                 //if there is no errorMsg defined, no need to check input
+//                 if (errorMsg) {
+//                     if (inputBox.getElementsByTagName("input")[0]) {
+//                         //show errorMsg if no value inputted
+//                         if (!inputBox.getElementsByTagName("input")[0].value) {
+//                             errorMsg.style.display = 'block';
+//                             error = 1;
+//                         } else {
+//                             //if user re-inputted value after seen the errorMsg, clear the errorMsg
+//                             errorMsg.style.display = 'none';
+//                         }
+//                     };
+//                 }
+//             })
+//             if (error) {
+//                 e.preventDefault();
+//             }
+//         }
+//     }
+// }
 

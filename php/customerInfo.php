@@ -81,7 +81,7 @@ include_once 'packageClass.php';
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Table:</h6>
                         <a class="collapse-item" href="#">Package</a>
-                        <a class="collapse-item" href="#">Agent</a>
+                        <a class="collapse-item" href="agent.php">Agent</a>
                         <a class="collapse-item" href="#">Customer</a>
                     </div>
                 </div>

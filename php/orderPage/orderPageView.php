@@ -131,7 +131,7 @@
         print("<script src=\"$_root/scripts/script.js\"></script>");
     ?>
     <script>
-    checkFormInputEmpty("btn");
+    checkInputEmptyAndPasswordMatch("btn");
     function myFunction() {
         var pkgPrice = <?php print($pkg->getPrice());?>;
         var numTravellers = document.getElementById("orderFormTravelerCount").value;
