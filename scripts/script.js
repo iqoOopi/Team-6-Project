@@ -258,9 +258,9 @@ function showInstruction(formId) {
 
     var regBody = document.getElementById(formId);
     if (regBody) {
-        // Get all input text fields
+        // Get all fields 
         [].forEach.call(regBody, function (element) {
-            console.log(element);
+            // console.log(element);
             element.addEventListener('focus', displayMsg);
             element.addEventListener('blur', blurMsg);
             if(element.type === 'submit' || element.type === 'reset') {
