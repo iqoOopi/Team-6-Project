@@ -1,4 +1,10 @@
 <?php
+    /************************************
+    *   Author: Dao Zheng
+    *   Course: PROJ-216-OSD
+    *   Date: 2019/Feb/15
+    * *************************************/
+
     class Package {
         protected $PackageId;
         protected $PkgName;

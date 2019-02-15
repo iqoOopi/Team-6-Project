@@ -1,4 +1,10 @@
 <?php
+    /************************************
+    *   Author: Dao Zheng
+    *   Course: PROJ-216-OSD
+    *   Date: 2019/Feb/15
+    * *************************************/
+
     include_once ("packageClass.php");
     include_once ("functions.php");
     include_once ("top.php");
