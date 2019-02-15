@@ -88,14 +88,12 @@
 
             <div class="form-box">
                 <label for="postal">Postal Code</label>
-                <input id="postal" type="text" name="CustPostal" placeholder="A1A 1A1" 
-                    title="Please enter your Postal Code">
+                <input id="postal" type="text" name="CustPostal" placeholder="A1A 1A1" >
                 <div class="text-box">
                     <p class="descMsgs" style="display:none;"><span><i class="fas fa-info-circle"></i></span> T2M 0L4</p>
                     <p class="errorMsgs" style="display:none;"><span><i class="fas fa-exclamation-circle"></i></span> Please enter your postal code</p>
                 </div>
             </div>
-
 
             <div class="form-box">
                 <label for="Country">Country</label>

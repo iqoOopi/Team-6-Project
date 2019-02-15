@@ -260,8 +260,13 @@ function showInstruction(formId) {
     if (regBody) {
         // Get all input text fields
         [].forEach.call(regBody, function (element) {
+            console.log(element);
             element.addEventListener('focus', displayMsg);
             element.addEventListener('blur', blurMsg);
+            if(element.type === 'submit' || element.type === 'reset') {
+                element.removeEventListener('focus', displayMsg);
+                element.removeEventListener('blur', blurMsg);
+            }
         });
     }
 }
