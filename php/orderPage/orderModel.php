@@ -1,3 +1,13 @@
+<!--
+    *************************************************
+    *
+    *Author:Haotian Zhang
+    *Date: Feb 08 2019
+    *Purpose: commit booking info to DB
+    *
+    *************************************************
+ -->
+
 <?php
 include '../top.php';
 include_once '../functions.php';
@@ -36,26 +46,4 @@ if ($result) {
     window.location.href = '../../index.php'
     </script>";
 }
-// header("Location: http://localhost{$_root}/php/packages.php");
-
-// //bookingdetails Table Structure
-// $pkg=getInstants('packages','package',$packageId);
-// //BookingDetailId auto increamental
-// //ItineraryNo to be filled later on
-// $TripStart=$pkg->getStartDate();
-// $TripEnd=$pkg->getEndDate();
-// //Description to be added later on
-// //Destination to be added later on
-// $BasePrice=$pkg->getPrice();
-// $AgencyCommission=$pkg->getCommission();
-// //$BookingId should get from bookings table
-// //$RegionId be added later on or determined by user location?
-// $ClassId=$_POST['ClassId'];
-// //$FeeId be added later on?
-// // $ProductSupplierId be added later on?
-
-
-
-
-
 ?>

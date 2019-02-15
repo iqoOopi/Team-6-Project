@@ -3,7 +3,6 @@
     *
     *Author:Haotian Zhang
     *Date: Feb 08 2019
-    *Purpose: the view of order form
     *
     *************************************************
  -->

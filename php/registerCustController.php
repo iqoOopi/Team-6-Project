@@ -1,4 +1,12 @@
-<!-- Henry validate Customer register -->
+<!--
+    *************************************************
+    *
+    *Author:Haotian Zhang
+    *Date: Feb 08 2019
+    *Purpose: validate Customer register
+    *
+    *************************************************
+ -->
 <?php
     function registerCust()
     {
