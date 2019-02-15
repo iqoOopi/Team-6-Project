@@ -88,6 +88,7 @@ function getInstants($dbTableName, $className, $key = null)
 
     $link = connectDb();
 
+    //if no key inputted, get all records
     if (!$key) {
         $sql  = "SELECT * FROM $dbTableName";
         $stmt = $link->prepare($sql);
@@ -103,7 +104,7 @@ function getInstants($dbTableName, $className, $key = null)
             return false;
         }
 
-        //if inputted $key
+        //if $key inputted, got particular record
     } else {
         //get the primary key column name
         $sql  = "SHOW KEYS FROM $dbTableName WHERE Key_name = 'PRIMARY'";
@@ -120,6 +121,8 @@ function getInstants($dbTableName, $className, $key = null)
             return false;
         }
         $primaryKeyColumnName = $result['Column_name'];
+
+        //find particular record by key
         $sql                  = "SELECT * FROM $dbTableName WHERE $primaryKeyColumnName=$key";
     }
     $stmt = $link->prepare($sql);
