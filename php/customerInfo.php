@@ -379,11 +379,11 @@ include_once 'packageClass.php';
 
                             echo ($particularCustomer);
 
-                            $packages = getInstants('packages', 'package');
-                            echo ("<br>$packages[1]<br>");
+                            // $packages = getInstants('packages', 'package');
+                            // echo ("<br>$packages[1]<br>");
 
-                            $packages = getInstants('packages', 'package', 1);
-                            echo ("<br>$packages<br>");
+                            // $packages = getInstants('packages', 'package', 1);
+                            // echo ("<br>$packages<br>");
                         ?>
                     </div>
 
