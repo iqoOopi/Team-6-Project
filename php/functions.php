@@ -111,7 +111,8 @@ function getInstants($dbTableName, $className, $key = null)
     $stmt = $link->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $link->Close();
+    closeConnection($link);
+    //$link->close();
     //error handling
     if (!$result) {
         echo "ERROR: the sql failed to execute. <br>";
