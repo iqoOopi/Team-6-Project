@@ -47,7 +47,7 @@
 
             if ($result) {
                 echo "<script>alert('Success!');
-    window.location.href = '../index.php'
+    window.location.href = 'customerLogin.php'
     </script>";
             } else {
                 echo "<script>alert('Failed!');
