@@ -1,3 +1,13 @@
+<!--
+    *************************************************
+    *
+    *Author:Haotian Zhang
+    *Date: Feb 08 2019
+    *Purpose: admin dashboard for backend. Modified upon bootstrap template.
+    *
+    *************************************************
+ -->
+
 <?php include_once 'top.php'?>
 <!DOCTYPE html>
 <html lang="en">

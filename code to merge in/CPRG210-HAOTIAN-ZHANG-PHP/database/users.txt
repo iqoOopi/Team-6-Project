@@ -1,2 +1,0 @@
-admin admin
-henry 1234

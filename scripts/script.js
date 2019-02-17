@@ -253,7 +253,8 @@ if (body) {
 
 
 /************************************** show input instruction ****************************/
-//Henry, show input instruction
+//show input instruction
+// *Author:Haotian Zhang
 function showInstruction(formId) {
 
     var regBody = document.getElementById(formId);
@@ -270,36 +271,6 @@ function showInstruction(formId) {
         });
     }
 }
-/****************************** Agent.html ********************************/
-
-// var agtBody = document.getElementsByClassName('agent')[0];
-
-// if (agtBody) {
-
-//     // Get all input text fields
-//     var fNameField = document.agentForm.AgtFirstName;
-//     var lNameField = document.agentForm.AgtLastName;
-//     var posField = document.agentForm.AgtPosition;
-//     var telField = document.agentForm.AgtBusPhone;
-//     var emailField = document.agentForm.AgtEmail;
-
-//     var fieldArray = [fNameField, lNameField, posField, telField, emailField];
-
-//     // Apply focus and blur events to field descriptions
-//     //could use one function
-//     telField.addEventListener('focus', displayMsg);
-//     telField.addEventListener('blur', blurMsg);
-
-//     emailField.addEventListener('focus', displayMsg);
-//     emailField.addEventListener('blur', blurMsg);
-
-//     var notification = document.getElementsByClassName('insert_notification')[0];
-//     var notification_div = document.getElementsByClassName('notification')[0];
-
-//     if (notification) {
-//         notification_div.appendChild(notification);
-//     }
-// }
 
 /******************** login.php *************************/
 var loginBody = document.getElementsByClassName('login')[0];
@@ -388,53 +359,4 @@ function checkInputEmptyAndPasswordMatch(submitBtnId) {
     });
 
 }
-
-
-
-// *************************************************
-// *
-// *Author:Haotian Zhang
-// *Date: Feb 08 2019
-// *Purpose: generic function to check the inputs of one form. Show errorMsg is no input.
-// *How to use: inside the form, there should be a div named "form-box" wrap each input and its "errorMsgs" inside it. 
-// *            the name of the form submit btn should be "btn"
-// *
-// *************************************************
-// function checkFormInputEmpty(submitBtnId) {
-//     var button = document.getElementById(submitBtnId);
-//     button.addEventListener('click', validate);
-//     // button.addEventListener('click', event => validate(event));
-//     function validate(e) {
-//         var proceed = confirm("Are you sure to Submit?");
-//         var error = 0;
-//         if (!proceed) {
-//             e.preventDefault();
-//             console.log("prevent runned");
-
-//         } else {
-//             // Get all error messages
-//             var inputBoxes = document.getElementsByClassName("form-box");
-//             //inputBoxes is not an array, it is a nodelist
-//             [].forEach.call(inputBoxes, function (inputBox) {
-//                 errorMsg = inputBox.getElementsByClassName("errorMsgs")[0];
-//                 //if there is no errorMsg defined, no need to check input
-//                 if (errorMsg) {
-//                     if (inputBox.getElementsByTagName("input")[0]) {
-//                         //show errorMsg if no value inputted
-//                         if (!inputBox.getElementsByTagName("input")[0].value) {
-//                             errorMsg.style.display = 'block';
-//                             error = 1;
-//                         } else {
-//                             //if user re-inputted value after seen the errorMsg, clear the errorMsg
-//                             errorMsg.style.display = 'none';
-//                         }
-//                     };
-//                 }
-//             })
-//             if (error) {
-//                 e.preventDefault();
-//             }
-//         }
-//     }
-// }
 
